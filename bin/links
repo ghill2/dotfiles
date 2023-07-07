@@ -1,0 +1,84 @@
+#!/bin/bash
+gparent="$(dirname "$(realpath "$(dirname "${BASH_SOURCE:-$0}")")")"
+echo $gparent
+
+
+
+make_symlink() {
+    mkdir -p $(dirname $2) && ln -sf "$1" "$2" && echo "$1 > $2"
+}
+
+make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
+make_symlink "$gparent/.Brewfile" "$HOME/.Brewfile"
+make_symlink "$gparent/.bash_profile" "$HOME/.bash_profile"
+make_symlink "$gparent/.zshrc" "$HOME/.zshrc"
+make_symlink "$gparent/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+make_symlink "$gparent/.zshenv" "$HOME/.zshenv"
+make_symlink "$gparent/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+make_symlink "$gparent/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+make_symlink "$gparent/init.lua" "$HOME/.hammerspoon/init.lua"
+make_symlink "$gparent/.direnvrc" "$gparent/.direnvrc"
+make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
+make_symlink "$gparent/.zprofile" "$HOME/.zprofile"
+make_symlink "$gparent/.skhdrc" "$HOME/.skhdrc"
+make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
+make_symlink "$gparent/karabiner" "$HOME/.config/karabiner" # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
+
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+
+# elif [[ "$OSTYPE" == "msys" ]]; then
+    :
+    # Doing links in powershell for now because git bash needs Administrator priviledges.
+    # I can self elevate with powershell
+    # make_symlink "$gparent/profile.ps1" "/c/Users/g1/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
+# fi
+
+
+# if [[ $(id -u) -eq 0 ]]; then
+#     if [[ "$OSTYPE" == "msys" ]]; then
+#         echo "Git Bash is not running as an administrator."
+#     fi
+# fi
+
+# sudo -s
+
+# might need this below? You have to restart karabiner_console_user_server process by the following command after you made a symlink in order to tell Karabiner-Elements that the parent directory is changed.
+# launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server
+
+# parent=$(dirname $(readlink -f ${BASH_SOURCE:-$0}))
+# gparent="$(cd "$(dirname "$parent")"; pwd)"
+
+# using an absolute path because can't get script location
+# gparent="/Users/g1/BU/projects/dotfiles"
+
+# make_hardlink() {
+#     mkdir -p $(dirname $2) && ln -f "$1" "$2" && echo "$1 > $2"
+# }
+
+# src="$gparent/pycharm/options"
+# dest="$HOME/Library/Application Support/JetBrains/PyCharm2022.3/options"
+# rm -rf "$dest"
+# ln -sf "$src" "$dest" && echo "$src > $dest"
+
+# src="$gparent/pycharm/keymaps"
+# dest="$HOME/Library/Application Support/JetBrains/PyCharm2022.3/keymaps"
+# rm -rf "$dest" && ln -sf "$src" "$dest" && echo "$src > $dest"
+
+# src="$gparent/webstorm/options"
+# dest="$HOME/Library/Application Support/JetBrains/WebStorm2022.3/options"
+# rm -rf "$dest" && ln -sf "$src" "$dest" && echo "$src > $dest"
+
+# dest="$HOME/Library/Application Support/JetBrains/WebStorm2022.3/keymaps"
+# rm -rf "$dest"
+# ln -sf "$gparent/webstorm/keymaps" "$dest"
+
+# /org.m0k.transmission.plist
+# dest="/Users/$(whoami)/.amethyst.yml"
+# sudo ln -sf "$gparent/.amethyst.yml" "$dest"
+
+# dest="/Users/g1/.yabairc"
+# sudo ln -sf "$gparent/.yabairc" "$dest"
+
+
+
+

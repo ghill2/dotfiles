@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+**/actionSummary.xml
+**/features.usage.statistics.xml
+**/other.xml
+**/recentProjects.xml
+**/trusted-paths.xml
+**/updates.xml
+**/window.state.xmlTt
+/build
+__pycache__

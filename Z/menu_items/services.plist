@@ -1,0 +1,10 @@
+{
+    "(null) - template - runWorkflowAsService" =     {
+        "presentation_modes" =         {
+            "ContextMenu" = 1;
+            "FinderPreview" = 1;
+            "ServicesMenu" = 1;
+            "TouchBar" = 0;
+        };
+    };
+}

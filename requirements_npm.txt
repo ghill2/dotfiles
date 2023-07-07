@@ -1,0 +1,4 @@
+nodemon # live-server for express
+yo
+yo generator-code  # https://code.visualstudio.com/api/get-started/your-first-extension
+vcse # publish vscode extensions

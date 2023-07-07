@@ -1,0 +1,590 @@
+rust-analyzer.cargoRunner	Custom cargo runner extension ID.	null
+rust-analyzer.runnableEnv	
+Environment variables passed to the runnable launched using Test or Debug lens or rust-analyzer.run command.
+
+null
+rust-analyzer.server.path	
+Path to rust-analyzer executable (points to bundled binary by default).
+
+null
+rust-analyzer.server.extraEnv	
+Extra environment variables that will be passed to the rust-analyzer executable. Useful for passing e.g. RA_LOG for debugging.
+
+null
+rust-analyzer.trace.server	Trace requests to the rust-analyzer (this is usually overly verbose and not recommended for regular users).	off
+rust-analyzer.trace.extension	Enable logging of VS Code extensions itself.	false
+rust-analyzer.debug.engine	Preferred debug engine.	auto
+rust-analyzer.debug.sourceFileMap	Optional source file mappings passed to the debug engine.	[object Object]
+rust-analyzer.debug.openDebugPane	
+Whether to open up the Debug Panel on debugging start.
+
+false
+rust-analyzer.debug.engineSettings	
+Optional settings passed to the debug engine. Example: { "lldb": { "terminal":"external"} }
+
+[object Object]
+rust-analyzer.restartServerOnConfigChange	
+Whether to restart the server automatically when certain settings that require a restart are changed.
+
+false
+rust-analyzer.typing.continueCommentsOnNewline	
+Whether to prefix newlines after comments with the corresponding comment prefix.
+
+true
+rust-analyzer.diagnostics.previewRustcOutput	
+Whether to show the main part of the rendered rustc output of a diagnostic message.
+
+false
+rust-analyzer.assist.emitMustUse	
+Whether to insert #[must_use] when generating as_ methods for enum variants.
+
+false
+rust-analyzer.assist.expressionFillDefault	
+Placeholder expression to use for missing expressions in assists.
+
+todo
+rust-analyzer.cachePriming.enable	
+Warm up caches on project load.
+
+true
+rust-analyzer.cachePriming.numThreads	
+How many worker threads to handle priming caches. The default 0 means to pick automatically.
+
+0
+rust-analyzer.cargo.autoreload	
+Automatically refresh project info via cargo metadata on Cargo.toml or .cargo/config.toml changes.
+
+true
+rust-analyzer.cargo.buildScripts.enable	
+Run build scripts (build.rs) for more precise code analysis.
+
+true
+rust-analyzer.cargo.buildScripts.invocationLocation	
+Specifies the working directory for running build scripts.
+
+"workspace": run build scripts for a workspace in the workspace's root directory. This is incompatible with #rust-analyzer.cargo.buildScripts.invocationStrategy# set to once.
+"root": run build scripts in the project's root directory. This config only has an effect when #rust-analyzer.cargo.buildScripts.overrideCommand# is set.
+workspace
+rust-analyzer.cargo.buildScripts.invocationStrategy	
+Specifies the invocation strategy to use when running the build scripts command. If per_workspace is set, the command will be executed for each workspace. If once is set, the command will be executed once. This config only has an effect when #rust-analyzer.cargo.buildScripts.overrideCommand# is set.
+
+per_workspace
+rust-analyzer.cargo.buildScripts.overrideCommand	
+Override the command rust-analyzer uses to run build scripts and build procedural macros. The command is required to output json and should therefore include --message-format=json or a similar option.
+
+By default, a cargo invocation will be constructed for the configured targets and features, with the following base command line:
+
+cargo check --quiet --workspace --message-format=json --all-targets
+.
+
+null
+rust-analyzer.cargo.buildScripts.useRustcWrapper	
+Use RUSTC_WRAPPER=rust-analyzer when running build scripts to avoid checking unnecessary things.
+
+true
+rust-analyzer.cargo.extraEnv	
+Extra environment variables that will be set when running cargo, rustc or other commands within the workspace. Useful for setting RUSTFLAGS.
+
+[object Object]
+rust-analyzer.cargo.features	
+List of features to activate.
+
+Set this to "all" to pass --all-features to cargo.
+
+rust-analyzer.cargo.noDefaultFeatures	
+Whether to pass --no-default-features to cargo.
+
+false
+rust-analyzer.cargo.sysroot	
+Relative path to the sysroot, or "discover" to try to automatically find it via "rustc --print sysroot".
+
+Unsetting this disables sysroot loading.
+
+This option does not take effect until rust-analyzer is restarted.
+
+discover
+rust-analyzer.cargo.target	
+Compilation target override (target triple).
+
+null
+rust-analyzer.cargo.unsetTest	
+Unsets #[cfg(test)] for the specified crates.
+
+core
+rust-analyzer.checkOnSave.allTargets	
+Check all targets and tests (--all-targets).
+
+true
+rust-analyzer.checkOnSave.command	
+Cargo command to use for cargo check.
+
+check
+rust-analyzer.checkOnSave.enable	
+Run specified cargo check command for diagnostics on save.
+
+true
+rust-analyzer.checkOnSave.extraArgs	
+Extra arguments for cargo check.
+
+rust-analyzer.checkOnSave.extraEnv	
+Extra environment variables that will be set when running cargo check. Extends #rust-analyzer.cargo.extraEnv#.
+
+[object Object]
+rust-analyzer.checkOnSave.features	
+List of features to activate. Defaults to #rust-analyzer.cargo.features#.
+
+Set to "all" to pass --all-features to Cargo.
+
+null
+rust-analyzer.checkOnSave.invocationLocation	
+Specifies the working directory for running checks.
+
+"workspace": run checks for workspaces in the corresponding workspaces' root directories. This falls back to "root" if #rust-analyzer.cargo.checkOnSave.invocationStrategy# is set to once.
+"root": run checks in the project's root directory. This config only has an effect when #rust-analyzer.cargo.buildScripts.overrideCommand# is set.
+workspace
+rust-analyzer.checkOnSave.invocationStrategy	
+Specifies the invocation strategy to use when running the checkOnSave command. If per_workspace is set, the command will be executed for each workspace. If once is set, the command will be executed once. This config only has an effect when #rust-analyzer.cargo.buildScripts.overrideCommand# is set.
+
+per_workspace
+rust-analyzer.checkOnSave.noDefaultFeatures	
+Whether to pass --no-default-features to Cargo. Defaults to #rust-analyzer.cargo.noDefaultFeatures#.
+
+null
+rust-analyzer.checkOnSave.overrideCommand	
+Override the command rust-analyzer uses instead of cargo check for diagnostics on save. The command is required to output json and should therefore include --message-format=json or a similar option.
+
+If you're changing this because you're using some tool wrapping Cargo, you might also want to change #rust-analyzer.cargo.buildScripts.overrideCommand#.
+
+If there are multiple linked projects, this command is invoked for each of them, with the working directory being the project root (i.e., the folder containing the Cargo.toml).
+
+An example command would be:
+
+cargo check --workspace --message-format=json --all-targets
+.
+
+null
+rust-analyzer.checkOnSave.target	
+Check for specific targets. Defaults to #rust-analyzer.cargo.target# if empty.
+
+Can be a single target, e.g. "x86_64-unknown-linux-gnu" or a list of targets, e.g. ["aarch64-apple-darwin", "x86_64-apple-darwin"].
+
+Aliased as "checkOnSave.targets".
+
+null
+rust-analyzer.completion.autoimport.enable	
+Toggles the additional completions that automatically add imports when completed. Note that your client must specify the additionalTextEdits LSP client capability to truly have this feature enabled.
+
+true
+rust-analyzer.completion.autoself.enable	
+Toggles the additional completions that automatically show method calls and field accesses with self prefixed to them when inside a method.
+
+true
+rust-analyzer.completion.callable.snippets	
+Whether to add parenthesis and argument snippets when completing function.
+
+fill_arguments
+rust-analyzer.completion.postfix.enable	
+Whether to show postfix snippets like dbg, if, not, etc.
+
+true
+rust-analyzer.completion.privateEditable.enable	
+Enables completions of private items and fields that are defined in the current workspace even if they are not visible at the current position.
+
+false
+rust-analyzer.completion.snippets.custom	
+Custom completion snippets.
+
+[object Object]
+rust-analyzer.diagnostics.disabled	
+List of rust-analyzer diagnostics to disable.
+
+rust-analyzer.diagnostics.enable	
+Whether to show native rust-analyzer diagnostics.
+
+true
+rust-analyzer.diagnostics.experimental.enable	
+Whether to show experimental rust-analyzer diagnostics that might have more false positives than usual.
+
+false
+rust-analyzer.diagnostics.remapPrefix	
+Map of prefixes to be substituted when parsing diagnostic file paths. This should be the reverse mapping of what is passed to rustc as --remap-path-prefix.
+
+[object Object]
+rust-analyzer.diagnostics.warningsAsHint	
+List of warnings that should be displayed with hint severity.
+
+The warnings will be indicated by faded text or three dots in code and will not show up in the Problems Panel.
+
+rust-analyzer.diagnostics.warningsAsInfo	
+List of warnings that should be displayed with info severity.
+
+The warnings will be indicated by a blue squiggly underline in code and a blue icon in the Problems Panel.
+
+rust-analyzer.files.excludeDirs	
+These directories will be ignored by rust-analyzer. They are relative to the workspace root, and globs are not supported. You may also need to add the folders to Code's files.watcherExclude.
+
+rust-analyzer.files.watcher	
+Controls file watching implementation.
+
+client
+rust-analyzer.highlightRelated.breakPoints.enable	
+Enables highlighting of related references while the cursor is on break, loop, while, or for keywords.
+
+true
+rust-analyzer.highlightRelated.exitPoints.enable	
+Enables highlighting of all exit points while the cursor is on any return, ?, fn, or return type arrow (->).
+
+true
+rust-analyzer.highlightRelated.references.enable	
+Enables highlighting of related references while the cursor is on any identifier.
+
+true
+rust-analyzer.highlightRelated.yieldPoints.enable	
+Enables highlighting of all break points for a loop or block context while the cursor is on any async or await keywords.
+
+true
+rust-analyzer.hover.actions.debug.enable	
+Whether to show Debug action. Only applies when #rust-analyzer.hover.actions.enable# is set.
+
+true
+rust-analyzer.hover.actions.enable	
+Whether to show HoverActions in Rust files.
+
+true
+rust-analyzer.hover.actions.gotoTypeDef.enable	
+Whether to show Go to Type Definition action. Only applies when #rust-analyzer.hover.actions.enable# is set.
+
+true
+rust-analyzer.hover.actions.implementations.enable	
+Whether to show Implementations action. Only applies when #rust-analyzer.hover.actions.enable# is set.
+
+true
+rust-analyzer.hover.actions.references.enable	
+Whether to show References action. Only applies when #rust-analyzer.hover.actions.enable# is set.
+
+false
+rust-analyzer.hover.actions.run.enable	
+Whether to show Run action. Only applies when #rust-analyzer.hover.actions.enable# is set.
+
+true
+rust-analyzer.hover.documentation.enable	
+Whether to show documentation on hover.
+
+true
+rust-analyzer.hover.documentation.keywords.enable	
+Whether to show keyword hover popups. Only applies when #rust-analyzer.hover.documentation.enable# is set.
+
+true
+rust-analyzer.hover.links.enable	
+Use markdown syntax for links in hover.
+
+true
+rust-analyzer.imports.granularity.enforce	
+Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
+
+false
+rust-analyzer.imports.granularity.group	
+How imports should be grouped into use statements.
+
+crate
+rust-analyzer.imports.group.enable	
+Group inserted imports by the following order. Groups are separated by newlines.
+
+true
+rust-analyzer.imports.merge.glob	
+Whether to allow import insertion to merge new imports into single path glob imports like use std::fmt::*;.
+
+true
+rust-analyzer.imports.prefer.no.std	
+Prefer to unconditionally use imports of the core and alloc crate, over the std crate.
+
+false
+rust-analyzer.imports.prefix	
+The path structure for newly inserted paths to use.
+
+plain
+rust-analyzer.inlayHints.bindingModeHints.enable	
+Whether to show inlay type hints for binding modes.
+
+false
+rust-analyzer.inlayHints.chainingHints.enable	
+Whether to show inlay type hints for method chains.
+
+true
+rust-analyzer.inlayHints.closingBraceHints.enable	
+Whether to show inlay hints after a closing } to indicate what item it belongs to.
+
+true
+rust-analyzer.inlayHints.closingBraceHints.minLines	
+Minimum number of lines required before the } until the hint is shown (set to 0 or 1 to always show them).
+
+25
+rust-analyzer.inlayHints.closureReturnTypeHints.enable	
+Whether to show inlay type hints for return types of closures.
+
+never
+rust-analyzer.inlayHints.expressionAdjustmentHints.enable	
+Whether to show inlay hints for type adjustments.
+
+never
+rust-analyzer.inlayHints.lifetimeElisionHints.enable	
+Whether to show inlay type hints for elided lifetimes in function signatures.
+
+never
+rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames	
+Whether to prefer using parameter names as the name for elided lifetime hints if possible.
+
+false
+rust-analyzer.inlayHints.maxLength	
+Maximum length for inlay hints. Set to null to have an unlimited length.
+
+25
+rust-analyzer.inlayHints.parameterHints.enable	
+Whether to show function parameter name inlay hints at the call site.
+
+true
+rust-analyzer.inlayHints.reborrowHints.enable	
+Whether to show inlay hints for compiler inserted reborrows. This setting is deprecated in favor of #rust-analyzer.inlayHints.expressionAdjustmentHints.enable#.
+
+never
+rust-analyzer.inlayHints.renderColons	
+Whether to render leading colons for type hints, and trailing colons for parameter hints.
+
+true
+rust-analyzer.inlayHints.typeHints.enable	
+Whether to show inlay type hints for variables.
+
+true
+rust-analyzer.inlayHints.typeHints.hideClosureInitialization	
+Whether to hide inlay type hints for let statements that initialize to a closure. Only applies to closures with blocks, same as #rust-analyzer.inlayHints.closureReturnTypeHints.enable#.
+
+false
+rust-analyzer.inlayHints.typeHints.hideNamedConstructor	
+Whether to hide inlay type hints for constructors.
+
+false
+rust-analyzer.joinLines.joinAssignments	
+Join lines merges consecutive declaration and initialization of an assignment.
+
+true
+rust-analyzer.joinLines.joinElseIf	
+Join lines inserts else between consecutive ifs.
+
+true
+rust-analyzer.joinLines.removeTrailingComma	
+Join lines removes trailing commas.
+
+true
+rust-analyzer.joinLines.unwrapTrivialBlock	
+Join lines unwraps trivial blocks.
+
+true
+rust-analyzer.lens.debug.enable	
+Whether to show Debug lens. Only applies when #rust-analyzer.lens.enable# is set.
+
+true
+rust-analyzer.lens.enable	
+Whether to show CodeLens in Rust files.
+
+true
+rust-analyzer.lens.forceCustomCommands	
+Internal config: use custom client-side commands even when the client doesn't set the corresponding capability.
+
+true
+rust-analyzer.lens.implementations.enable	
+Whether to show Implementations lens. Only applies when #rust-analyzer.lens.enable# is set.
+
+true
+rust-analyzer.lens.location	
+Where to render annotations.
+
+above_name
+rust-analyzer.lens.references.adt.enable	
+Whether to show References lens for Struct, Enum, and Union. Only applies when #rust-analyzer.lens.enable# is set.
+
+false
+rust-analyzer.lens.references.enumVariant.enable	
+Whether to show References lens for Enum Variants. Only applies when #rust-analyzer.lens.enable# is set.
+
+false
+rust-analyzer.lens.references.method.enable	
+Whether to show Method References lens. Only applies when #rust-analyzer.lens.enable# is set.
+
+false
+rust-analyzer.lens.references.trait.enable	
+Whether to show References lens for Trait. Only applies when #rust-analyzer.lens.enable# is set.
+
+false
+rust-analyzer.lens.run.enable	
+Whether to show Run lens. Only applies when #rust-analyzer.lens.enable# is set.
+
+true
+rust-analyzer.linkedProjects	
+Disable project auto-discovery in favor of explicitly specified set of projects.
+
+Elements must be paths pointing to Cargo.toml, rust-project.json, or JSON objects in rust-project.json format.
+
+rust-analyzer.lru.capacity	
+Number of syntax trees rust-analyzer keeps in memory. Defaults to 128.
+
+null
+rust-analyzer.notifications.cargoTomlNotFound	
+Whether to show can't find Cargo.toml error message.
+
+true
+rust-analyzer.procMacro.attributes.enable	
+Expand attribute macros. Requires #rust-analyzer.procMacro.enable# to be set.
+
+true
+rust-analyzer.procMacro.enable	
+Enable support for procedural macros, implies #rust-analyzer.cargo.buildScripts.enable#.
+
+true
+rust-analyzer.procMacro.ignored	
+These proc-macros will be ignored when trying to expand them.
+
+This config takes a map of crate names with the exported proc-macro names to ignore as values.
+
+[object Object]
+rust-analyzer.procMacro.server	
+Internal config, path to proc-macro server executable (typically, this is rust-analyzer itself, but we override this in tests).
+
+null
+rust-analyzer.references.excludeImports	
+Exclude imports from find-all-references.
+
+false
+rust-analyzer.runnables.command	
+Command to be executed instead of 'cargo' for runnables.
+
+null
+rust-analyzer.runnables.extraArgs	
+Additional arguments to be passed to cargo for runnables such as tests or binaries. For example, it may be --release.
+
+rust-analyzer.rustc.source	
+Path to the Cargo.toml of the rust compiler workspace, for usage in rustc_private projects, or "discover" to try to automatically find it if the rustc-dev component is installed.
+
+Any project which uses rust-analyzer with the rustcPrivate crates must set [package.metadata.rust-analyzer] rustc_private=true to use it.
+
+This option does not take effect until rust-analyzer is restarted.
+
+null
+rust-analyzer.rustfmt.extraArgs	
+Additional arguments to rustfmt.
+
+rust-analyzer.rustfmt.overrideCommand	
+Advanced option, fully override the command rust-analyzer uses for formatting.
+
+null
+rust-analyzer.rustfmt.rangeFormatting.enable	
+Enables the use of rustfmt's unstable range formatting command for the textDocument/rangeFormatting request. The rustfmt option is unstable and only available on a nightly build.
+
+false
+rust-analyzer.semanticHighlighting.doc.comment.inject.enable	
+Inject additional highlighting into doc comments.
+
+When enabled, rust-analyzer will highlight rust source in doc comments as well as intra doc links.
+
+true
+rust-analyzer.semanticHighlighting.operator.enable	
+Use semantic tokens for operators.
+
+When disabled, rust-analyzer will emit semantic tokens only for operator tokens when they are tagged with modifiers.
+
+true
+rust-analyzer.semanticHighlighting.operator.specialization.enable	
+Use specialized semantic tokens for operators.
+
+When enabled, rust-analyzer will emit special token types for operator tokens instead of the generic operator token type.
+
+false
+rust-analyzer.semanticHighlighting.punctuation.enable	
+Use semantic tokens for punctuations.
+
+When disabled, rust-analyzer will emit semantic tokens only for punctuation tokens when they are tagged with modifiers or have a special role.
+
+false
+rust-analyzer.semanticHighlighting.punctuation.separate.macro.bang	
+When enabled, rust-analyzer will emit a punctuation semantic token for the ! of macro calls.
+
+false
+rust-analyzer.semanticHighlighting.punctuation.specialization.enable	
+Use specialized semantic tokens for punctuations.
+
+When enabled, rust-analyzer will emit special token types for punctuation tokens instead of the generic punctuation token type.
+
+false
+rust-analyzer.semanticHighlighting.strings.enable	
+Use semantic tokens for strings.
+
+In some editors (e.g. vscode) semantic tokens override other highlighting grammars. By disabling semantic tokens for strings, other grammars can be used to highlight their contents.
+
+true
+rust-analyzer.signatureInfo.detail	
+Show full signature of the callable. Only shows parameters if disabled.
+
+full
+rust-analyzer.signatureInfo.documentation.enable	
+Show documentation.
+
+true
+rust-analyzer.typing.autoClosingAngleBrackets.enable	
+Whether to insert closing angle brackets when typing an opening angle bracket of a generic argument list.
+
+false
+rust-analyzer.workspace.symbol.search.kind	
+Workspace symbol search kind.
+
+only_types
+rust-analyzer.workspace.symbol.search.limit	
+Limits the number of items returned from a workspace symbol search (Defaults to 128). Some clients like vs-code issue new searches on result filtering and don't require all results to be returned in the initial search. Other clients requires all results upfront and might require a higher limit.
+
+128
+rust-analyzer.workspace.symbol.search.scope	
+Workspace symbol search scope.
+
+workspace
+Commands (30)
+ID	Title	Keyboard Shortcuts	Menu Contexts
+rust-analyzer.syntaxTree	Show Syntax Tree		commandPalette
+rust-analyzer.viewHir	View Hir		commandPalette
+rust-analyzer.viewFileText	View File Text (as seen by the server)		commandPalette
+rust-analyzer.viewItemTree	Debug ItemTree		
+rust-analyzer.shuffleCrateGraph	Shuffle Crate Graph		
+rust-analyzer.memoryUsage	Memory Usage (Clears Database)		commandPalette
+rust-analyzer.viewCrateGraph	View Crate Graph		
+rust-analyzer.viewFullCrateGraph	View Crate Graph (Full)		
+rust-analyzer.expandMacro	Expand macro recursively		commandPalette
+rust-analyzer.matchingBrace	Find matching brace	
+⌃
+⇧
+M
+commandPalette
+rust-analyzer.parentModule	Locate parent module	
+⌃
+⇧
+U
+commandPalette
+rust-analyzer.joinLines	Join lines	
+⌃
+⇧
+J
+commandPalette
+rust-analyzer.run	Run		commandPalette
+rust-analyzer.copyRunCommandLine	Copy Run Command Line		
+rust-analyzer.debug	Debug		commandPalette
+rust-analyzer.newDebugConfig	Generate launch configuration		commandPalette
+rust-analyzer.analyzerStatus	Status		commandPalette
+rust-analyzer.reloadWorkspace	Reload workspace		commandPalette
+rust-analyzer.reload	Restart server		commandPalette
+rust-analyzer.startServer	Start server		
+rust-analyzer.stopServer	Stop server		
+rust-analyzer.onEnter	Enhanced enter key		commandPalette
+rust-analyzer.ssr	Structural Search Replace		commandPalette
+rust-analyzer.serverVersion	Show RA Version		commandPalette
+rust-analyzer.openDocs	Open docs under cursor		commandPalette
+rust-analyzer.openCargoToml	Open Cargo.toml		commandPalette
+rust-analyzer.peekTests	Peek related tests		editor/context
+rust-analyzer.moveItemUp	Move item up		
+rust-analyzer.moveItemDown	Move item down		
+rust-analyzer.cancelFlycheck	Cancel running flychecks		

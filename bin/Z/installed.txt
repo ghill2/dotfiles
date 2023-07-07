@@ -1,0 +1,36 @@
+# Install if we don't have it
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update homebrew recipes
+echo "Updating homebrew..."
+brew update
+
+echo "Installing Git..."
+brew install git
+
+echo "Git config"
+
+git config --global user.name "George Hill"
+git config --global user.email georgehill010@gmail.com
+
+echo "Cleaning up brew"
+brew cleanup
+
+
+echo "Installing homebrew cask"
+brew install caskroom/cask/brew-cask
+
+echo "installing apps with Cask..."
+brew cask install --appdir="/Applications" ${apps[@]}
+
+echo "Install XCode CLI Tool"
+xcode-select --install
+
+# https://stackoverflow.com/a/26647594/77814
+echo "Setting correct permissions on folders that brew needs acccess to."
+sudo chown -R `whoami`:admin /usr/local/bin
+sudo chown -R `whoami`:admin /usr/local/share
+

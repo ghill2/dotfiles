@@ -1,0 +1,142 @@
+# https://github.com/DmytroLitvinov/awesome-flake8-extensions
+
+flake8 # pep8 linting (vscode python extension)
+flake8-2020 # nautilus
+flake8-bugbear # nautilus Finding likely bugs and design problems in your program.
+flake8-coding # nautilus
+flake8-debugger # nautilus
+flake8-deprecated==1.3 # nautilus
+flake8-pep3101 # nautilus
+flake8-string-format # nautilus
+flake8-typing-imports # nautilus
+
+##################
+# Flake8 Bugs
+dlint # Tool for encouraging best coding practices and helping ensure Python code is secure.
+flake8-simplify # Plugin that helps you to simplify code.
+# flake8-alfred # Alfred is a flake8 plugin to warn on unsafe/obsolete symbols.
+# flake8-encodings # Identify incorrect use of encodings.
+flake8-requirements # Package requirements checker.
+flake8-secure-coding-standard # Enforce some secure coding standards for Python.
+flake8-strftime # Checks for use of platform-specific strftime codes.
+# flake8-string-format # Check that indexed parameters are used in strings.
+# flake8-unused-arguments # Warn against unused arguments in functions. INSTALL ERROR
+flake8-useless-assert # Detect useless assert statements.
+flake8-warnings # Detect usage of deprecated modules, classes, and functions.
+# flake8-pie
+# hacking
+# wemake-python-styleguide
+##################
+# Flake8 Clean Code
+flake8-class-attributes-order # Checks classes attributes order.
+flake8-commas # Enforcing trailing commas in python.
+flake8-comprehensions # Helps you write better list/set/dict comprehensions.
+flake8-datetime-utcnow-plugin # Plugin to warn the developer of the usage of datetime.utcnow().
+flake8-implicit-str-concat # Plugin to encourage correct string literal concatenation.
+flake8-literal # Enforces consistent styling of string literals.
+flake8-multiline-containers # Plugin to ensure a consistent format for multiline containers.
+flake8-newspaper-style # Ensures the function definition goes below its usage.
+# flake8-obey-import-goat # Allows to forbid specific imports.
+# flake8-quotes # Extension for checking quotes in python.
+# flake8-return # Plugin that checks return values.
+# flake8-scream # Rules which do have known false-positives but might still be useful for a one-time run.
+# flake8-sql # Plugin that checks SQL code against opinionated style rules.
+flake8-strict # Checks Python code against a set of opinionated style rules.
+flake8-too-many # Plugin that prevents you from writing "too many" bad codes.
+tryceratops # Prevent exception handling antipatterns.
+
+##################
+# Flake8 Limitations - Extensions banning specific Python features.
+flake8-broken-line # Report line break with backslash (\).
+# flake8-debugger # Report debug statements (pdb, ipdb).
+# flake8-forbidden-func # Forbid some functions in some modules.
+# flake8-logging-format # Report string formatting inside logging.
+# flake8-match # Report match statement.
+flake8-no-implicit-concat # Report implicit string concatenation.
+flake8-no-pep420 # Report implicit namespace packages.
+# flake8-no-types - Plugin to ban type hints.
+flake8-pep3101 # Report %-formatting.
+flake8-print # Report print statement.
+flake8-printf-formatting # Report %-formatting.
+flake8-use-fstring # Report %-formatting and str.format.
+flake8-use-pathlib # Report os.path.
+# flake8-walrus # Report walrus operator (:=).
+##################
+# Flake8 Naming - Naming Extensions for checking names of variables, functions, etc.
+flake8-builtins # Check for python builtins being used as variables or parameters.
+flake8-functions-names # Validate functions names, decomposition and conformity with annotations.
+flake8-test-name # Checks that test functions names follow a given convention.
+flake8-variables-names # Extension that helps to make more readable variables names.
+pep8-naming # Check the PEP-8 naming conventions.
+
+##################
+# Flake8 Complexity - Extensions for ensuring low code complexity.
+cohesion # Extension for measuring Python class cohesion.
+flake8-annotations-complexity # Plugin to validate annotations complexity.
+flake8-cognitive-complexity # Extension for flake8 that validates cognitive functions complexity.
+flake8-expression-complexity # Plugin to validate expressions complexity.
+flake8-functions # Plugin for validation of function parameters (length, complexity, etc).
+flake8-length # Smart line length validation.
+
+##################
+# Flake 8 Comments  - Extensions for checking comments.
+# flake8-author # Checks Python modules for __author__ attributes.
+# flake8-coding # Adds coding magic comment checks (coding:) to flake8.
+flake8-comments # Reports redundant comments.
+# flake8-copyright # Adds copyright checks to flake8.
+flake8-eradicate # Plugin to find commented out or dead code.
+# flake8-executable # Plugin for checking executable permissions and shebangs.
+# flake8-fixme # Check for FIXME, TODO and other temporary developer notes.
+# flake8-jira-todo-checker # Check that every TODO comment has a valid JIRA issue ID next to it.
+# flake8-noqa # Validate # noqa comments.
+# flake8-ownership # Checker for assuring that author, copyright, and license are specified in source files.
+# flake8-todo # Check for TODO notes.
+# flake8-todos # Lint TODO comments to be consistent and have an issue linked.
+# flake8-ado # Check that all Azure DevOps IDs mentioned in the comments are in the correct format and have the corresponding ADO item.
+
+##################
+# Flake8 Docstrings - Extensions for checking docstrings.
+darglint # Check that the docstring description matches the definition.
+flake8-docstrings # Include checks provided by pep257.
+# flake8-docstring-checker # Checks if everything has a docstring.
+# flake8-rst-docstrings # Validate Python docstrings as reStructuredText (RST).
+flake8-spellcheck # Spellcheck variables, classnames, comments, docstrings etc.
+flake8-sphinx-links # Check docstrings for double backticked strings which should be links to the Python documentation.
+
+##################
+# Flake8 Imports # Extensions for checking import statements.
+# flake8-absolute-import # Plugin to require absolute imports.
+# flake8-alphabetize # Checking the order of import statements and the __all__ list.
+# flake8-future-import # Extension to check imports.
+# flake8-import-order-spoqa # Spoqa's import order style for flake8-import-order.
+flake8-import-order # Include checks import order against various Python Style Guides.
+flake8-import-style # Plugin to ensure explicit module imports.
+flake8-tidy-imports # Extension that helps you write tidier imports.
+flake8-type-checking # Plugin for managing type-checking imports & forward references.
+
+##################
+# Flake8 Type annotations - Extensions for type annotations.
+# flake8-annotations-coverage # Plugin to validate annotations coverage.
+flake8-annotations # Plugin for flake8 to check for presence of type annotations in function definitions.
+flake8-future-annotations # Verifies Python 3.7+ files use from __future__ import annotations.
+# flake8-new-union-types # Plugin to enforce new Union/Optional syntax Foo | Bar | None defined in PEP 604.
+flake8-pep585 # Enforce new style annotations from PEP585 such as list[int] instead of typing.List[int].
+flake8-pep604 # Forbids use of typing.Union (in favour of |), per PEP 604.
+flake8-type-checking # flake8 plugin that helps identify which imports to put into type-checking blocks, and how to adjust your type annotations once imports are moved.
+flake8-typing-imports # Plugin which checks that typing imports are properly guarded.
+
+##################
+# Flake8 Library-specific checks
+pandas-vet # Plugin that provides opinionated linting for pandas code.
+
+
+##################
+# Flake8 Integrations - Extensions for running flake8 not only on Python files.
+flake8-markdown # Lints Python code blocks in Markdown files using flake8.
+
+##################
+# Flake8 Wrappers - around other tools making it possible to use them with flake8.
+flake8-bandit # Wrapper around bandit.
+flake8-black # Wrapper around black.
+flake8-isort # Wrapper around isort.
+# flake8-pylint - Wrapper around pylint.

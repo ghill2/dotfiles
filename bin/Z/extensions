@@ -1,0 +1,125 @@
+#!/bin/bash
+# DESCRIPTION: This script provides a declaritive way to install vscode extensions into VS Code.
+# REMINDER: This script needs to be invoked with bash and not sh because it uses bash specific commands.
+# This script will remove all extensions and install them again
+
+# Remove all extensions first
+# code --list-extensions | xargs -L 1 code --uninstall-extension
+# rm -rf ~/.vscode/extensions
+
+# Add linktrigger extension
+# dest="/Users/$(whoami)/.vscode/extensions" # if run as sudo whoami becomes root
+# echo $dest
+# mkdir -p "$dest"
+# sudo ln -sf "/Users/g1/BU/projects/openline" "$dest"
+
+# code --install-extension (<extension-id> | <extension-vsix-path>)
+# https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management
+# parent="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Fix permission error during install of Whichkey extension https://stackoverflow.com/questions/64456367/vscode-wont-install-extension-permission-denied
+# sudo chown -R $(whoami) ~/Library/Application\ Support/Code/CachedExtensionVSIXs
+
+# Needed to fix permission error in vim (not neovim) VSCode extension
+# sudo chown -R $(whoami) ~/Library/Application\ Support/Code/User/globalStorage
+
+# Right Click on Menu Item In Browser > Copy Extension id.
+extensions=(
+    "yzane.markdown-pdf"
+    "ms-vscode-remote.remote-ssh"
+    "rust-lang.rust-analyzer"
+    # "usernamehw.errorlens"
+    "bungcip.better-toml"
+    "ritwickdey.LiveServer" # live reload
+    "sharat.vscode-brewfile"
+    "ms-python.python"
+    "Cameron.rerun-last-command"
+    "shardulm94.trailing-spaces"
+    "ariaminaei.vscode-jump-to-counterpart"
+    "guyskk.language-cython"
+    "dakara.dakara-foldplus" # extended fold commands
+    "ms-vscode.live-server" # live preview browser
+    "tomoki1207.pdf" # preview pdf files
+    "eamodio.gitlens"
+    # "ms-vscode.cpptools"
+    
+    # "formulahendry.code-runner"
+    # "TomRijndorp.find-it-faster"
+    # "bradlc.vscode-tailwindcss" # tailwind intellisense
+    # "pamaron.pytest-runner" # run pytest test
+    # "TrungNgo.autoflake"
+    # "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
+    # "TrungNgo.autoflake" # sort imports and remove unused imports
+    # "ms-python.isort" # used by python extension automatically. sort imports (used by nautilus_trader)
+    # "ms-python.black-formatter" # python auto-formatter. doesn't come with python extenson
+    #"ms-python.flake8" # used by python extension automatically. catch code smells
+    # "maruruh.vscode-quick-menu-builder" # build your own command palette menu
+    # "ryuta46.multi-command" # run multiple command in a single command
+    # "esbenp.prettier-vscode" # html, javascript, json, css, html formatter
+    # "matangover.mypy" # using ms-python.mypy for now
+    # "sswg.swift-lang" # not using swift for now
+    ################
+    # QMK
+    # "ciantic.keymapceditor-vsc"
+    # "editorconfig.editorconfig" # becomes unresponsive, disabled
+    ###########
+    # "ms-vscode.cmake-tools",
+    # "asvetliakov.vscode-neovim"
+    # "vadimcn.vscode-lldb", # custom debugger to launch app in JUCE
+    # "bierner.docs-view",
+    # "sketchbuch.vsc-workspace-sidebar",
+    # "ibrahimfadel.yabai-syntax-highlighting"
+    # "promise96319.snippets-manager"
+    # "tahabasri.snippets" # manage snippets in a separate pane
+    # "vscode-snippet.Snippet" # get snippets from cht.sh, alternative to searching on stackoverflow.
+    # "yzhang.markdown-all-in-one" # export markdown
+    # "twxs.cmake",
+    # "XadillaX.viml", # vim syntax highlighting
+    # "vspacecode.whichkey",
+    # "lfurzewaddock.vscode-wsl-workspacefolder" # for converting workspace folder in settings
+    # "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
+    # "pkief.material-icon-theme"
+    # "AndreyVolosovich.monokai-st3"
+    # "zhuangtongfa.material-theme"
+    # "monokai.theme-monokai-pro-vscode"
+    # "bungcip.better-toml"
+    # "aaronduino.nix-lsp" #requires rnix-lsp package
+    # "bbenoist.nix"
+    # "arrterian.nix-env-selector"
+    
+    # Notes
+    # "ryanmcalister.unotes"
+    # "Kasik96.swift", # alternative unoffical swift language support:
+    # snowords.open-any-url
+    )
+
+# Install launchdns and VS Code.
+# DO NOT INSTALL VSCODE IN BREWFILE, --cleanup uninstalls all vscode extensions
+# install it here
+# brew bundle --quiet --file=- <<RUBY
+# cask "visual-studio-code" unless File.exist?("/Applications/Visual Studio Code.app")
+# RUBY
+
+# Iterate the string array using for loop
+INSTALLED_EXTENSIONS="$(code --list-extensions)"
+for EXTENSION in "${extensions[@]}"
+do
+#   if echo "$INSTALLED_EXTENSIONS" | grep -q "$EXTENSION"
+#   then
+#     echo "Already installed $EXTENSION"
+#     continue
+#   fi
+
+  # TODO check installed extensions that need uninstalling
+  code --install-extension $EXTENSION --force
+done
+
+
+
+# for extension in "${extensions[@]}"
+# do
+#    echo $extension
+# done
+
+# Patch code-runner to not open a new Terminal Window and use activeTerminal
+# sed -i '' "s/createTerminal(\"Code\")/activeTerminal/g" ~/.vscode/extensions/formulahendry.code-runner-0.11.8/out/src/codeManager.js

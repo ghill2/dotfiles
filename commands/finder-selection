@@ -1,0 +1,10 @@
+#!/usr/bin/osascript
+set pathList to ""
+tell application "Finder"
+	set theSelection to the selection
+        if theSelection = {} then return ""
+	repeat with theItem in theSelection
+		set pathList to pathList & POSIX path of (theItem as text) & linefeed
+	end repeat
+end tell
+return text 1 through -2 of pathList

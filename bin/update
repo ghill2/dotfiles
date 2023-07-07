@@ -1,0 +1,6 @@
+#!/bin/bash
+parent="$(dirname ${BASH_SOURCE:-$0})"
+sh $parent/links
+sh $parent/packages
+sh $parent/login_
+sh $parent/settings

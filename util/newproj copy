@@ -1,0 +1,138 @@
+#!python3
+import subprocess
+import shutil
+from pathlib import Path
+import shlex
+import os
+from shlex import quote as esc
+DEFAULT_FROM_BRANCH = "upstream/develop"
+
+def is_valid_git() -> bool:
+    """Returns True if the cd is a valid git directory."""
+    return subprocess.run(
+        ["git", "rev-parse", "--is-inside-work-tree"],
+        text=True, capture_output=True
+    ).stdout.rstrip() == "true"
+
+
+def has_upstream_branch() -> bool:
+    """Returns True if the cd is a valid git directory."""
+    return not subprocess.run(
+        ["git", "remote", "show", "upstream"],
+        text=True, capture_output=True
+    ).stderr.startswith("fatal")
+
+
+def capture_input() -> tuple[str, str]:
+    new_branch_name = input("Enter new branch name: ")
+    from_branch = input(f"Enter from branch: {DEFAULT_FROM_BRANCH} ") or DEFAULT_FROM_BRANCH
+    return shlex.quote(new_branch_name), shlex.quote(from_branch)
+
+new_branch_name, from_branch = capture_input()
+# new_branch_name, from_branch = "nautilus_trader_new_feature", "upstream/develop"
+
+dest_dir = Path(f"../{new_branch_name}").resolve()
+dest_dir_str = esc(str(dest_dir))
+######################################
+
+
+assert is_valid_git(), "ERROR: not a git folder."
+if "upstream" in from_branch:
+    assert has_upstream_branch(), "Git repo has no upstream information."
+
+def create_cmd_str(cmds):
+    s = ""
+    for i, data in enumerate(cmds):
+        if isinstance(data, str):
+            cmd, sep = data, "&&"
+        elif isinstance(data, tuple):
+            if len(data) == 1:
+                cmd, sep = data, "&&"
+            elif len(data) == 2:
+                cmd, sep = data
+            else:
+                raise RuntimeError("Check cmds")
+        else:
+            raise RuntimeError("Check cmd type.")
+        if i == len(cmds) - 1:
+            sep = ""
+        s += f"{cmd} {sep} "
+    return s.rstrip()
+
+
+# just 
+
+#########################################
+# https://gist.github.com/anjohnson/8994c95ab2a06f7d2339
+cmds = [
+    f"git clone . {dest_dir_str} --no-hardlinks --dissociate",  # error if dest exists
+    f"cp ./.git/config {dest_dir_str}/.git/config",
+    f"cd {dest_dir_str}",
+    "git clean -xdf -e .direnv -e .envrc",  # reset the repo
+    "git fetch --all",
+    f"git checkout -b {new_branch_name} {from_branch}",  # create a new branch based off from_branch
+    "git config remote.pushdefault origin",  # set push destination to origin/<branch_name>
+    "git config push.default current",  # set push destination to origin/<branch_name>
+    (f"git push --delete origin {new_branch_name}", ";"),  # delete remote branch, continue if err
+    f"git push origin {new_branch_name}"  # publish new branch on remote origin
+]
+
+# f"git branch -u {from_branch}",  # set the tracking branch to from_branch
+cmd = create_cmd_str(cmds)
+
+status = os.system(cmd)
+
+if status > 0:
+    raise RuntimeError(f"Halted due to terminal error at step 1...")
+
+
+######################################
+
+# add direnv
+DEFAULT_ENVRC = """
+layout python3
+PATH_add .
+path_add PYTHONPATH .
+""".strip()
+envrc_src = Path("./.envrc").absolute()
+envrc_dest = Path(f"{dest_dir}/.envrc").resolve()
+if envrc_src.exists():
+    shutil.copy(str(envrc_src), str(envrc_dest))
+else:
+    envrc_dest.parent.mkdir(parents=True, exist_ok=True)
+    envrc_dest.write_text(DEFAULT_ENVRC)
+
+
+######################################
+
+# add .direnv to .gitignore
+def prepend_line(path, line):
+    with open(path, 'r') as old:
+        os.unlink(path)
+        with open(path, 'w') as new:
+            new.write(str(line) + "\n")
+            shutil.copyfileobj(old, new)
+
+
+gitignore = Path(f"../{new_branch_name}/.gitignore").resolve()
+gitignore.touch(exist_ok=True)
+direnv_exists = any(".direnv" in line for line in gitignore.read_text().splitlines())
+if not direnv_exists:
+    prepend_line(str(gitignore), ".direnv")
+
+######################################
+# Build the environment
+cmds = [
+    f"cd {dest_dir_str}",
+    "direnv allow",
+    "cd nautilus_core && cargo clean && cd ..",  # avoid Blocking for Blocking waiting for file lock on build directory
+    "rm ~/.cargo/.package-cache",  # to avoid Blocking for package cache
+    "git clean -xdf -e .direnv -e .envrc",  # reset the repo
+    "poetry install --all-extras",
+    "python3 ./build.py",
+]
+
+cmd = " && ".join(cmds)
+status = os.system(cmd)
+if status > 0:
+    raise RuntimeError(f"Halted due to terminal error at step 2...")

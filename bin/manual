@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# XCode cli tools needed
+# echo "Install XCode CLI Tool"
+# xcode-select --install
+
+# Need to run to install rust after install brew package rustup-init
+# rustup-init
+
+# System Preferences > Mission Control > Displays have separate spaces > Enable # otherwise fullscreen on one monitor makes other monitors go black
+# System Preferences > Mission Control > When switching to an application, switch to a Space with open windows for the application > Disable
+# System Preferences > Mission Control > Keyboard and Mouse SHortcuts > Disable all shortcuts
+# System Preferences > Mission Control > Hot Corners... > All corners to -
+
+# Keyboard > Shortcuts > Input Sources > Select the previous input source > Disable
+# Keyboard > Shortcuts > Input Sources > Select next source in Input menu > Disable
+# Keyboard > Shortcuts > Mission Control > Move left a space > Disable
+# Keyboard > Shortcuts > Mission Control > Move right a space > Disable
+# Keyboard > Shortcuts > Spotlight > Show Spotlight Search > ctrl+option+cmd + space
+
+
+# General > Appearance > Dark
+# Allow all filetypes in backblaze, by default is disables 
+
+# Enable login to g1
+# turn on File Sharing > Options > Windows File Sharing : g1
+
+# Security & Privacy > Privacy > Full Disk Access > Terminal

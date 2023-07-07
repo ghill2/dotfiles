@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Starting build..." \
+    && poetry install \
+    && maturin develop \
+    && direnv allow \
+&& echo "Build finished..."
+
+# This does not work when running the build script, use direnv allow to activate environment
+# source ./.venv/bin/activate
+
+
+
+
+

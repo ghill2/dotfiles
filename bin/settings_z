@@ -1,0 +1,119 @@
+#!/bin/sh
+# Remove Dropbox’s green checkmark icons in Finder
+# file=/Applications/Dropbox.app/Contents/Resources/check.icns
+# [ -e "$file" ] && mv -f "$file" "$file.bak"
+# unset file
+
+# Enable ctrl+option+cmd to drag windows.
+# defaults write com.apple.universalaccess NSWindowShouldDragOnGesture -string "YES"
+
+# Disable the crash reporter
+# defaults write com.apple.CrashReporter DialogType -string "none"
+
+# Autohide menubar.
+# defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
+# Menu bar: hide the useless Time Machine and Volume icons
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+ 
+
+
+# Show/hide Spotlight icon in menubar
+# Hide
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search # NOTE: caused script to fail
+# Show
+# sudo chmod 755 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+# Remove Notification Center from Menubar
+# launchctl remove com.apple.notificationcenterui.agent
+
+# Add Notification Center to Menubar 
+# launchctl submit -l com.apple.notificationcenterui.agent -p /System/Library/CoreServices/NotificationCenter.app/Contents/MacOS/NotificationCenter
+
+# Menu bar: hide the User and Battery icons
+defaults -currentHost write dontAutoLoad -array \
+        "/System/Library/CoreServices/Menu Extras/User.menu"
+
+# Add a spacer to the left side of the Dock (where the applications are)
+#defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+# Add a spacer to the right side of the Dock (where the Trash is)
+#defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
+###############################################################################
+# keyboard remap
+##############################################################################
+# its possible that the appliation shortcuts are hard-wired and cannot be changed.
+# NOTE: might need disable SIP.
+# couldn't get this to work, it works if I add it in keyboard shortcuts pane.
+function addCustomMenuEntryIfNeeded
+{
+    if [[ $# == 0 || $# > 1 ]]; then
+        echo "usage: addCustomMenuEntryIfNeeded com.company.appname"
+        return 1
+    else
+        local contents=`defaults read com.apple.universalaccess "com.apple.custommenu.apps"`
+        local grepResults=`echo $contents | grep $1`
+        if [[ -z $grepResults ]]; then
+            # does not contain app
+            defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "$1"
+        else
+            # contains app already, so do nothing
+			echo ""
+        fi
+    fi
+}
+# https://www.finaleforum.com/viewtopic.php?t=20177
+# defaults write com.microsoft.VSCode.app NSUserKeyEquivalents "{
+# 	'Hide Visual Studio Code' = '@^s';
+# }"
+
+# defaults write com.microsoft.VSCode NSUserKeyEquivalents -dict-add "Hide Visual Studio Code" "@^s"
+# defaults write -g NSUserKeyEquivalents -dict-add "Hide Visual Studio Code" "@^s"
+
+
+# defaults write com.microsoft.VSCode NSUserKeyEquivalents -dict-add "Hide Visual Studio Code" "@^s"
+# defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "com.microsoft.VSCode"
+# addCustomMenuEntryIfNeeded "com.microsoft.VSCode"
+# -string "@^o"
+# disable a shortcut that exists by default
+# defaults write com.apple.Terminal NSUserKeyEquivalents -dict-add "Quit Terminal" nil
+
+
+# https://www.rightpoint.com/rplabs/script-keyboard-os-x-shortcuts
+
+# Remap keyboard shortcuts
+# https://best-mac-tips.com/2012/08/29/remapping-os-x-application-keyboard-shortcuts/
+
+# check what remaps per app
+# defaults read com.apple.Finder NSUserKeyEquivalents
+
+
+
+
+###############################################################################
+
+# defaults read com.microsoft.VSCode NSUserKeyEquivalents
+# de Visu# NOTE: also need to add to universalaccess? https://discussions.apple.com/thread/251652701
+
+# http://hints.macworld.com/article.php?story=20131123074223584
+# defaults write com.apple.universalaccess com.apple.custommenu.apps -array-add "com.microsoft.VSCode"
+# defaults write com.microsoft.VSCode NSUserKeyEquivalents -dict-add "Hide Visual Studio Code" nil
+
+# You can disable a shortcut by assigning the menu item to for example \u200b (ZERO WIDTH SPACE).
+# defaults write -g NSUserKeyEquivalents -dict-add "Hide Visual Studio Code" -string "\\U21e5"
+
+
+# https://github.com/netj/dotfiles/blob/master/Mac/NSUserKeyEquivalents.sh
+
+###############################################################################
+
+
+###############################################################################
+# Neovim VSCode Extension:
+# On a Mac, the h, j, k and l movement keys may not repeat when held, to fix this open Terminal and execute the following command:
+# # Disable press-and-hold for keys in favor of key repeat
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false         # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+# defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default

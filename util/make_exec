@@ -1,0 +1,8 @@
+#!python3
+import os
+from pathlib import Path
+for path in Path(__file__).parent.iterdir():
+    print(path)
+    os.system(f'chmod u+x "{path}"')
+    
+

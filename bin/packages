@@ -1,0 +1,45 @@
+#!/bin/sh
+
+brew bundle --verbose --no-upgrade --global
+brew bundle cleanup  --global --force  # keep as separate command
+
+# Homebrew does not support installing specific versions of a library, only the most recent one, so there is no good mechanism for storing installed versions in a .lock file.
+# If your software needs specific versions then perhaps you'll want to look at using Vagrant to better match your development and production environments.
+# gparent=`dirname $(realpath $(dirname "$0"))`
+
+#  brew bundle cleanup
+#  --force --verbose
+
+# --file="$gparent/.Brewfile" 
+# TODO Running cleanup uninstalls visual-studio-code extensions?
+# brew bundle --no-upgrade --cleanup --file="$gparent/.Brewfile"
+
+# Patch code-runner to not open a new Terminal Window and use activeTerminal
+# sed -i '' "s/createTerminal(\"Code\")/activeTerminal/g" ~/.vscode/extensions/formulahendry.code-runner-0.11.8/out/src/codeManager.js
+
+
+
+# https://github.com/yulrizka/osx-push-to-talk#homebrew
+# ln -s "/usr/local/opt/pushtotalk/PushToTalk.app" "/Applications/PushToTalk.app"
+
+# Python 3 default version does not include pip or setuptools
+# curl https://bootstrap.pypa.io/get-pip.py | python3
+
+# tap needed for ntfs-3g-mac
+# brew tap gromgit/homebrew-fuse
+# brew install --cask macfuse
+# brew install ntfs-3g-mac
+
+# Install apps to /Applications
+# Default is: /Users/$user/Applications
+# echo "installing apps with Cask..."
+# export HOMEBREW_NO_AUTO_UPDATE=0
+
+# brew install ${apps[@]}
+# brew install --cask ${apps_cask[@]}
+
+# brew list --cask
+
+# DO NOT INSTALL VSCODE IN BREWFILE, --cleanup uninstalls all vscode extensions
+# extensions automatically installs it
+# cask 'visual-studio-code'  --no-install # keep at top  # keystrokes from terminal

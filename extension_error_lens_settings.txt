@@ -1,0 +1,210 @@
+errorLens.enabled	Controls all decorations and features (except commands).	true
+errorLens.enabledInMergeConflict	
+Controls if decorations are shown if the editor has git merge conflict indicators <<<<<<< or ======= or >>>>>>>.
+
+true
+errorLens.fontFamily	Font family of inline message.	
+errorLens.fontWeight	
+Font weight of inline message. "normal" is alias for 400, "bold" is alias for 700).
+
+normal
+errorLens.fontStyleItalic	When enabled - shows inline message in italic font style.	false
+errorLens.fontSize	
+Font size of inline message (CSS units).
+
+errorLens.margin	Distance between the last word on the line and the start of inline message ([CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/length)).	4ch
+errorLens.padding	
+Padding of the inline message. Visible when #errorLens.messageBackgroundMode# is set to "message".
+
+errorLens.borderRadius	
+Border radius of the inline message. Visible when #errorLens.messageBackgroundMode# is set to "message".
+
+3px
+errorLens.enabledDiagnosticLevels	Customize which diagnostic levels to highlight.	error,warning,info
+errorLens.messageTemplate	
+Template used for all inline messages. Whitespace between items is important.
+
+List of variables:
+
+$message - diagnostic message text
+
+$count - Number of diagnostics on the line
+
+$severity - Severity prefix taken from #errorLens.severityText#
+
+$source - Source of diagnostic e.g. "eslint"
+
+$code - Code of the diagnostic
+
+$message
+errorLens.messageMaxChars	
+Cut off inline message if it's longer than this value. (Improves performance when the diagnostic message is long). Set to 0 to disable inline message.
+
+500
+errorLens.severityText	
+Replaces $severity variable in #errorLens.messageTemplate#.
+
+ERROR,WARNING,INFO,HINT
+errorLens.messageEnabled	Controls whether inline message is shown or not (Including background highlight).	true
+errorLens.messageBackgroundMode	Controls how inline message is highlighted in the editor (entire line / only message / none).	line
+errorLens.statusBarIconsEnabled	
+When enabled - shows highlighted error/warning icons in status bar.
+
+false
+errorLens.statusBarIconsPriority	
+Move status bar icons left or right by adjasting the number priority.
+
+-9000
+errorLens.statusBarIconsAlignment	
+Choose on which side the icons status bar is on: left or right.
+
+left
+errorLens.statusBarIconsUseBackground	
+When enabled - highlights status bar icons with background, when disabled - with foreground.
+
+true
+errorLens.statusBarIconsAtZero	
+What to do when there are 0 errors/warnings - hide the item or strip its background color.
+
+removeBackground
+errorLens.statusBarMessageEnabled	
+When enabled - shows message in status bar.
+
+false
+errorLens.statusBarMessagePriority	
+Move status bar message left or right by adjasting the number priority.
+
+-10000
+errorLens.statusBarMessageAlignment	
+Choose on which side the message status bar is on: left or right.
+
+left
+errorLens.statusBarColorsEnabled	
+When enabled - use message decoration foreground as color of Status Bar text.
+
+false
+errorLens.statusBarMessageType	
+Pick what to show in Status Bar: closest message or only message for the active line.
+
+activeLine
+errorLens.statusBarCommand	
+Pick command that activates on click for Status Bar.
+
+goToProblem
+errorLens.statusBarMessageTemplate	
+Template for status bar message. Whitespace between items is important.
+
+List of variables:
+
+$message - diagnostic message text
+
+$count - Number of diagnostics on the line
+
+$severity - Severity prefix taken from #errorLens.severityText#
+
+$source - Source of diagnostic e.g. "eslint"
+
+$code - Code of the diagnostic
+
+errorLens.exclude	
+Specify messages that should not be highlighted (RegExp). Strings passed to the RegExp constructor: new RegExp(EXCLUDE_ITEM, 'i');
+
+errorLens.excludeBySource	
+Specify source or source(code) pair that should not be highlighted. Examples: ["eslint"], ["eslint(padded-blocks)"]
+
+errorLens.excludePatterns	
+Exclude files by using glob pattern. Example ["**/*.{ts,js}"]
+
+errorLens.light	Specify color of decorations for when the light color theme is active.	[object Object]
+errorLens.delay	
+Delay (ms) before showing problem decorations (0 to disable). Minimum delay of 500 is enforced by the extension. New errors will be added with this delay; old errors that were fixed should disappear faster.
+
+0
+errorLens.onSave	When enabled - updates decorations only on document save (manual).	false
+errorLens.onSaveTimeout	Time period (ms) that used for showing decorations after the document save.	1000
+errorLens.enableOnDiffView	
+Enable decorations when viewing a diff view in the editor (e.g. Git diff).
+
+false
+errorLens.followCursor	Highlight only portion of the problems.	allLines
+errorLens.followCursorMore	
+Augments #errorLens.followCursor#. Adds number of lines to top and bottom when #errorLens.followCursor# is set to activeLine. Adds number of closest problems when #errorLens.followCursor# is closestProblem
+
+0
+errorLens.gutterIconsEnabled	When enabled - shows gutter icons (In place of the debug breakpoint icon).	false
+errorLens.gutterIconsFollowCursorOverride	
+When enabled and #errorLens.followCursor# setting is not allLines, then gutter icons would be rendered for all problems. But line decorations (background, message) only for active line.
+
+true
+errorLens.gutterIconSize	
+Change gutter icon size. Examples: auto, contain, cover, 50%, 150%.
+
+100%
+errorLens.gutterIconSet	Change gutter icon style.	default
+errorLens.errorGutterIconPath	Absolute path to error gutter icon.	
+errorLens.warningGutterIconPath	Absolute path to warning gutter icon.	
+errorLens.infoGutterIconPath	Absolute path to info gutter icon.	
+errorLens.errorGutterIconColor	
+Error color of circle gutter icon set.
+
+#e45454
+errorLens.warningGutterIconColor	
+Warning color of circle gutter icon set.
+
+#ff942f
+errorLens.infoGutterIconColor	
+Info color of circle gutter icon set.
+
+#00b7e4
+errorLens.removeLinebreaks	
+When enabled - replaces line breaks in inline diagnostic message with whitespaces.
+
+true
+errorLens.scrollbarHackEnabled	
+When enabled - prevents showing horizontal scrollbar in editor (caused by inline decorations).
+
+false
+Commands (6)
+ID	Title	Keyboard Shortcuts	Menu Contexts
+errorLens.toggle	Toggle (Enable/Disable) Everything		
+errorLens.toggleError	Toggle Errors		
+errorLens.toggleWarning	Toggle Warnings		
+errorLens.toggleInfo	Toggle Info		
+errorLens.toggleHint	Toggle Hint		
+errorLens.copyProblemMessage	Copy Problem Message		
+Colors (26)
+ID	Description	Dark Default	Light Default	High Contrast Default
+errorLens.errorBackground	Background color of the entire line containing error.	#e454541b	#e4545420	#e454541b
+errorLens.errorMessageBackground	Background color of the error message.	#e4545419	#e4545419	#e4545419
+errorLens.errorBackgroundLight	Background color of the entire line containing error (Only in light themes).	#e4545420	#e4545420	#e4545420
+errorLens.errorForeground	Text color used to highlight lines containing errors.	#ff6464	#e45454	#ff6464
+errorLens.errorForegroundLight	Text color used to highlight lines containing errors (Only in light themes).	#e45454	#e45454	#e45454
+errorLens.warningBackground	Background color used to highlight lines containing warnings.	#ff942f1b	#ff942f20	#ff942f1b
+errorLens.warningMessageBackground	Background color of the warning message.	#ff942f19	#ff942f19	#ff942f19
+errorLens.warningBackgroundLight	Background color used to highlight lines containing warnings (Only in light themes).	#ff942f20	#ff942f20	#ff942f20
+errorLens.warningForeground	Text color used to highlight lines containing warnings.	#fa973a	#ff942f	#fa973a
+errorLens.warningForegroundLight	Text color used to highlight lines containing warnings (Only in light themes).	#ff942f	#ff942f	#ff942f
+errorLens.infoBackground	Background color used to highlight lines containing info.	#00b7e420	#00b7e420	#00b7e420
+errorLens.infoMessageBackground	Background color of the info message.	#00b7e419	#00b7e419	#00b7e419
+errorLens.infoBackgroundLight	Background color used to highlight lines containing info (Only in light themes).	#00b7e420	#00b7e420	#00b7e420
+errorLens.infoForeground	Text color used to highlight lines containing info.	#00b7e4	#00b7e4	#00b7e4
+errorLens.infoForegroundLight	Text color used to highlight lines containing info (Only in light themes).	#00b7e4	#00b7e4	#00b7e4
+errorLens.hintBackground	Background color used to highlight lines containing hints.	#17a2a220	#17a2a220	#17a2a220
+errorLens.hintMessageBackground	Background color of the hint message.	#17a2a219	#17a2a219	#17a2a219
+errorLens.hintBackgroundLight	Background color used to highlight lines containing hints (Only in light themes).	#17a2a220	#17a2a220	#17a2a220
+errorLens.hintForeground	Text color used to highlight lines containing hints.	#2faf64	#2faf64	#2faf64
+errorLens.hintForegroundLight	Text color used to highlight lines containing hints (Only in light themes).	#2faf64	#2faf64	#2faf64
+errorLens.statusBarIconErrorForeground	Status bar icon item error color. Foreground is used when the `errorLens.statusBarIconsUseBackground` setting is disabled.	#ff6464	#e45454	#ff6464
+errorLens.statusBarIconWarningForeground	Status bar icon item error color. Foreground is used when the `errorLens.statusBarIconsUseBackground` setting is disabled.	#fa973a	#ff942f	#fa973a
+errorLens.statusBarErrorForeground	Status bar item error color.	#ff6464	#e45454	#ff6464
+errorLens.statusBarWarningForeground	Status bar item warning color.	#fa973a	#ff942f	#fa973a
+errorLens.statusBarInfoForeground	Status bar item info color.	#00b7e4	#00b7e4	#00b7e4
+errorLens.statusBarHintForeground	Status bar item hint color.	#2faf64	#2faf64	#2faf64
+Activation Events (7)
+onStartupFinished
+onCommand:errorLens.toggle
+onCommand:errorLens.toggleError
+onCommand:errorLens.toggleWarning
+onCommand:errorLens.toggleInfo
+onCommand:errorLens.toggleHint
+onCommand:errorLens.copyProblemMessage

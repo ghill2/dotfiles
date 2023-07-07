@@ -1,0 +1,3 @@
+cask 'sharemouse'
+cask 'transmission'
+brew 'syncthing'

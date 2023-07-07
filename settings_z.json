@@ -1,0 +1,14 @@
+// "prettier.printWidth": 120, // maximum line length
+// "prettier.singleAttributePerLine": false,
+// "[javascript]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode",
+//     "prettier.tabWidth": 4,
+// },
+// "[css]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode",
+//     "prettier.tabWidth": 2
+// },
+// "[html]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode",
+//     "prettier.tabWidth": 2,
+// },

@@ -1,0 +1,19 @@
+<application>
+  <component name="RfsDownloadedStorageManager">
+    <option name="fileList">
+      <list>
+        <option value="J__Htmp_2_EURUSD_SIM_1_HOUR_BID_EXTERNAL_2019_parquet_0.data.csv/tmp_2_EURUSD-SIM-1-HOUR-BID-EXTERNAL-2019.parquet(downloaded)" />
+        <option value="P__0Hhwj_4Ktmp_1_EURUSD_SIM_1_HOUR_BID_EXTERNAL_2019_parquet_0.data.csv/tmp_1_EURUSD-SIM-1-HOUR-BID-EXTERNAL-2019.parquet(downloaded)" />
+        <option value="Qpy_____tmp__EURUSD_SIM_1_HOUR_BID_EXTERNAL_2019_parquet_0.data.csv/tmp__EURUSD-SIM-1-HOUR-BID-EXTERNAL-2019.parquet(downloaded)" />
+        <option value="____KEURUSD_DUKA_1_MINUTE_ASK_EXTERNAL_2020_parquet_0.data.csv/EURUSD-DUKA-1-MINUTE-ASK-EXTERNAL-2020.parquet(downloaded)" />
+        <option value="__okn6_S_EURUSD_DUKA_1_TICK_BID_EXTERNAL_2020_parquet_0.data.csv/EURUSD-DUKA-1-TICK-BID-EXTERNAL-2020.parquet(downloaded)" />
+        <option value="______i_binance_btcusdt_trades_parquet_0.data.csv/binance-btcusdt-trades.parquet(downloaded)" />
+        <option value="Users/g1/BU/projects/nautilus_trader/nautilus_trader_develop/tests/test_data/quote_tick_data.csv" />
+        <option value="5__9__t1quote_tick_usdjpy_2019_sim_rust_parquet_0.data.csv/quote_tick_usdjpy_2019_sim_rust.parquet(downloaded)" />
+        <option value="ifC_q_Lquote_tick_eurusd_2019_sim_rust_parquet_0.data.csv/quote_tick_eurusd_2019_sim_rust.parquet(downloaded)" />
+        <option value="WEmwUv____Equote_tick_data_parquet_0.data.csv/quote_tick_data.parquet(downloaded)" />
+      </list>
+    </option>
+    <option name="mainDirPath" value="/private/var/folders/fc/g4mqb35j0jvf7zpj4k76j4yw0000gn/T/HDFS-downloaded" />
+  </component>
+</application>

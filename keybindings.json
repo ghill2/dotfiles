@@ -1,0 +1,646 @@
+/*
+Place your key bindings in this file to override the defaults
+Start of ChrisAtMachine Neovim Commands https://github.com/LunarVim/LunarVim/blob/4625145d0278d4a039e55c433af9916d93e7846a/utils/vscode_config/keybindings.json
+
+
+Vim Extension Default Keybindings List
+https://github.com/VSCodeVim/Vim/blob/9bab33c75d0a53873880a79c5d2de41c8be1bef9/package.json#L62
+
+
+Changes to standard Vim setup:
+Indent in normal mode with tab and shift+tab
+Remap line start (non-whitespace character) to easier key than ^ and _
+Exit insert mode by using kj instead of jk
+Exit visual and visual line mode using kj
+When leaving insert mode, move cursor over to right by 1
+Move hjkl; to jkl;'      (1 key over).
+
+ 
+Differences between neovim and vim plugin:
+Neovim: flashes k character when leaving insert mode with kj
+Neovim, can't map right on leaving insert mode.
+Neovim: can map exit visual mode with k
+Neovim: goes to end of select block if selected from bottom up.
+
+
+*/
+// META = shift+ctrl+alt+cmd
+// this._terminal = vscode.window.activeTerminal;
+
+
+
+[
+//#region MAPS
+    {
+        "key": "oem_8",
+        "command": "commands.run",
+        "args": [
+            "editor.action.organizeImports",
+            "autoflake.removeUnused"
+        ],
+        "when": "editorTextFocus"
+    },
+    // {
+    //     "key": "alt+x",
+    //     "command": "extension.sortImports",
+    //     "label": "Sort Imports", // optional
+    //     "description": "organizeImports+autoflake.removeUnused", // optional
+    //     "args": {
+    //         "sequence": [
+    //             "editor.action.organizeImports",
+    //             "autoflake.removeUnused"
+    //         ]
+    //     },
+    //     "when": "editorTextFocus"  // if you want this, you probably do
+    // },
+    
+    {   "key": "cmd+b",  // Toggle browser visible, hide show browser
+        "command": "workbench.action.toggleSidebarVisibility",
+    },
+    {   "key": "shift+cmd+c",  // Copy active file to path
+        "command": "copyFilePath",
+    },
+    {   "key": "shift+ctrl+alt+cmd+s", // Turn off buttons on left side
+        "command": "editor.action.addCommentLine",
+    },
+    {   "key": "alt+b", // Turn off buttons on left side
+        "command": "workbench.action.toggleActivityBarVisibility",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "quickMenuBuilder.openQuickMenu",
+        "args": "Text Menu",
+        "when": "editorTextFocus"
+    },
+    {   "key": "shift+ctrl+alt+cmd+d",
+        "command": "workbench.action.navigateBack"
+    },
+    {   "key": "alt+cmd+[", // See al referneces
+        "command": "references-view.findReferences"
+    },
+    {   "key": "alt+cmd+[",
+        "command": "editor.fold"
+    },
+    {   "key": "alt+cmd+]",
+        "command": "editor.unfold"
+    },
+    {   "key": "shift+ctrl+alt+cmd+f", // Unfold method under cursor
+        "command": "editor.unfoldRecursively"
+    },
+    {   "key": "shift+ctrl+alt+cmd+w", // Terminal down
+        "command": "workbench.action.terminal.scrollUp"
+    },
+    // {   "key": "shift+ctrl+alt+cmd+s", // Terminal down
+    //     "command": "workbench.action.terminal.scrollDown"
+    // },
+    {   "key": "shift+ctrl+alt+cmd+a", // Terminal reset bottom
+        "command": "workbench.action.terminal.scrollToBottom"
+    },
+    {   "key": "shift+cmd+t", // Run pytest under cursor
+        "command": "pytest-runner.run-test"
+    },
+    {   "key": "alt+r", // Right click in place
+        "command": "editor.action.showContextMenu"
+    },
+    {   "key": "shift+cmd+1",    // Single pane view
+        "command": "workbench.action.editorLayoutSingle"
+    },
+    {   "key": "shift+cmd+2",    // Dual pane view
+        "command": "workbench.action.editorLayoutTwoColumns"
+    },
+    {   "key": "shift+cmd+3",    // Triple pane view
+        "command": "workbench.action.editorLayoutThreeColumns"
+    },
+    {   "key": "shift+cmd+r", // Reset panes sizes to their default sizes
+        "command": "workbench.action.evenEditorWidths"
+    },
+    {   "key": "ctrl+z", // Focus Left Pane
+        "command": "workbench.action.navigateLeft",
+        "when": "!terminalFocus"
+    },
+    {   "key": "ctrl+z", // Focus Left Pane When Terminal Focused
+        "command": "workbench.action.focusLeftGroup",
+        "when": "terminalFocus"
+    },
+    {   "key": "ctrl+x", // Focus Right Pane
+        "command": "workbench.action.navigateRight",
+        "when": "!terminalFocus"
+    },
+    {   "key": "ctrl+x", // Focus Left Pane When Terminal Focused
+        "command": "workbench.action.focusRightGroup",
+        "when": "terminalFocus"
+    },
+    {   "key": "ctrl+cmd+x", // Move Pane Right
+        "command": "workbench.action.moveEditorToRightGroup"
+    },
+    {   "key": "ctrl+cmd+z", // Move Pane Left
+        "command": "workbench.action.moveEditorToLeftGroup"
+    },
+    {   "key": "ctrl+tab", // Next Tab
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {   "key": "ctrl+shift+tab", // Previous Tab
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {   "key": "ctrl+space", // Run active pane
+        "command": "code-runner.run"
+    },
+    {   "key": "cmd+space", // Rerun last command
+        "command": "extension.rerunLastCommand"
+    },
+    {   "key": "ctrl+alt+cmd+t", // Focus terminal
+        "command": "workbench.action.terminal.focus"
+    },
+    {   "key": "alt+t", // Focus terminal
+        "command": "workbench.action.terminal.focus"
+    },
+    {   "key": "shift+ctrl+alt+cmd+e", // Focus editor
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {   "key": "shift+ctrl+alt+cmd+r", // Focus browser
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    {   "key": "", // Focus toggle browser & editor
+        "command": "workbench.view.explorer"
+    },
+    {   "key": "ctrl+alt+cmd+shift+t", // Toggle terminal
+        "command": "workbench.action.togglePanel"
+    },
+    {   "key": "r", // Browser: Rename file
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {   "key": "enter", // Browser: End Rename file
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {   "key": "j", // Browser: down
+        "command": "list.focusDown",
+        "when": "listFocus && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {   "key": "k",  // Browser: up
+        "command": "list.focusUp",
+        "when": "listFocus && explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {   "key": "enter", // Browser: open file in editor
+        "command": "list.select",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    },
+    {   "key": "l", // Browser: select file
+        "command": "list.select",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {   "key": "o", // Browser: expand folder
+        "command": "list.toggleExpand",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {   "key": "h", // Browser: collapse folder
+        "command": "list.collapse",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {   "key": "a", // Browser: new file
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {   "key": "shift+a",  // Browser: new folder
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {   "key": "cmd+shift+d", // Open related (counterpart file). pyx > pxd. .h > .cpp
+        "command": "jumpToCounterpart.jump"
+    },
+//#endregion
+//#region UNMAPS
+    {   "key": "shift+cmd+x", // unmap shift+cmd+x
+        "command": "-workbench.view.extensions",
+    },
+    {   "key": "shift+cmd+s", // unmap shift+cmd+s
+        "command": "-workbench.action.files.saveAs"
+    },
+    {   "key": "shift+cmd+d", // unmap shift+cmd+d
+        "command": "-workbench.view.debug"
+    },
+    {   "key": "cmd+shift+f", // unmap shift+cmd+d
+        "command": "workbench.action.findInFiles"
+    },
+//#endregion    
+//#region VIM
+    {   "key": "tab", // Vim Indent right (normal mode)
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine",
+        "command": "editor.action.indentLines"
+    },
+    {   "key": "shift+tab", // Vim Outdent right (normal mode)
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "command": "editor.action.outdentLines"
+    },
+    {   "key": "ctrl+a", // Line start (non-whitespace) TODO: Make this work in normal mode too
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": {"after": ["^"],}
+    },
+    {   "key": "j", // Left + 1
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["h"], }
+    },
+    {   "key": "k", // Down + 1
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["j"], }
+    },
+    {   "key": "l", // Up + 1
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["k"], }
+    },
+    {   "key": ";", // Right + 1
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["l"], }
+    },
+    {   "key": "'",
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": [";"], }
+    },
+    {   "key": "f", // Word Next == f
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["w"], }
+    },
+    {   "key": "a", // Word Prev == a (easier to reach)
+        "command": "vim.remap",
+        "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine'",
+        "args": { "after": ["b"], }
+    },
+    {   "key": "cmd+j", // Left + 1 (Insert Mode)
+        "command": "vim.remap",
+        "when": "vim.active",
+        "args": { "after": ["Left"], }
+    },
+    {   "key": "cmd+k", // Down + 1 (Insert Mode)
+        "command": "vim.remap",
+        "when": "vim.active",
+        "args": { "after": ["Down"], }
+    },
+    {   "key": "cmd+l", // Up + 1 (Insert Mode)
+        "command": "vim.remap",
+        "when": "vim.active",
+        "args": { "after": ["Up"], }
+    },
+    {   "key": "cmd+;", // Right + 1 (Insert Mode)`
+        "command": "vim.remap",
+        "when": "vim.active",
+        "args": { "after": ["Right"], }
+    },
+//#endregion
+//#region NEOVIM
+    {   "command": "vscode-neovim.compositeEscape1", // Map jj to exit INSERT mode 
+        "key": "k",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "k"
+    },
+    {   "command": "vscode-neovim.compositeEscape2", // Map jk to exit INSERT mode. NOTE: unable to get kj to work?
+        "key": "j",
+        "when": "neovim.mode == insert || neovim.mode == visual && editorTextFocus",
+        "args": ["j","l"]
+    },
+    {   "key": "tab", // Vim Indent right (normal mode)
+        "when": "neovim.mode == insert || neovim.mode == visual && editorTextFocus",
+        "command": "editor.action.indentLines",
+    },
+    {   "key": "shift+tab", // Vim Outdent right (normal mode)
+        "when": "neovim.mode == insert || neovim.mode == visual && editorTextFocus",
+        "command": "editor.action.outdentLines",
+    },
+    {   "key": "shift+5", // Vim Outdent right (normal mode)
+        "command": "workbench.action.debug.continue",
+    },
+    {   "key": "shift+cmd+5", // Vim Outdent right (normal mode)
+        "command": "workbench.action.debug.restart",
+    },
+//#endregion
+]
+// { 
+//     "key": "cmd+k",
+//     "command": "vscode-neovim.send-cmdline",
+//     "when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
+// },
+//  { // To disable existing an ctrl key sequence, for example C-A add to your keybindings.json:
+//      "command": "-vscode-neovim.send",
+//      "key": "ctrl+a"
+//  },i 
+//  {
+//    "command": "vscode-neovim.send",
+//    // the key sequence to activate the binding
+//    "key": "cmd+k",
+//    // don't activate during insert mode
+    // "when": "editorTextFocus && neovim.mode != insert",
+    // the input to send to neovim
+//    "args": "<D-k>"
+//}, 
+// { // SUGGESTIONS BELOW HERE
+//     "key": "ctrl+j",
+//     "command": "selectNextSuggestion",
+//     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+// }, 
+// {
+//     "key": "ctrl+k",
+//     "command": "selectPrevSuggestion",
+//     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+// },
+
+//   {
+//     "key": "tab",
+//     "command": "selectNextSuggestion",
+//     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+//   },
+//       {
+//     "key": "shit+tab",
+//     "command": "selectPrevSuggestion",
+//     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+//   },
+//   {
+//     "key": "shift+tab",
+//     "command": "selectPrevSuggestion",
+//     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+//   },
+//   {
+//     "key": "cmd+k m",
+//     "command": "-workbench.action.editor.changeLanguageMode",
+//     "when": "!notebookEditorFocused"
+//   },
+         
+
+// {
+// "key": "shift+cmd+l",
+// "command": "-addCursorsAtSearchResults"
+// },{
+// "key": "shift+cmd+l",
+// "command": "-editor.action.selectHighlights"
+// },
+// {
+//   "key": "shift+cmd+l",
+//   "command": "-selectAllSearchEditorMatches"
+// },
+// {
+//   "key": "shift+cmd+k",
+//   "command": "-editor.action.deleteLines"
+// },
+// {
+//   "key": "shift+cmd+j",
+//   "command": "-workbench.action.search.toggleQueryDetails"
+// },
+// {   
+//   "key": "cmd+u",
+//   "command": "-cursorUndo"
+// },
+// {   
+//   "key": "cmd+l",
+//   "command": "-expandLineSelection"
+// },
+// {   
+//   "key": "cmd+j",
+//   "command": "-workbench.action.togglePanel"
+// },
+// {   
+//   "key": "cmd+k",    
+// "command": "-workbench.action.terminal.clear"
+// },    
+// {
+//     "key": "cmd+k",
+// "command": "vscode-neovim.send-cmdline",
+// "when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
+// },
+// {
+// "key": "shift+cmd+l",
+// "command": "-addCursorsAtSearchResults"
+// },{
+// "key": "shift+cmd+l",
+// "command": "-editor.action.selectHighlights"
+// },
+// {
+//     "key": "shift+cmd+l",
+//     "command": "-selectAllSearchEditorMatches"
+// },
+// {
+//     "key": "shift+cmd+k",
+//     "command": "-editor.action.deleteLines"
+// },
+// {
+//     "key": "shift+cmd+j",
+//     "command": "-workbench.action.search.toggleQueryDetails"
+// },
+// {   
+//     "key": "cmd+u",
+//     "command": "-cursorUndo"
+// },
+// {   
+//     "key": "cmd+l",
+//     "command": "-expandLineSelection"
+// },
+// {   
+//     "key": "cmd+j",
+//     "command": "-workbench.action.togglePanel"
+// },
+// {   
+//     "key": "cmd+k",    
+// "command": "-workbench.action.terminal.clear"
+// },    
+// {
+//     "key": "cmd+k",
+// "command": "vscode-neovim.send-cmdline",
+// "when": "neovim.mode == 'cmdline_insert' || neovim.mode == 'cmdline_normal' || neovim.mode == 'cmdline_replace'"
+// },
+// {
+// "key": "shift+cmd+l",
+// "command": "-addCursorsAtSearchResults"
+// },{
+// "key": "shift+cmd+l",
+// "command": "-editor.action.selectHighlights"
+// },
+// {
+//     "key": "shift+cmd+l",
+//     "command": "-selectAllSearchEditorMatches"
+// },
+// {
+//     "key": "shift+cmd+k",
+//     "command": "-editor.action.deleteLines"
+// },
+// {
+//     "key": "shift+cmd+j",
+//     "command": "-workbench.action.search.toggleQueryDetails"
+// },
+// {   
+//     "key": "cmd+u",
+//     "command": "-cursorUndo"
+// },
+// {   
+//     "key": "cmd+l",
+//     "command": "-expandLineSelection"
+// },
+// {   
+//     "key": "cmd+j",
+//     "command": "-workbench.action.togglePanel"
+// },
+// {   
+//     "key": "cmd+k",    
+// "command": "-workbench.action.terminal.clear"
+// },
+
+
+//   {
+    //     "key": "tab",
+    //     "command": "workbench.action.quickOpenNavigateNext",
+    //     "when": "inQuickOpen"
+    //   },
+    //   {
+    //     "key": "shift+tab",
+    //     "command": "workbench.action.quickOpenNavigatePrevious",
+    //     "when": "inQuickOpen"
+    //   },
+    //   {
+    //     "key": "ctrl+k",
+    //     "command": "workbench.action.quickOpenNavigatePrevious",
+    //     "when": "inQuickOpen"
+    //   },
+        // {
+    //     "key": "ctrl+j",
+    //     "command": "workbench.action.quickOpenNavigateNext",
+    //     "when": "inQuickOpen"
+    // },  
+      // {
+      //   "key": "shift+;",
+      //   "command": "insertPrevSuggestion",
+      //   "when": "hasOtherSuggestions && textInputFocus && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+      // },
+      
+      // {
+      //   "key": "ctrl+j",
+      //   "command": "-editor.action.insertLineAfter",
+      //   "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
+      // },
+      
+      
+      // {
+      //   "key": "ctrl+j",
+      //   "command": "-workbench.action.togglePanel"
+      // },
+      
+      // {
+      //   "key": "shift+tab",
+      //   "command": "-acceptAlternativeSelectedSuggestion",
+      //   "when": "suggestWidgetVisible && textInputFocus && textInputFocus"
+      // },
+      // {
+      //   "key": "ctrl+f",
+      //   "command": "-vscode-neovim.ctrl-f",
+      //   "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+      // }
+       
+    // {
+    //     "key": "shift+ctrl+e",
+    //     "command": "actions.findWithSelection"
+    //   },
+      // {
+      //   "key": "ctrl+e",
+      //   "command": "-actions.findWithSelection"
+      // },
+      
+      // {
+      //   "key": "shift+ctrl+e",
+      //   "command": "-workbench.view.explorer"
+      // }, 
+    // {
+    //     "key": "shift+ctrl+e",
+    //     "command": "actions.findWithSelection"
+    //   },
+      // {
+      //   "key": "ctrl+e",
+      //   "command": "-actions.findWithSelection"
+      // },
+      
+      // {
+      //   "key": "shift+ctrl+e",
+      //   "command": "-workbench.view.explorer"
+      // }, 
+    // {
+    //     "key": "shift+ctrl+e",
+    //     "command": "actions.findWithSelection"
+    //   },
+      // {
+      //   "key": "ctrl+e",
+      //   "command": "-actions.findWithSelection"
+      // },
+      
+      // {
+      //   "key": "shift+ctrl+e",
+      //   "command": "-workbench.view.explorer"
+      // },
+      // Everything below here was removed from ChrisMachine default map because it's unneccessary.
+      // {
+      // "key": "alt+j",
+      // "command": "workbench.action.terminal.focus",
+      // "when": "!terminalFocus"
+      // },
+      // { // Focus editor when side bar focused
+      //   "key": "ctrl+l",
+      //   "when": "sideBarFocus",
+      //   "command": "workbench.action.focusActiveEditorGroup"
+      // },
+      // { // Focus editor when terminal focused
+      //   "key": "ctrl+k",
+      //   "command": "workbench.action.focusActiveEditorGroup",
+      //   "when": "terminalFocus"
+      // },
+      // { 
+      //   "key": "ctrl+shift+t",
+      //   "command": "workbench.action.terminal.focus",
+      //   "when": "!terminalFocus"
+      // },
+
+
+//       {   // Indent right (normal mode)
+//       "key": "cmd+r",    
+//   "command": "vim.remap",
+//   "when": "inputFocus && vim.mode == 'Normal'",
+//   "args": {
+//       "after": [":>"]
+//   }
+// },
+// {   // Indent right (normal mode)
+//   "key": "tab",    
+//   "command": "vim.remap",
+//   "when": 				"inputFocus && vim.mode == 'Normal'",
+//   "args": {
+//       "after": ["i","\t", "<Esc>"],
+//   }
+// },
+// {   
+//   // vim: Indent Left
+//   "key": "ctrl+d",
+//   "command": "-deleteRight"
+// },
+// {
+//   // vim: Indent Right
+//   "key": "ctrl+t",
+//   "command": "-editor.action.transposeLetters"
+// },
+// {   // Indent in normal mode
+//   "key": "ctrl+t",    
+//   "command": "vim.remap",
+//   "args": {
+//       "after": ["<C-e>"],
+//   }
+// },
+// { 
+//   "key": "shift+k",
+//   "command": "editor.action.showHover",
+//   "when": "editorTextFocus"
+// },
+// {
+//   "key": "ctrl+k ctrl+i",
+//   "command": "-editor.action.showHover",
+//   "when": "editorTextFocus"
+// },

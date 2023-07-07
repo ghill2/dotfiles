@@ -1,0 +1,66 @@
+# Example https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+
+alt - d : python3 /Users/g1/BU/util/linktrigger_from_pycharm.py
+alt - s : python3 /Users/g1/BU/util/linksave.py
+
+alt - up [
+    "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_up
+]
+
+alt - down [
+    "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_down
+]
+
+alt - left [
+    "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_left
+]
+
+alt - right [
+    "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_right
+]
+
+# f11 : osascript -e 'set volume output volume ((output volume of (get volume settings)) - 5)'
+# f12 : osascript -e 'set volume output volume ((output volume of (get volume settings)) + 5)'
+# f13 : osascript -e 'tell application "System Events" to set volume with output muted not (output muted of (get volume settings))' -->
+
+# https://github.com/koekeishiya/skhd/issues/1
+
+# cmd - down : cliclick kp:"page-down" kp:"page-down" kp:"page-down" kp:"page-down" kp:"page-down"
+
+
+# alt - down : [
+#     "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_down
+# ]
+# alt - left : [
+#     "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_left
+# ]
+# alt - right : [
+#     "firefox" : python3 /Users/g1/BU/projects/dotfiles/osx/commands/commands.py _corsearch_right
+# ]
+# map -a -i org.mozilla.firefox 'alt + up' : echo 'Keybind for Application A'
+
+
+# needs additional page down on first item in list
+# alt - left : python3 /Users/g1/BU/projects/dotfiles/commands/commands.py corsearch_left
+# alt - right :
+# alt - up :
+# alt - down :
+# alt - left : python -c "import pyautogui; import time; pyautogui.click(x=377, y=805); time.sleep(0.5); pyautogui.scroll(-20)"
+
+
+# alt - left : cliclick -w 200 c:377,805
+# alt - right : cliclick -w 200 c:616,805
+
+# alt - left : cliclick -w 200 c:377,805 && python -c "import pyautogui; pyautogui.scroll(-20)"
+
+# cmd - down : skhd -k "79"
+
+# f13 [
+#     "page-down" : skhd -k "cmd + shift - s"
+#     * : screencapture -coW
+# ] -->
+
+# application specific bindings
+
+
+# https://github.com/slyd0g/SwiftSpy

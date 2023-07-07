@@ -1,0 +1,61 @@
+# Use tall and fullscreen layouts
+
+# enclose/declose folders and navigate in
+# filter non recursively search
+# fzf recursively searh
+# open context menu with commands (ideally in python)
+# keep cding terminal so can run commands
+# good disinction between files and folders visually
+# sort by date modified
+# quicklook
+# dual pane synced in current folder for running terminal commands
+# broot file manager
+# drag
+# fman is cross platform
+# kitty can display images
+# 10 - 15
+# 10% of 800,000 = 80,000
+# 120,000
+# 
+
+
+layouts:
+    - fullscreen # all windows are sized to fill the screen
+
+mod1:
+    - shift
+    - command
+    - option
+    
+mod2:
+    - control
+    - command
+
+focus-screen-1:
+    mod: mod1
+    key: s
+
+focus-screen-2:
+    mod: mod1
+    key: d
+
+focus-screen-3:
+    mod: mod1
+    key: f
+
+throw-screen-1:
+    mod: mod2
+    key: s
+
+throw-screen-2:
+    mod: mod2
+    key: d
+
+throw-screen-3:
+    mod: mod2
+    key: f
+
+mouse-follows-focus: false
+focus-follows-mouse: false
+window-margins: false
+window-margin-size: 0

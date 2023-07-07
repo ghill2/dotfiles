@@ -1,0 +1,53 @@
+# nautilus build requirements
+# NOT NEEDED, nautilus installs build requirements before installing a nautilus project.
+# if it is saying numpy is not found it means it activated the virtualenv
+# numpy>=1.24.3
+# Cython==3.0.0b2
+
+# add to pymusic
+qobuz-dl # music downloader
+deemix # for music downloader
+requests # for real debrid downloader
+
+# applescript
+# py2app
+# easygui  # display dialog for debugging
+# pyperclip # read clipboard
+# mac-vlc # open vlc videos to avoid error with filenames containing brackets
+# pynput # keyboard mapper
+# pipreqs # https://stackoverflow.com/a/69662395 https://github.com/bndr/pipreqs
+# pytest-cython-collect # pytest plugin to allow running tests in cython files
+# pygetwindow  # get the frontmost application
+# pyobjc  # needed for above
+# pyautogui
+
+
+# pyautogui # creating keystrokes, use keyboard instead
+# keyboard # for keyboard mapping script BROKEN ON MAC
+# git+https://github.com/boppreh/keyboard  # latest version to avoid adminstrator check on mac BROKEN ON MAC
+# streamrip # error on python 3.11, https://github.com/nathom/streamrip
+# pyload[all] # download manager # error on python 3.11 ERROR: Could not find a version that satisfies the requirement. No version for Python 3.11?
+# clipboard # read clipboard, error python 3.11
+
+##################
+# Python packages
+# vulture # remove dead python code, pre-commit with it also supported
+# uncalled # python dead code anayser
+# dead # pytho dead code anayser, pre-commit with it also supported
+# isort # reorder python imports
+# pydocstyle # doc string linting (vscode python extension)
+# mypy # type linting (vscode python extension)
+# bandit # software security vunerability linter in vscode (vscode python extension)
+# black # python code formatter (vscode python extension)
+# mypy # vscode mypy extension, static type checking
+# autoflake # remove unused imports (python)
+
+##################
+# Mypy types
+# types-frozendict
+# pydantic
+# types-frozendict
+# types-pytz
+# types-redis
+# types-toml
+

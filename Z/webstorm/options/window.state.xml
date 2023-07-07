@@ -1,0 +1,29 @@
+<application>
+  <component name="DimensionService">
+    <size key="GridCell.Tab.0.left.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.0.center.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.0.right.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.0.bottom.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.1.left.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.1.center.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.1.right.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.1.bottom.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.2.left.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.2.center.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.2.right.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.2.bottom.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.3.left.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.3.center.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.3.right.0.0.3840.2160" width="3840" height="662" />
+    <size key="GridCell.Tab.3.bottom.0.0.3840.2160" width="3840" height="662" />
+  </component>
+  <component name="WindowManager">
+    <frame x="0" y="0" width="2560" height="2855" extendedState="6" />
+  </component>
+  <component name="WindowStateApplicationService">
+    <state x="1920" y="845" width="800" height="650" key="WELCOME_SCREEN" timestamp="1676626215852">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state x="1920" y="845" width="800" height="650" key="WELCOME_SCREEN/0.25.3840.2135" timestamp="1676626215852" />
+  </component>
+</application>

@@ -1,0 +1,24 @@
+{
+  "entries": {
+    "cask": {
+      "iterm2": {
+        "version": "3.4.19",
+        "options": {
+          "full_name": "iterm2"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "monterey": {
+        "HOMEBREW_VERSION": "4.0.18",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "13.4.0.0.1.1651278267",
+        "Xcode": "13.2.1",
+        "macOS": "12.2"
+      }
+    }
+  }
+}
