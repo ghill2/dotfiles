@@ -9,6 +9,9 @@
 
 gparent=`dirname $(realpath $(dirname "$0"))`
 
+# Set timezone
+sudo systemsetup -settimezone Europe/London
+
 # Disable automatic logout
 sudo defaults write /Library/Preferences/.GlobalPreferences com.apple.securitypref.logoutvalue -int 0
 
