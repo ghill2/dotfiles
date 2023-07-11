@@ -139,12 +139,14 @@ vscode "dakara.dakara-foldplus" # extended fold commands
 vscode "ms-vscode.live-server" # live preview browser
 vscode "tomoki1207.pdf" # preview pdf files
 vscode "eamodio.gitlens"
-
+vscode "KevinRose.vsc-python-indent"  # python auto indenter
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
 vscode "baincd.copy-path-unixstyle" # copy unix path when ssh'ed to windows using git-bash
+vscode "VisualStudioExptTeam.vscodeintellicode"  # ai powered suggestions for python, typescript, javascript
+vscode "GitHub.copilot"
 
 # cask "backblaze" # also run the installer at /usr/local/Caskroom/backblaze/8.5.0.640/Backblaze Installer.app:
 # vscode "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
