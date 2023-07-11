@@ -148,18 +148,23 @@
     // "editor.scrollbar.vertical": "hidden",
     // "editor.scrollbar.verticalScrollbarSize": 5,
 
-
     //////////////////////////////////////////////////////////////////////////
     // Commands https://github.com/usernamehw/vscode-commands
 
-    "commands.quickPickIncludeAllCommands": true,
-    "commands.populateCommandPalette": true,
+    "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
+    "commands.populateCommandPalette": true, // Adds all items to Command Palette
     "commands.commands": {
-        "Sort Imports": {
+        "Sort & Remove Unused Imports": {
             "sequence": [
                 "editor.action.organizeImports", // use isort to sort imports
                 "autoflake.removeUnused" // removed unused imports
             ]
+        },
+        "Remove Unused Imports": {
+            "command": "autoflake.removeUnused", // removed unused imports
+        },
+        "Sort Imports": {
+            "command": "editor.action.organizeImports", // use isort to sort imports
         }
     },
     

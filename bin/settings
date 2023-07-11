@@ -12,7 +12,7 @@ if [ ! -d "$HOME/.cargo/env" ]; then
 fi
 
 pyenv update
-pyenv install 3.10.11  # Skip if the version appears to be installed already
+pyenv install --skip-existing 3.10.11
 pyenv global 3.10.11
 
 # https://mybyways.com/blog/global-hotkeys-for-macos-with-skhd

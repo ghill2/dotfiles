@@ -81,6 +81,7 @@ alias d='cd ~/BU/projects/dotfiles'
 alias p='cd ~/BU/projects'
 alias c=auto_commit
 alias ac='git add . && git commit --amend --no-edit'  # he --no-edit flag ensures that the commit message remains unchanged.
+alias up='update'  # he --no-edit flag ensures that the commit message remains unchanged.
 
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
