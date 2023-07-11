@@ -70,6 +70,9 @@
         "--lines-after-imports=2",
         "--use-parentheses"
     ],
+    "python.linting.pylintArgs": [
+        "--disable=C0116" // ignore no docstring lint
+    ],
     "python.linting.pycodestyleArgs": [
         "--max-line-length=100"
     ],
@@ -95,6 +98,8 @@
     "python.formatting.blackArgs": ["--line-length", "100"], // same as nautilus
     // "python.pythonPath": "/Users/chris/.miniconda/bin/python",
     // "python.terminal.activateEnvironment": false,
+    
+    // 
 
     ///////////////////////////////////////////////////////////////////////////////////
     // Editor & Application Settings
