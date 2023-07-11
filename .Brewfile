@@ -61,13 +61,14 @@ brew 'hudochenkov/sshpass/sshpass' # ssh without password prompt
 brew 'p7zip'  # extract dmg files on mac
 brew 'bitwarden-cli'
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
-
+brew 'wally'
 
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
 # brew install --HEAD LouisBrunner/valgrind/valgrind
 #######################################################################
 # Cask
+cask 'zsa-wally'
 cask 'anydesk'
 cask 'bitwarden'
 cask 'visual-studio-code'
@@ -93,7 +94,7 @@ cask 'whatsapp'
 cask 'slack'
 cask 'pacifist'
 cask 'microsoft-remote-desktop'
-
+cask 'mixed-in-key'
 #######################################################################
 
 # per machine .Brewfile
@@ -110,13 +111,15 @@ end
 #######################################################################
 # VSCode
 
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.isort"  # used by python extension to sort imports
 vscode "yzane.markdown-pdf"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "rust-lang.rust-analyzer"
 vscode "bungcip.better-toml"
 vscode "ritwickdey.LiveServer" # live reload
 vscode "sharat.vscode-brewfile"
-vscode "ms-python.python"
 vscode "Cameron.rerun-last-command"
 vscode "shardulm94.trailing-spaces"
 vscode "ariaminaei.vscode-jump-to-counterpart"
@@ -125,11 +128,12 @@ vscode "dakara.dakara-foldplus" # extended fold commands
 vscode "ms-vscode.live-server" # live preview browser
 vscode "tomoki1207.pdf" # preview pdf files
 vscode "eamodio.gitlens"
-vscode "ms-python.vscode-pylance"
+
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
 vscode "baincd.copy-path-unixstyle" # unix path when ssh'ed to windows using git-bash
+
 
 # cask "backblaze" # also run the installer at /usr/local/Caskroom/backblaze/8.5.0.640/Backblaze Installer.app:
 # vscode "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
@@ -144,7 +148,8 @@ vscode "baincd.copy-path-unixstyle" # unix path when ssh'ed to windows using git
 # "TrungNgo.autoflake"
 # "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
 # "TrungNgo.autoflake" # sort imports and remove unused imports
-# "ms-python.isort" # used by python extension automatically. sort imports (used by nautilus_trader)
+
+
 # "ms-python.black-formatter" # python auto-formatter. doesn't come with python extenson
 #"ms-python.flake8" # used by python extension automatically. catch code smells
 # "maruruh.vscode-quick-menu-builder" # build your own command palette menu
