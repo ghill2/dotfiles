@@ -176,6 +176,7 @@
     "task.problemMatchers.neverPrompt": {
         "shell": true
     },
+    "security.warnOnExternalOpen": false,
     // "editor.scrollbar.horizontal": "hidden",
     // "editor.scrollbar.vertical": "hidden",
     // "editor.scrollbar.verticalScrollbarSize": 5,
