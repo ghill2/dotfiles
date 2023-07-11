@@ -2,9 +2,7 @@
 // Normal, Insert, Visual, VisualBlock, VisualLine, SearchInProgressMode, CommandlineInProgress, Replace, EasyMotionMode, EasyMotionInputMode, SurroundInputMode, OperatorPendingMode ,Disabled
 {
 
-    // "editor.scrollbar.horizontal": "hidden",
-    // "editor.scrollbar.vertical": "hidden",
-    // "terminal.integrated.smoothScrolling": true,
+    
     // "editor.codeActionsOnSave": {
     //     "source.organizeImports": true
     // },
@@ -12,53 +10,8 @@
     // Beautify config (html, css, javascript formatter)
     // used this because prettier would put all attributes on another line if past maximum line length
     // "errorLens.enabled": false,
-    "editor.fontSize": 14,
-    "remote.SSH.defaultExtensions": [
-        "ms-vscode-remote.remote-ssh",
-        "rust-lang.rust-analyzer",
-        "usernamehw.errorlens",
-        "bungcip.better-toml",
-        "ritwickdey.LiveServer", // live reload
-        "sharat.vscode-brewfile",
-        "eamodio.gitlens",
-        "ms-python.python",
-        "formulahendry.code-runner",
-        "Cameron.rerun-last-command",
-        "shardulm94.trailing-spaces",
-        "ariaminaei.vscode-jump-to-counterpart",
-        "guyskk.language-cython",
-        "TomRijndorp.find-it-faster",
-        "bradlc.vscode-tailwindcss", // tailwind intellisense
-        "ms-vscode.live-server", // live preview browser
-        "tomoki1207.pdf", // preview pdf files
-        "pamaron.pytest-runner", // run pytest test
-        "mikoz.autoflake-extension", // ERROR: doesn't find autoflake install. sort imports and remove unused imports
-        "TrungNgo.autoflake", // sort imports and remove unused imports
-        "ms-python.black-formatter", // python auto-formatter. doesn't come with python extenson
-        "maruruh.vscode-quick-menu-builder", // build your own command palette menu
-        "dakara.dakara-foldplus", // extended fold commands
-        "ryuta46.multi-command", // run multiple command in a single command
-        "esbenp.prettier-vscode", // html, javascript, json, css, html formatter
-        "ciantic.keymapceditor-vsc", // # QMK
-        "ms-vscode.cpptools", // QMK
-        // "editorconfig.editorconfig" // # QMK # becomes unresponsive, disabled
-        // "TrungNgo.autoflake",
-        // "ms-python.isort", # used by python extension automatically. sort imports (used by nautilus_trader)
-        // "ms-python.flake8", # used by python extension automatically. catch code smells
-        // "matangover.mypy", # using ms-python.mypy for now
-        // "sswg.swift-lang", # not using swift for now
-    ],
-    "errorLens.exclude": ["Trailing comma"],
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.statusBarMessageEnabled": true,
-    // "errorLens.messageMaxChars": 50,
-    "errorLens.statusBarIconsEnabled": true,
-    // "errorLens.removeLinebreaks": false,
-    "errorLens.enabledDiagnosticLevels": ["error"], // , "warning" , "info"
-    "rust.linting.enabled": true,
-    // "rust-analyzer.inlayHints.typeHints.enable": false,
-    // "rust-analyzer.inlayHints.parameterHints.enable": false,
-    // "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
+    //////////////////////////////////////////////////////////////////////////
+    // Python Config
     "python.linting.enabled": false,
     "python.linting.pyLanceEnabled": false,
     "python.linting.banditEnabled": false,
@@ -69,45 +22,17 @@
     "python.linting.pydocstyleEnabled": false,
     "python.linting.pylamaEnabled": false,
     "python.linting.pylintEnabled": false,
-    "html.format.wrapLineLength":120,
-    "beautify.language": {
-    "js": {
-        "type": ["javascript", "json"],
-        "filename": [".jshintrc", ".jsbeautifyrc"]
-            // "ext": ["js", "json"]
-            // ^^ to set extensions to be beautified using the javascript beautifier
-        },
-        "css": ["css", "scss"],
-        "html": ["htm", "html"]
-        // ^^ providing just an array sets the VS Code file type
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "HookyQR.beautify",
-        "editor.tabSize": 4
-    },
-    "[css]": {
-        "editor.defaultFormatter": "HookyQR.beautify",
-        "editor.tabSize": 2
-    },
-    "[html]": {
-        "editor.defaultFormatter": "HookyQR.beautify",
-        "editor.tabSize": 2
-    },
-    
-    "liveServer.settings.port":8089,
-    "commands.quickPickIncludeAllCommands": true,
-    "commands.populateCommandPalette": true,
-    "commands.commands": {
-        "Sort Imports": {
-            "sequence": [
-                "editor.action.organizeImports", // use isort to sort imports
-                "autoflake.removeUnused" // removed unused imports
-            ]
-        }
-    },
-    
-    "editor.scrollBeyondLastLine": true,
-    "openline.programpath": "/Users/g1/BU/projects/linktrigger.py",
+    "python.sortImports.args": [ // from nautilus
+        "--combine-as",
+        "--line-length=100",
+        "--ensure-newline-before-comments",
+        "--force-single-line-imports",
+        "--single-line-exclusions=typing",
+        "--trailing-comma",
+        "--multi-line=3",
+        "--lines-after-imports=2",
+        "--use-parentheses"
+    ],
     "isort.args": [
         "--combine-as",
         "--line-length=100",
@@ -141,33 +66,18 @@
         "--ignore=C101 E203 E252 E402 D100 D101 D102 S101 S403 S404 W503",
         "--min-python-version=3.8.0"
     ],
-    "editor.lineNumbers": "on",
-    "python.sortImports.args": [ // from nautilus
-        "--combine-as",
-        "--line-length=100",
-        "--ensure-newline-before-comments",
-        "--force-single-line-imports",
-        "--single-line-exclusions=typing",
-        "--trailing-comma",
-        "--multi-line=3",
-        "--lines-after-imports=2",
-        "--use-parentheses"
-    ],
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length", "100"], // same as nautilus
-    "git.autofetch": true, // high cpu load fix https://www.reddit.com/r/vscode/comments/8arcd9/comment/dyc8uyx/?utm_source=share&utm_medium=web2x&context=3
-    // "files.watcherExclude": {"**/**" : true}, // high cpu bug fix https://github.com/Microsoft/vscode/issues/3998#issuecomment-922257545     // CAREFUL: this will disable removed unused imports
-    "settingsSync.keybindingsPerPlatform": false, // suspected high CPU usage bug fix https://stackoverflow.com/a/72518926
-    "search.followSymlinks": false, // suspected high CPU usage bug fix https://stackoverflow.com/a/72518926
-    "pytest_runner.pytest_exec": "pytest -s", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
-    // "editor.scrollbar.verticalScrollbarSize": 5,
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // Editor & Application Settings
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 15,
+    "editor.scrollBeyondLastLine": true,
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "on",
     "editor.hideCursorInOverviewRuler": true, // This will keep the scrollbar, but will result in it only appearing when the cursor is within the editor, as seen in the image below:
     "editor.glyphMargin": false, // Hide/Show breakpoint margin, gutter
-    "window.newWindowDimensions": "maximize", // maximize new window
-    "workbench.sideBar.location": "right",
-    "workbench.editor.revealIfOpen": false, // https://superuser.com/a/1313190
-    "window.openFilesInNewWindow": "off",
-    "window.openFoldersInNewWindow": "off",
     "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
     "editor.tokenColorCustomizations": {
         "editorRuler.foreground": "#ff4081",
@@ -183,21 +93,151 @@
         }
         ]
     },
-    "markdownSnippets.markdownFolder": "/Users/g1/Desktop/dotfiles/snippets",
-    "Vsnips.SnipsDir": [
-        "~/Desktop/dotfiles/snippets"
-    ],
-    "Vsnips.LogLevel": "INFO",
+    "files.exclude": { // exclude files from explorer
+        "Z": true,
+        // ".direnv": true,
+        "/usr": false,
+    },
+    "search.exclude": { // exclude folders from search index
+        "Z": true,
+        ".direnv": true,
+        "node_modules": true    // this excludes the folder only from the root of your workspace 
+    },
+    "window.zoomLevel": 1,
+    "workbench.sideBar.location": "right",
+    "workbench.editor.revealIfOpen": false, // https://superuser.com/a/1313190
+    "terminal.integrated.smoothScrolling": true,
     "trailing-spaces.highlightCurrentLine": false, // Highlighting of trailing spaces in the currently edited line can be annoying: each time you are about to start a new word, the space you type is matched as a trailing spaces. Currently edited line can thus be ignored:
     "trailing-spaces.includeEmptyLines": false, // When firing the deletion command, empty lines are matched as trailing regions, and end up being deleted. You can specifically ignore them:
-    // "trailing-spaces.trimOnSave": true, // Setting this to true will ensure trailing spaces are deleted when you save your document.
+    "window.newWindowDimensions": "maximize", // maximize new window
+    "window.openFilesInNewWindow": "off",
+    "window.openFoldersInNewWindow": "off",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "Monokai Classic Icons",
+    "terminal.integrated.scrollback": 100000, // increase by x10 // 2147483647
+    "extensions.ignoreRecommendations": true,
+    "extensions.autoUpdate":false,
+    "extensions.autoCheckUpdates": false,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "printcode.lineNumbers": "off",
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.enabled": false,
+    "terminal.integrated.hideTerminalReuseAlert": true,
+    "print.lineNumbers": "off",
+    "print.fontSize": "13pt",
+    "print.formatMarkdown": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
     "debug.onTaskErrors": "abort", // if debug fails, what to do
     "renderWhitespace": "all",
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDelete": false,
+    "task.problemMatchers.neverPrompt": {
+        "shell": true
+    },
+    // "editor.scrollbar.horizontal": "hidden",
+    // "editor.scrollbar.vertical": "hidden",
+    // "editor.scrollbar.verticalScrollbarSize": 5,
+
+
+    //////////////////////////////////////////////////////////////////////////
+    // Commands https://github.com/usernamehw/vscode-commands
+
+    "commands.quickPickIncludeAllCommands": true,
+    "commands.populateCommandPalette": true,
+    "commands.commands": {
+        "Sort Imports": {
+            "sequence": [
+                "editor.action.organizeImports", // use isort to sort imports
+                "autoflake.removeUnused" // removed unused imports
+            ]
+        }
+    },
+    
+    //////////////////////////////////////////////////////////////////////////
+    // Rust
+    "rust.linting.enabled": true,
+    "errorLens.exclude": ["Trailing comma"],
+    "errorLens.gutterIconsEnabled": true,
+    "errorLens.statusBarMessageEnabled": true,
+    "errorLens.statusBarIconsEnabled": true,
+    "errorLens.enabledDiagnosticLevels": ["error"], // , "warning" , "info"
+    // "errorLens.messageMaxChars": 50,
+    // "errorLens.removeLinebreaks": false,
+    // "rust-analyzer.inlayHints.typeHints.enable": false,
+    // "rust-analyzer.inlayHints.parameterHints.enable": false,
+    // "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
+    
+    //////////////////////////////////////////////////////////////////////////
+    // Javascript Formatting
+    "html.format.wrapLineLength":120,
+    "beautify.language": {
+    "js": {
+        "type": ["javascript", "json"],
+        "filename": [".jshintrc", ".jsbeautifyrc"]
+            // "ext": ["js", "json"]
+            // ^^ to set extensions to be beautified using the javascript beautifier
+        },
+        "css": ["css", "scss"],
+        "html": ["htm", "html"]
+        // ^^ providing just an array sets the VS Code file type
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.tabSize": 4
+    },
+    "[css]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.tabSize": 2
+    },
+    
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // Extensions & Misc
+    "openline.programpath": "/Users/g1/BU/projects/linktrigger.py",
+    "pytest_runner.pytest_exec": "pytest -s", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
     "jumpToCounterpart.pairs": {
         ".h": ".cpp",
         ".js": ".css",
         ".tsx": ".module.css",
     },
+    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "culp.fullPath.removeDiscColons": true,
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    // Git
+    "git.confirmSync": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.views.searchAndCompare.files.layout": "tree",
+    "gitlens.hovers.enabled": false,
+    "gitlens.views.contributors.showAllBranches": true,
+    "remote.SSH.remotePlatform": {
+        "100.72.182.126": "windows",
+        "100.100.132.113": "windows"
+    },
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // VIM & Neovim
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/g2/Desktop/dotfiles/init.vim",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
@@ -259,7 +299,7 @@
         "visualblock": "#86592d",
         "replace": "#000000"
     },
-    // "editor.parameterHints": false,
+    
     // "vim.leader": "\\",
     "vim.useSystemClipboard": true,
     "vim.overrideCopy": false,
@@ -268,108 +308,55 @@
     // "vim.neovimPath": "/usr/local/bin/nvim",
     // "vim.neovimConfigPath": "/Users/g2/Desktop/dotfiles/init.vim",
     // "vim.neovimUseConfigFiliie": true,
-    // "terminal.integrated.allowChords": false,
-    // "code-runner.terminalRoot": "/mnt/",
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/g2/Desktop/dotfiles/init.vim",
-    "telemetry.telemetryLevel": "off",
-    "extensions.ignoreRecommendations": true,
-    "extensions.autoUpdate":false,
-    "extensions.autoCheckUpdates": false,
-    "security.workspace.trust.enabled": false,
-    "terminal.integrated.hideTerminalReuseAlert": true,
-    //Code Runner
-    "code-runner.saveAllFilesBeforeRun": true,
-    "code-runner.runInTerminal": true,
-    "code-runner.ignoreSelection": true,
-    "code-runner.respectShebang": true, // so can run scripts with no extension from command line
-    "code-runner.enableAppInsights": false, //disable data collection.
-    //If code-runner.cwd is not set and code-runner.fileDirectoryAsCwd is false, use the path of root folder that is open in VS Code
-    "code-runner.fileDirectoryAsCwd": false,
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "php": "C:\\php\\php.exe",
-        "python": "python3",
-        "perl": "perl",
-        "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
-        "go": "go run",
-        "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        // "Brewfile": "brew bundle --global --no-upgrade"
-    },
-    "editor.minimap.enabled": false,
-    "explorer.confirmDragAndDrop": false,
-    "task.problemMatchers.neverPrompt": {
-        "shell": true
-    },
-    "files.autoSave": "afterDelay",
-    "explorer.confirmDelete": false,
-    "workbench.iconTheme": "Monokai Classic Icons",
-    "terminal.integrated.scrollback": 100000, // increase by x10 // 2147483647
-    "culp.fullPath.removeDiscColons": true,
-    // "culp.fullPath.prefix": "/mnt",
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
-    "security.workspace.trust.untrustedFiles": "open",
-    "printcode.lineNumbers": "off",
-    "remote.containers.defaultExtensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "formulahendry.code-runner",
-        "donjayamanne.python-extension-pack",
-        "extension.rerunLastCommand"
-    ],
-    "print.lineNumbers": "off",
-    "print.fontSize": "13pt",
-    "print.formatMarkdown": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "git.confirmSync": false,
-    // "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.fontSize": 15,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
-    },
-    // "workbench.editorAssociations": {
+    
+    
+
+    
+}
+
+// "culp.fullPath.prefix": "/mnt",
+// "terminal.integrated.allowChords": false,
+// "editor.parameterHints": false,
+// "code-runner.terminalRoot": "/mnt/",
+///////////////////////////////////////////////////////////////////////////////////
+//Code Runner
+// "code-runner.saveAllFilesBeforeRun": true,
+// "code-runner.runInTerminal": true,
+// "code-runner.ignoreSelection": true,
+// "code-runner.respectShebang": true, // so can run scripts with no extension from command line
+// "code-runner.enableAppInsights": false, //disable data collection.
+// //If code-runner.cwd is not set and code-runner.fileDirectoryAsCwd is false, use the path of root folder that is open in VS Code
+// "code-runner.fileDirectoryAsCwd": false,
+// "code-runner.executorMap": {
+//     "javascript": "node",
+//     "php": "C:\\php\\php.exe",
+//     "python": "python3",
+//     "perl": "perl",
+//     "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+//     "go": "go run",
+//     "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
+//     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+//     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+//     // "Brewfile": "brew bundle --global --no-upgrade"
+// },
+///////////////////////////////////////////////////////////////////////////////////
+// "git.autofetch": true, // high cpu load fix https://www.reddit.com/r/vscode/comments/8arcd9/comment/dyc8uyx/?utm_source=share&utm_medium=web2x&context=3
+// "search.followSymlinks": false, // suspected high CPU usage bug fix https://stackoverflow.com/a/72518926
+// "markdownSnippets.markdownFolder": "/Users/g1/Desktop/dotfiles/snippets",
+// "Vsnips.SnipsDir": [
+//     "~/Desktop/dotfiles/snippets"
+// ],
+// "Vsnips.LogLevel": "INFO",
+// "liveServer.settings.port":8089,
+// "files.watcherExclude": {"**/**" : true}, // high cpu bug fix https://github.com/Microsoft/vscode/issues/3998#issuecomment-922257545     // CAREFUL: this will disable removed unused imports
+// "settingsSync.keybindingsPerPlatform": false, // suspected high CPU usage bug fix https://stackoverflow.com/a/72518926
+
+// "trailing-spaces.trimOnSave": true, // Setting this to true will ensure trailing spaces are deleted when you save your document.
+// "liveServer.settings.donotShowInfoMsg": true,
+// "terminal.external.osxExec": "iTerm.app",
+// "workbench.editorAssociations": {
     //     "*.scpt": "default"
     // },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-    "bracket-pair-colorizer-2.depreciation-notice": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.enabled": false,
-    "gitlens.views.searchAndCompare.files.layout": "tree",
-    "files.exclude": { // exclude files from explorer
-        "Z": true,
-        // ".direnv": true,
-        "/usr": false,
-        
-    },
-    "search.exclude": { // exclude folders from search index
-        "Z": true,
-        ".direnv": true,
-        "node_modules": true    // this excludes the folder only from the root of your workspace 
-    },
-    "gitlens.hovers.enabled": false,
-    "gitlens.views.contributors.showAllBranches": true,
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "liveServer.settings.donotShowInfoMsg": true,
-    "remote.SSH.remotePlatform": {
-        "100.72.182.126": "windows",
-        "100.100.132.113": "windows"
-    },
-    "window.zoomLevel": 1,
-    //"debug.onTaskErrors": "showErrors",
-    // "bracket-pair-colorizer-2.depreciation-notice": false,
-    // "terminal.integrated.allowChords": false,
-}
 // Start of VSCode Neovim settings:
 // "whichkey.sortOrder": "alphabetically",
 // "whichkey.bindings": [
