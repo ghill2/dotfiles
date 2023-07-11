@@ -62,6 +62,7 @@ brew 'p7zip'  # extract dmg files on mac
 brew 'bitwarden-cli'
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
 brew 'wally'
+brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
 
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
