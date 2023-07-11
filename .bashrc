@@ -125,6 +125,9 @@ fi
 
 . "$HOME/.cargo/env"
 
+ulimit -n 10240
+RUST_BACKTRACE=full
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
     # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
@@ -135,9 +138,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Switches the terminal to use pyenv versions
     eval "$(pyenv init -)"
-
-    ulimit -n 10240
-    RUST_BACKTRACE=full
 
     # Add chrome alias
     # https://github.com/asyne/cproto#running-chrome-in-debug-mode
