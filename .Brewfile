@@ -118,6 +118,7 @@ vscode "ms-python.black-formatter" # used by python extension for formatting
 vscode "ms-python.autopep8" # used by python extension for formatting
 vscode "ms-python.flake8" # used by python extension for linting
 
+vscode "evgeniypeshkov.syntax-highlighter"  # tree-sitter syntax highlighting in vscode
 # vscode "TrungNgo.autoflake" # remove unused imports
 vscode "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
 
