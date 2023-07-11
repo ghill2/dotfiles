@@ -71,7 +71,7 @@
         "--use-parentheses"
     ],
     "python.linting.pylintArgs": [
-        "--disable=C0116" // ignore no docstring lint
+        "--disable=C0116,C0115" // ignore no docstring lint
     ],
     "python.linting.pycodestyleArgs": [
         "--max-line-length=100"
@@ -141,7 +141,7 @@
     "terminal.integrated.smoothScrolling": true,
     "trailing-spaces.highlightCurrentLine": false, // Highlighting of trailing spaces in the currently edited line can be annoying: each time you are about to start a new word, the space you type is matched as a trailing spaces. Currently edited line can thus be ignored:
     "trailing-spaces.includeEmptyLines": false, // When firing the deletion command, empty lines are matched as trailing regions, and end up being deleted. You can specifically ignore them:
-    "window.newWindowDimensions": "maximize", // maximize new window
+    "window.newWindowDimensions": "inherit", // maximize new window
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "explorer.confirmDragAndDrop": false,

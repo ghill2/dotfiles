@@ -20,7 +20,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option+shift.",
+                                "description": "Hold caps_lock to hyper. Tap for escape.",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -30,6 +30,11 @@
                                     }
                                 },
                                 "to": [
+                                  {
+                                    "key_code": "escape"
+                                  }
+                                ],
+                                "to_if_held_down": [
                                     {
                                         "key_code": "left_shift",
                                         "modifiers": [
