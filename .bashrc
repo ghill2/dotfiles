@@ -126,6 +126,11 @@ fi
 
 . "$HOME/.cargo/env"
 
+
+# https://unix.stackexchange.com/a/310714 https://superuser.com/questions/273047/zsh-up-arrow-only-repeats-unique-commands
+# ignore duplicates in terminal history
+HISTCONTROL=$HISTCONTROL:ignoredups
+
 ulimit -n 10240
 RUST_BACKTRACE=full
 
