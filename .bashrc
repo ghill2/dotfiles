@@ -115,8 +115,8 @@ path_add_back() {
 # [WinError 1312] A specified logon session does not exist. It may already have been terminated
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
-# $GIT_BASH_DEFAULT_PS1
 
+# $GIT_BASH_DEFAULT_PS1
 path_add_front "$PARENT/bin"
 if [[ "$OSTYPE" == "msys" ]]; then
     path_add_front "$HOME/BU/projects/nautilus_trader"
@@ -124,6 +124,29 @@ if [[ "$OSTYPE" == "msys" ]]; then
 fi
 
 . "$HOME/.cargo/env"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
+    # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
+
+    # https://stackoverflow.com/a/19770395
+    export LC_CTYPE=C
+    export LANG=C
+
+    # Switches the terminal to use pyenv versions
+    eval "$(pyenv init -)"
+
+    ulimit -n 10240
+    RUST_BACKTRACE=full
+
+    # Add chrome alias
+    # https://github.com/asyne/cproto#running-chrome-in-debug-mode
+    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+    # Direnv shell hook
+    eval "$(direnv hook zsh)"
+fi
+
 
 # echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 

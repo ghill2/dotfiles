@@ -114,11 +114,12 @@ end
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.isort"  # used by python extension to sort imports (does not remove unused imports)
-# vscode"TrungNgo.autoflake" # sort imports and remove unused imports
+vscode"TrungNgo.autoflake" # remove unused imports
+# "ms-python.black-formatter" # python auto-formatter. doesn't come with python extenson
 vscode "ms-python.flake8" # used by python extension for linting
 vscode "usernamehw.commands"  # show and run commands in a dropdown menu
 vscode "yzane.markdown-pdf"  # export markdown as pdf
-vscode "ms-vscode-remote.remote-ssh"
+
 vscode "rust-lang.rust-analyzer"
 vscode "bungcip.better-toml"
 vscode "sharat.vscode-brewfile"
@@ -131,14 +132,14 @@ vscode "ms-vscode.live-server" # live preview browser
 vscode "tomoki1207.pdf" # preview pdf files
 vscode "eamodio.gitlens"
 
+vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
-vscode "baincd.copy-path-unixstyle" # unix path when ssh'ed to windows using git-bash
+vscode "baincd.copy-path-unixstyle" # copy unix path when ssh'ed to windows using git-bash
 
 # cask "backblaze" # also run the installer at /usr/local/Caskroom/backblaze/8.5.0.640/Backblaze Installer.app:
 # vscode "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
-
 # vscode "ritwickdey.LiveServer" # live reload
 # "usernamehw.errorlens"
 # "ms-vscode.cpptools"
@@ -146,12 +147,7 @@ vscode "baincd.copy-path-unixstyle" # unix path when ssh'ed to windows using git
 # "TomRijndorp.find-it-faster"
 # "bradlc.vscode-tailwindcss" # tailwind intellisense
 # "pamaron.pytest-runner" # run pytest test
-# "TrungNgo.autoflake"
 # "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
-
-
-
-# "ms-python.black-formatter" # python auto-formatter. doesn't come with python extenson
 
 # "maruruh.vscode-quick-menu-builder" # build your own command palette menu
 # "ryuta46.multi-command" # run multiple command in a single command

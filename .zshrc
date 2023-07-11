@@ -1,32 +1,9 @@
-parent="$(dirname ${BASH_SOURCE:-$0})"
-gparent="$(dirname $(dirname ${BASH_SOURCE:-$0}))"
-
-source "$parent/.bashrc"
+source "$HOME/.bashrc"
 
 # MAC only aliases.
-alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
-# alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
 
-# https://stackoverflow.com/a/19770395
-export LC_CTYPE=C
-export LANG=C
-
-# Switches the terminal to use pyenv versions
-eval "$(pyenv init -)"
-
-ulimit -n 10240
-RUST_BACKTRACE=full
-
-
-path_add_front "$gparent/util"
-path_add_front "/usr/local/mysql/bin"
-
-# Direnv shell hook
-eval "$(direnv hook zsh)"
-
-# Add chrome alias
-# https://github.com/asyne/cproto#running-chrome-in-debug-mode
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+# path_add_front "$gparent/util"
+# path_add_front "/usr/local/mysql/bin"
 
 # enable logging in leaks tool https://www.mono-project.com/docs/advanced/runtime/memory-leaks/
 # export MallocStackLogging=1 .../build/bin/mono-sgen program.exe
