@@ -27,36 +27,28 @@ Neovim: goes to end of select block if selected from bottom up.
 // META = shift+ctrl+alt+cmd
 // this._terminal = vscode.window.activeTerminal;
 
-
+// scroll using the commands extension
+// "Scroll 10 lines down": {
+//     "command": "editorScroll",
+//     "args": {
+//         "to": "down",
+//         "by": "line",
+//         "value": 10,
+//         "revealCursor": true,
+//     },
+// },
 
 [
 //#region MAPS
-    {
-        "key": "oem_8",
-        "command": "commands.run",
-        "args": [
-            "editor.action.organizeImports",
-            "autoflake.removeUnused"
-        ],
-        "when": "editorTextFocus"
+    //////////////////////////////////////////////////////////////////////////
+    // commands menu keybindings
+    {   "key": "ctrl+alt+cmd+f",
+        "command": "Format" // declared in settings.json in commands menu
     },
-    // {
-    //     "key": "alt+x",
-    //     "command": "extension.sortImports",
-    //     "label": "Sort Imports", // optional
-    //     "description": "organizeImports+autoflake.removeUnused", // optional
-    //     "args": {
-    //         "sequence": [
-    //             "editor.action.organizeImports",
-    //             "autoflake.removeUnused"
-    //         ]
-    //     },
-    //     "when": "editorTextFocus"  // if you want this, you probably do
-    // },
+    //////////////////////////////////////////////////////////////////////////
     {   "key": "alt+cmd+x",  // Show command menu
         "command": "commands.openAsQuickPick",
     },
-    
     {   "key": "cmd+b",  // Toggle browser visible, hide show browser
         "command": "workbench.action.toggleSidebarVisibility",
     },
@@ -70,8 +62,7 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "workbench.action.toggleActivityBarVisibility",
         "when": "editorFocus"
     },
-    {
-        "key": "ctrl+alt+t",
+    {   "key": "ctrl+alt+t",
         "command": "quickMenuBuilder.openQuickMenu",
         "args": "Text Menu",
         "when": "editorTextFocus"

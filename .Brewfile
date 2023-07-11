@@ -112,11 +112,18 @@ end
 # VSCode
 
 vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-pylance" # used by python extension to provide LSP
 vscode "ms-python.isort"  # used by python extension to sort imports (does not remove unused imports)
-vscode"TrungNgo.autoflake" # remove unused imports
-# "ms-python.black-formatter" # python auto-formatter. doesn't come with python extenson
+vscode "ms-python.black-formatter" # used by python extension for formatting
+vscode "ms-python.autopep8" # used by python extension for formatting
 vscode "ms-python.flake8" # used by python extension for linting
+
+# vscode "TrungNgo.autoflake" # remove unused imports
+vscode "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
+
+vscode "ms-python.pylint" # used by python extension for linting
+vscode "ms-python.mypy-type-checker" # used by python extension for linting
+
 vscode "usernamehw.commands"  # show and run commands in a dropdown menu
 vscode "yzane.markdown-pdf"  # export markdown as pdf
 
@@ -147,7 +154,7 @@ vscode "baincd.copy-path-unixstyle" # copy unix path when ssh'ed to windows usin
 # "TomRijndorp.find-it-faster"
 # "bradlc.vscode-tailwindcss" # tailwind intellisense
 # "pamaron.pytest-runner" # run pytest test
-# "mikoz.autoflake-extension" # ERROR: doesn't find autoflake install. sort imports and remove unused imports
+
 
 # "maruruh.vscode-quick-menu-builder" # build your own command palette menu
 # "ryuta46.multi-command" # run multiple command in a single command

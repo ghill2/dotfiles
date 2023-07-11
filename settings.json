@@ -11,9 +11,42 @@
     // used this because prettier would put all attributes on another line if past maximum line length
     // "errorLens.enabled": false,
     //////////////////////////////////////////////////////////////////////////
+    // Commands https://github.com/usernamehw/vscode-commands
+    "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
+    "commands.populateCommandPalette": true, // Adds all items to Command Palette
+    "commands.commands": {
+        "Sort & Remove Unused Imports": {
+            "sequence": [
+                "editor.action.organizeImports", // use isort to sort imports
+                "autoflake.removeUnused" // removed unused imports
+            ]
+        },
+        "Remove Unused Imports": {
+            "command": "autoflake.removeUnused", // removed unused imports
+        },
+        "Sort Imports": {
+            "command": "editor.action.organizeImports", // use isort to sort imports
+        },
+        "Format": {
+            "sequence": [
+                "editor.action.formatDocument",
+                // "editor.action.organizeImports", // use isort to sort imports
+                "autoflake.removeUnused", // removed unused imports
+            ]
+        },
+        "Format Only": {
+            "command": "editor.action.formatDocument", // use isort to sort imports
+        }
+    },
+    
+    //////////////////////////////////////////////////////////////////////////
     // Python Config
-    "python.linting.enabled": false,
-    "python.linting.pyLanceEnabled": false,
+    "python.linting.enabled": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "python.formatting.provider": "black",
+    // "python.languageServer": "Default",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pyLanceEnabled": true,
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.mypyEnabled": false,
@@ -21,19 +54,12 @@
     "python.linting.pycodestyleEnabled": false,
     "python.linting.pydocstyleEnabled": false,
     "python.linting.pylamaEnabled": false,
-    "python.linting.pylintEnabled": false,
+    "python.dataScience.alwaysTrustNotebooks": true,
+    "autoflake-extension.remove-all-unused-imports": true, // mikoz.autoflake-extension
+    // "autoflake.removeAllUnusedImports": true, // TrungNgo.autoflake
+    // "autoflake-extension.extension.useIntegratedTerminal": true, // for debugging
+    "autoflake.verbose": true, // for debugging
     "python.sortImports.args": [ // from nautilus
-        "--combine-as",
-        "--line-length=100",
-        "--ensure-newline-before-comments",
-        "--force-single-line-imports",
-        "--single-line-exclusions=typing",
-        "--trailing-comma",
-        "--multi-line=3",
-        "--lines-after-imports=2",
-        "--use-parentheses"
-    ],
-    "isort.args": [
         "--combine-as",
         "--line-length=100",
         "--ensure-newline-before-comments",
@@ -58,7 +84,7 @@
         // "--show-column-numbers", // default in vscode
         // "--no-pretty", // default in vscode
     ],
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    
     "python.linting.flake8Args": [ // from nautilus
         "--max-complexity=10",
         "--max-line-length=150",
@@ -66,8 +92,9 @@
         "--ignore=C101 E203 E252 E402 D100 D101 D102 S101 S403 S404 W503",
         "--min-python-version=3.8.0"
     ],
-    "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length", "100"], // same as nautilus
+    // "python.pythonPath": "/Users/chris/.miniconda/bin/python",
+    // "python.terminal.activateEnvironment": false,
 
     ///////////////////////////////////////////////////////////////////////////////////
     // Editor & Application Settings
@@ -148,26 +175,6 @@
     // "editor.scrollbar.vertical": "hidden",
     // "editor.scrollbar.verticalScrollbarSize": 5,
 
-    //////////////////////////////////////////////////////////////////////////
-    // Commands https://github.com/usernamehw/vscode-commands
-
-    "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
-    "commands.populateCommandPalette": true, // Adds all items to Command Palette
-    "commands.commands": {
-        "Sort & Remove Unused Imports": {
-            "sequence": [
-                "editor.action.organizeImports", // use isort to sort imports
-                "autoflake.removeUnused" // removed unused imports
-            ]
-        },
-        "Remove Unused Imports": {
-            "command": "autoflake.removeUnused", // removed unused imports
-        },
-        "Sort Imports": {
-            "command": "editor.action.organizeImports", // use isort to sort imports
-        }
-    },
-    
     //////////////////////////////////////////////////////////////////////////
     // Rust
     "rust.linting.enabled": true,
@@ -943,16 +950,16 @@
 // "gitlens.hovers.currentLine.over": "line",
 // "editor.suggestSelection": "first",
 // "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-// "python.pythonPath": "/Users/chris/.miniconda/bin/python",
+
 // "java.semanticHighlighting.enabled": true,
 // "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/chris/.vscode-oss/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
 // "workbench.list.automaticKeyboardNavigation": false,
 // "oneDarkPro.editorTheme": "onedarkPro",
-// "python.languageServer": "Default",
+
 // "editor.scrollbar.horizontal": "hidden",
 // "editor.scrollbar.vertical": "hidden",
 // "kite.showWelcomeNotificationOnStartup": false,
-// "python.terminal.activateEnvironment": false,
+
 // "editor.cursorBlinking": "solid",
 // "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
 
@@ -964,9 +971,6 @@
 // "leetcode.hint.commentDescription": false,
 // // "window.zoomLevel": 3,
 // // "window.menuBarVisibility": "toggle",
-// "python.dataScience.alwaysTrustNotebooks": true,
-// "python.formatting.provider": "black",
-// "python.insidersChannel": "daily",
 
 // "workbench.colorCustomizations": {
     
