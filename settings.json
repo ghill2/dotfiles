@@ -45,8 +45,8 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     // "python.languageServer": "Default",
-    "python.linting.pylintEnabled": true,
     "python.linting.pyLanceEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": false,
     "python.linting.mypyEnabled": false,
@@ -59,7 +59,7 @@
     // "autoflake.removeAllUnusedImports": true, // TrungNgo.autoflake
     // "autoflake-extension.extension.useIntegratedTerminal": true, // for debugging
     "autoflake.verbose": true, // for debugging
-    "python.sortImports.args": [ // from nautilus
+    "isort.args": [ // from nautilus
         "--combine-as",
         "--line-length=100",
         "--ensure-newline-before-comments",
@@ -71,6 +71,9 @@
         "--use-parentheses"
     ],
     "python.linting.pylintArgs": [
+        "--disable=C0116,C0115" // ignore no docstring lint
+    ],
+    "pylint.args": [
         "--disable=C0116,C0115" // ignore no docstring lint
     ],
     "python.linting.pycodestyleArgs": [
