@@ -1,4 +1,57 @@
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
+
 ;; or we can separate them into three manipulators
-{:main [{:des "a to 1" :rules [[:a :1]]}
-        {:des "b to 2" :rules [[:b :2]]}
-        {:des "c to insert 123" :rules [[:c [:1 :2 :3]]]}]}
+;; onfig files links
+;; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/in-the-wild.md
+;; {:des "a to 1" :rules [[:a :1]]}
+;; {:des "b to 2" :rules [[:b :2]]}
+;; {:des "c to insert 123" :rules [[:c [:1 :2 :3]]]}
+
+;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
+;; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
+
+;; https://github.com/rgomezcasas/dotfiles/blob/main/os/mac/karabiner-goku/karabiner.edn
+;; https://github.com/alvaro-prieto/splitLayout/blob/master/karabiner.edn
+;; https://github.com/mmroczka/.dotfiles/blob/master/karabiner/karabiner.edn
+;; https://github.com/nikitavoloboev/config/blob/master/karabiner/karabiner.edn
+;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
+
+;; hyper = [:##right_alt :!QWEright_shift]
+{
+        ;; :profiles {:Default
+        ;; {:default true
+        ;;     :sim     50
+        ;;     :delay   80
+        ;;     :alone   120
+        ;;     :held    70}}
+        :main [
+                
+                {:des   "tab to hyper, tab when pressed"
+                :rules [[:##caps_lock :!WEright_shift nil {:alone :tab}]]},
+                {:des   "caps_lock to shift_tab when command held"
+                :rules [[:!Ccaps_lock :!CStab]]},
+                {:des   "caps_lock to esc when pressed alone, to ctrl when held"
+                :rules [[:##caps_lock :left_control nil {:alone :escape}]]},
+                {:des   "left_command to space when pressed alone, to command when held"
+                :rules [[:##left_command :left_command nil {:alone :spacebar}]]},
+                {:des   "left_option to delete when pressed alone, to option when held"
+                :rules [[:##left_option :left_option nil {:alone :delete_or_backspace}]]},
+                ]
+}
+
+
+
+        
+        
