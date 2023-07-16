@@ -47,6 +47,10 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "Format" // declared in settings.json in commands menu
     },
     //////////////////////////////////////////////////////////////////////////
+    // {   "key": "tab",
+    //     "command": "editor.action.inlineSuggest.commit",
+    //     "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"     
+    // },
     {   "key": "alt+esc", // show auto complete menu
         "command": "editor.action.triggerSuggest"
     },

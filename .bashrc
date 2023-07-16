@@ -73,8 +73,9 @@ function auto_commit {
 
 alias g1='ssh g1@g1'
 alias g2='ssh g1@g2'
-alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2/Users/g1/BU/projects/'
+alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2~/BU/projects/'
 alias g3='ssh g1@g3'
+alias g3c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g3~/BU/projects/'
 alias t2='ssh -t g1@t2 powershell'
 alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2~/BU/projects/'
 alias d='cd ~/BU/projects/dotfiles'
@@ -82,7 +83,7 @@ alias p='cd ~/BU/projects'
 alias c=auto_commit
 alias ac='git add . && git commit --amend --no-edit'  # he --no-edit flag ensures that the commit message remains unchanged.
 alias up='update'  # he --no-edit flag ensures that the commit message remains unchanged.
-
+alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate

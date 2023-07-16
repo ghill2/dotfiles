@@ -24,6 +24,7 @@ make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/or
 
 rm -rf "$HOME/.config/karabiner"  # required for karabiner
 make_symlink "$gparent/karabiner" "$HOME/.config/karabiner" # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
+make_symlink "$gparent/karabiner.edn" "$HOME/.config/karabiner.edn"
 
 # if [[ "$OSTYPE" == "darwin"* ]]; then
 

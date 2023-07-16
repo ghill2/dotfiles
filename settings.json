@@ -1,8 +1,6 @@
 // List of vim modes to use in the when clauses
 // Normal, Insert, Visual, VisualBlock, VisualLine, SearchInProgressMode, CommandlineInProgress, Replace, EasyMotionMode, EasyMotionInputMode, SurroundInputMode, OperatorPendingMode ,Disabled
 {
-
-    
     // "editor.codeActionsOnSave": {
     //     "source.organizeImports": true
     // },
@@ -10,15 +8,30 @@
     // Beautify config (html, css, javascript formatter)
     // used this because prettier would put all attributes on another line if past maximum line length
     // "errorLens.enabled": false,
+    // Disable python linting for now until find a way to disable properly
+    // "extensions.disabled": [
+    //     "charliermarsh.ruff",
+    //     "ms-python.mypy-type-checker",
+    //     "KevinRose.vsc-python-indent",
+    //     "ms-python.pylint",
+    //     "ms-python.flake8"
+    // ],
     //////////////////////////////////////////////////////////////////////////
     // Commands https://github.com/usernamehw/vscode-commands
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette
     "commands.commands": {
+        "Format": {
+            "sequence": [ // keep in ths order otherwise overwrite fails
+                "editor.action.formatDocument",
+                "editor.action.organizeImports", // use isort to sort imports
+                "autoflake.removeUnused", // removed unused imports
+            ]
+        },
         "Sort & Remove Unused Imports": {
             "sequence": [
+                "autoflake.removeUnused", // removed unused imports
                 "editor.action.organizeImports", // use isort to sort imports
-                "autoflake.removeUnused" // removed unused imports
             ]
         },
         "Remove Unused Imports": {
@@ -27,13 +40,6 @@
         "Sort Imports": {
             "command": "editor.action.organizeImports", // use isort to sort imports
         },
-        "Format": {
-            "sequence": [
-                "editor.action.formatDocument",
-                // "editor.action.organizeImports", // use isort to sort imports
-                "autoflake.removeUnused", // removed unused imports
-            ]
-        },
         "Format Only": {
             "command": "editor.action.formatDocument", // use isort to sort imports
         }
@@ -41,11 +47,12 @@
     
     //////////////////////////////////////////////////////////////////////////
     // Python Config
-    "python.linting.enabled": true,
+    "python.linting.enabled": false,
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     // "python.languageServer": "Default",
-    "python.linting.pyLanceEnabled": true,
+    "ruff.enable": false, // python linting using ruff
+    "python.linting.pyLanceEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": false,
@@ -102,13 +109,13 @@
     // "python.pythonPath": "/Users/chris/.miniconda/bin/python",
     // "python.terminal.activateEnvironment": false,
     
-    // 
-
     ///////////////////////////////////////////////////////////////////////////////////
     // Editor & Application Settings
     "editor.tokenColorCustomizations": {
         "textMateRules": []
     },
+    "editor.tabCompletion": "on", // By default, tab completion is disabled. Use the editor.tabCompletion setting to enable it.
+    "editor.acceptSuggestionOnEnter": "on",
     // "editor.semanticTokenColorCustomizations": {
     //     "enabled": true, // enable for all themes
     //     "[Default Dark+]": {
@@ -130,9 +137,11 @@
     //     ]
     // },
     // "editor.semanticHighlighting.enabled": false,
+    
     "editor.semanticTokenColorCustomizations": {
     
     },
+    
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 15,
     "editor.scrollBeyondLastLine": true,
@@ -141,7 +150,6 @@
     "editor.hideCursorInOverviewRuler": true, // This will keep the scrollbar, but will result in it only appearing when the cursor is within the editor, as seen in the image below:
     "editor.glyphMargin": false, // Hide/Show breakpoint margin, gutter
     "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
-    
     "files.exclude": { // exclude files from explorer
         "Z": true,
         // ".direnv": true,
@@ -238,7 +246,6 @@
         "editor.defaultFormatter": "HookyQR.beautify",
         "editor.tabSize": 2
     },
-    
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -339,6 +346,7 @@
     "vim.useSystemClipboard": true,
     "vim.overrideCopy": false,
     "vim.useCtrlKeys": true,
+    "editor.inlineSuggest.enabled": true,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
