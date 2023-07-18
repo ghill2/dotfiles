@@ -1,16 +1,3 @@
-;; !  | means mandatory
-;; #  | means optional
-;; C  | left_command
-;; T  | left_control
-;; O  | left_option
-;; S  | left_shift
-;; F  | fn
-;; Q  | right_command
-;; W  | right_control
-;; E  | right_option
-;; R  | right_shift
-;; !! | mandatory command + control + optional + shift (hyper)
-;; ## | optional any
 
 ;; or we can separate them into three manipulators
 ;; onfig files links
@@ -24,31 +11,142 @@
 
 ;; https://github.com/rgomezcasas/dotfiles/blob/main/os/mac/karabiner-goku/karabiner.edn
 ;; https://github.com/alvaro-prieto/splitLayout/blob/master/karabiner.edn
+;; multi froms here 
 ;; https://github.com/mmroczka/.dotfiles/blob/master/karabiner/karabiner.edn
 ;; https://github.com/nikitavoloboev/config/blob/master/karabiner/karabiner.edn
 ;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
 
-;; hyper = [:##right_alt :!QWEright_shift]
+
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option`
+;; R  | right_shift
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
+;; hyper = [:##right_alt :!CTOleft_shift]
+;; [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
 {
-        ;; :profiles {:Default
-        ;; {:default true
-        ;;     :sim     50
-        ;;     :delay   80
-        ;;     :alone   120
-        ;;     :held    70}}
-        :main [
-                
-                {:des   "tab to hyper, tab when pressed"
-                :rules [[:##caps_lock :!WEright_shift nil {:alone :tab}]]},
-                {:des   "caps_lock to shift_tab when command held"
-                :rules [[:!Ccaps_lock :!CStab]]},
-                {:des   "caps_lock to esc when pressed alone, to ctrl when held"
-                :rules [[:##caps_lock :left_control nil {:alone :escape}]]},
-                {:des   "left_command to space when pressed alone, to command when held"
-                :rules [[:##left_command :left_command nil {:alone :spacebar}]]},
-                {:des   "left_option to delete when pressed alone, to option when held"
-                :rules [[:##left_option :left_option nil {:alone :delete_or_backspace}]]},
-                ]
+    :profiles {:Default
+    {:default true
+        :sim     50  ;; keys need to be pressed within this threshold to be considered simultaneous
+        :delay   500  ;; time after which the key press is delayed
+        :alone   1000    ;; hold for .. ms to register single tap (freddie is at 250)
+        :held    500  ;; amount of ms to trigger if helds
+        }}
+    :applications
+    {;; To obtain the app ID: `grep -A1 "CFBundleIdentifier" /Applications/The.app/Contents/Info.plist`
+        :Chrome    ["com.google.Chrome", "com.google.Chrome.beta"]
+        :Contexts  ["com.contextsformac.Contexts"]
+        :Finder    ["com.apple.finder"]
+        :GuitarPro ["com.arobas-music.guitarpro7"]
+        :IntelliJ  ["com.jetbrains.intellij"]
+        :Keynote   ["com.apple.iWork.Keynote"]
+        :Notion    ["notion.id"]
+        :Safari    ["com.apple.Safari"]
+        :Slack     ["com.tinyspeck.slackmacgap"]
+        :VSCode    ["com.microsoft.VSCode"]
+    }
+    ;; :modifiers {:meh :!TOS}
+    ;; :froms [
+    ;;     {:modi [:left_command :left_shift] :key :v}
+    ;; ]
+    ;; {:simlayers {:tab-mode {:key :tab}}
+    ;; :simlayers {:tab-mode {:key :tab}}
+    :main [
+        
+        {:des "tab mode"
+            :rules [
+                [:tab [{:key :!CTOleft_shift :lazy true :repeat false} {:set ["tab-mode" 1]}] nil {:afterup ["tab-mode" 0] :alone :tab}]
+                [:e :!Shome ["tab-mode" 1]]
+                [:r :!Send ["tab-mode" 1]]
+                ;; [:e :!TSa ["tab-mode" 1]]
+        ]}
+
+        {:des "caps mode"
+            :rules [
+                [:caps_lock [{:key :!CTOleft_shift :lazy true :repeat false} {:set ["tab-mode" 1]}] nil {:afterup ["tab-mode" 0] :alone :tab}]
+                [:e :!Shome ["tab-mode" 1]]
+                [:r :!Send ["tab-mode" 1]]
+                ;; [:e :!TSa ["tab-mode" 1]]
+
+                ;; ;; [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+        ]}
+
+        {:des   "text navigation" :rules [
+            [:!Te :home]  ;; caps_lock+e to home
+            [:!Tr :end]  ;; caps_lock+r to end
+            
+            [:!!e :!TStab]  ;; thumb+e to prev tab
+            [:!!r :!Ttab]  ;; thumb+e to next tab
+        ]}
+
+        ;; {:des   "modifiers" :rules [
+            ;; [:##tab {:key :left_shift
+            ;;         :modi [:left_command :left_option :left_control :left_shift]
+            ;;         :lazy true :repeat false} nil {:alone :tab}]
+            
+            ;; {:des "period mode"
+            ;;      :rules [
+            ;;         [:d :!S9 :period-mode] ;; .d insert (
+            ;;              ]}]}
+                         
+            ;; tab to shift+ctrl
+                ;; ;; [:##left_command :left_command nil {:alone :delete_or_backspace}]  ;; left_command to space
+            ;; [:##f23 {:key :!Cleft_option :lazy true} nil {:alone :return_or_enter}]  ;; left thumb to hyper
+            ;; [:##f24 :spacebar]  ;; right thumb to spacebar
+            ;; [:##left_option :left_option nil {:alone :delete_or_backspace}]  ;; left option delete
+                ;; [:##right_command {:key :!STleft_option :lazy true}] ;; right thumb to return
+            ;; [:##right_option :right_option nil {:alone :delete_or_backspace}]
+            
+            ;; [:##caps_lock {:key :left_control :lazy true} nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+        ;; ]}
+
+        ;; {:des   "left thumb navigation"
+        ;; :rules [
+        ;;     [:!COf :!Ctab]
+        ;;     [:!COd :!CStab]
+        ;;     [:!COv :!Cgrave_accent_and_tilde]
+        ;;     [:!COc :!CSgrave_accent_and_tilde]
+        ;;     [:!COe :!Ttab]
+        ;;     [:!COr :!TStab]
+        ;;     [:!COj :left_arrow]
+        ;;     [:!COk :down_arrow]
+        ;;     [:!COl :up_arrow]
+        ;;     [:!COsemicolon :right_arrow]
+        ;; ]}
+
+        ;; {:des   "arrows" :rules [
+        
+        ;; ]}
+
+        ;; {:des   "option application switcher"
+        ;; :rules [
+        ;;     [:!Oq :!Ctab]
+        ;;     [:!Otab :!CStab]
+        ;;     [:!Oa :!Cgrave_accent_and_tilde]
+        ;;     [:!Ocaps_lock :!CSgrave_accent_and_tilde]
+        ;; ]}
+        
+        
+        
+
+        ;; {:des   "right thumb + arrow keys"
+        ;; :rules [ :Safari
+        ;;         [:!Cf :!Ttab]
+        ;;         [:!Cd :!TStab]
+        ;; ]}
+        
+            ;; my name is
+            
+
+    ]
 }
 
 

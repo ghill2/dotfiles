@@ -1,0 +1,76 @@
+{
+"from": {
+    "key_code": "tab"
+},
+"to": [
+    {
+        "set_variable": {
+            "name": "tab_modifier",
+            "value": 1
+        }
+    },
+    {
+        "key_code": "left_control",
+        "lazy": true,
+        "modifiers": [
+            "left_control",
+            "left_option",
+            "left_shift",
+            "left_command"
+        ],
+        "repeat": false
+    }
+],
+"to_after_key_up": [
+    {
+        "set_variable": {
+            "name": "tab_modifier",
+            "value": 0
+        }
+    }
+],
+"to_if_alone": {
+    "key_code": "tab"
+},
+"type": "basic"
+},
+{
+"conditions": [
+    {
+        "name": "tab_modifier",
+        "type": "variable_if",
+        "value": 1
+    }
+],
+"from": {
+    "any": "key_code"
+},
+"to": [
+    {
+        "any": "key_code"
+    }
+],
+"type": "basic"
+}
+
+;; {:des   "modifiers" :rules [
+    ;; [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
+    ;; [:##spacebar {:key :!CTOleft_shift :lazy true} nil {:alone :spacebar}]
+    ;; [:##tab {:key :!Sleft_control :lazy true} nil {:alone :tab}]  ;; tab to shift+ctrl
+    ;; [:##caps_lock {:key :left_control :lazy true} nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+    ;; [:##left_option {:key :left_option :lazy true} nil {:alone :delete_or_backspace}]  ;; left option delete
+    ;; [:##left_command {:key :left_command :lazy true} nil {:alone :spacebar}]  ;; left_command to space
+    ;; [:##right_command {:key :right_command :lazy true} nil {:alone :return_or_enter}] ;; right thumb to return
+    ;; [:##right_option {:key :right_option :lazy true} nil {:alone :delete_or_backspace}]
+    ;; [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+;; ]}
+;; {:des   "modifiers" :rules [
+;;     [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
+;;     ;; [:##tab :!Sleft_control nil {:alone :tab}]  ;; tab to shift+ctrl
+;;     [:##caps_lock :left_control nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+;;     [:##left_option :left_option nil {:alone :delete_or_backspace}]  ;; left option delete
+;;     ;; [:##left_command :left_command nil {:alone :spacebar}]  ;; left_command to space
+;;     [:##right_command :right_command nil {:alone :return_or_enter}] ;; right thumb to return
+;;     [:##right_option :right_option nil {:alone :delete_or_backspace}]
+;;     [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+;; ]}

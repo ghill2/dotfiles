@@ -38,6 +38,8 @@ Neovim: goes to end of select block if selected from bottom up.
 //     },
 // },
 
+// comment, commands menu, up and down vim
+
 [
 //#region MAPS
     
@@ -47,6 +49,50 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "Format" // declared in settings.json in commands menu
     },
     //////////////////////////////////////////////////////////////////////////
+    {   "key": "ctrl+d", // Focus Left Pane
+        "command": "workbench.action.navigateLeft",
+        "when": "!terminalFocus"
+    },
+    {   "key": "ctrl+d", // Focus Left Pane When Terminal Focused
+        "command": "workbench.action.focusLeftGroup",
+        "when": "terminalFocus"
+    },
+    {   "key": "ctrl+f", // Focus Right Pane
+        "command": "workbench.action.navigateRight",
+        "when": "!terminalFocus"
+    },
+    {   "key": "ctrl+f", // Focus Left Pane When Terminal Focused
+        "command": "workbench.action.focusRightGroup",
+        "when": "terminalFocus"
+    },
+    {   "key": "ctrl+cmd+d", // Move Pane Right
+        "command": "workbench.action.moveEditorToRightGroup"
+    },
+    {   "key": "ctrl+cmd+d", // Move Pane Left
+        "command": "workbench.action.moveEditorToLeftGroup"
+    },
+    {   "key": "ctrl+tab", // Next Tab
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {   "key": "ctrl+shift+tab", // Previous Tab
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {   "key": "alt+cmd+x",  // show command menu
+        "command": "commands.openAsQuickPick",
+    },
+    {   "key": "alt+space", // show auto import context menu
+        "command": "editor.action.codeAction"
+    },
+    {   "key": "shift+cmd+c",  // Copy active file to path
+        "command": "copyFilePath",
+    },
+    {   "key": "alt+cmd+[",
+        "command": "editor.fold"
+    },
+    {   "key": "alt+cmd+]",
+        "command": "editor.unfold"
+    },
+    //////////////////////////////////////////////////////////////////////////
     // {   "key": "tab",
     //     "command": "editor.action.inlineSuggest.commit",
     //     "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"     
@@ -54,17 +100,9 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "alt+esc", // show auto complete menu
         "command": "editor.action.triggerSuggest"
     },
-    {   "key": "alt+space", // show auto import context menu
-        "command": "editor.action.codeAction"
-    },
-    {   "key": "alt+cmd+x",  // show command menu
-        "command": "commands.openAsQuickPick",
-    },
+     
     {   "key": "cmd+b",  // Toggle browser visible, hide show browser
         "command": "workbench.action.toggleSidebarVisibility",
-    },
-    {   "key": "shift+cmd+c",  // Copy active file to path
-        "command": "copyFilePath",
     },
     {   "key": "shift+ctrl+alt+cmd+s", // Turn off buttons on left side
         "command": "editor.action.addCommentLine",
@@ -83,12 +121,6 @@ Neovim: goes to end of select block if selected from bottom up.
     },
     {   "key": "alt+cmd+[", // See al referneces
         "command": "references-view.findReferences"
-    },
-    {   "key": "alt+cmd+[",
-        "command": "editor.fold"
-    },
-    {   "key": "alt+cmd+]",
-        "command": "editor.unfold"
     },
     {   "key": "shift+ctrl+alt+cmd+f", // Unfold method under cursor
         "command": "editor.unfoldRecursively"
@@ -119,34 +151,6 @@ Neovim: goes to end of select block if selected from bottom up.
     },
     {   "key": "shift+cmd+r", // Reset panes sizes to their default sizes
         "command": "workbench.action.evenEditorWidths"
-    },
-    {   "key": "ctrl+z", // Focus Left Pane
-        "command": "workbench.action.navigateLeft",
-        "when": "!terminalFocus"
-    },
-    {   "key": "ctrl+z", // Focus Left Pane When Terminal Focused
-        "command": "workbench.action.focusLeftGroup",
-        "when": "terminalFocus"
-    },
-    {   "key": "ctrl+x", // Focus Right Pane
-        "command": "workbench.action.navigateRight",
-        "when": "!terminalFocus"
-    },
-    {   "key": "ctrl+x", // Focus Left Pane When Terminal Focused
-        "command": "workbench.action.focusRightGroup",
-        "when": "terminalFocus"
-    },
-    {   "key": "ctrl+cmd+x", // Move Pane Right
-        "command": "workbench.action.moveEditorToRightGroup"
-    },
-    {   "key": "ctrl+cmd+z", // Move Pane Left
-        "command": "workbench.action.moveEditorToLeftGroup"
-    },
-    {   "key": "ctrl+tab", // Next Tab
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {   "key": "ctrl+shift+tab", // Previous Tab
-        "command": "workbench.action.previousEditorInGroup"
     },
     {   "key": "ctrl+space", // Run active pane
         "command": "code-runner.run"
