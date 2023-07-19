@@ -62,87 +62,106 @@
     }
     ;; :modifiers {:cap [:left_control]}
     :main [
-
-        {:des "tab mode" :rules [
+        
+        {:des "f24" :rules [
+            [:f24 [{:key :left_shift :lazy true :repeat false} {:set ["rthumb-mode" 1]}] nil {:afterup ["rthumb-mode" 0] :alone :spacebar}]
+        ]}
+        
+        {:des "nav layer" :rules [
             [:tab [{:key :!CTOleft_shift :lazy true :repeat false} {:set ["tab-mode" 1]}] nil {:afterup ["tab-mode" 0] :alone :tab}]
             [:4 :!Sup_arrow ["tab-mode" 1]]  ;; extend line up
             [:r :!Sdown_arrow ["tab-mode" 1]]  ;; extend line down
         ]}
-        
-        {:des "caps" :rules [
-            [:caps_lock {:key :left_control} nil {:alone :escape}]  ;; left option delete
-            ;; [:left_control [{:key :left_control} {:set ["cap-mode" 1]}] nil {:afterup ["cap-mode" 0] :alone :escape}]
-            ;; [:any :!Tany]
-            ;; [:e :home ["cap-mode" 1]]  ;; caps_lock+e to home
-            ;; [:r :end ["cap-mode" 1]]  ;; caps_lock+r to end
-            ;; [:d :!Td ["caps-mode" 1]]  ;; right pane
-            ;; [:f :!Tf ["caps-mode" 1]]  ;; prev pane
-            ;; [:!Ta :!Cgrave_accent_and_tilde]
-            ;; [:!Ts :!CSgrave_accent_and_tilde]
-        ]}
-        
-        {:des "tab app switcher" :rules [
-            [:q :!CStab ["tab-mode" 1]]
-            [:w :!Ctab ["tab-mode" 1]]
-            
-            [:!Oa :!TStab]
-            [:!Os :!Ttab]
-        ]}
 
-        {:des "textedit fix" :rules [
-            [:e :!Ta [["cap-mode" 1] :TextEdit]]  ;; caps_lock+e to home in text edit
-            [:r :!Te [["cap-mode" 1] :TextEdit]]  ;; caps_lock+r to end in text edit
-            [:e :!TSa [["tab-mode" 1] :TextEdit]]  ;; tab+e to select line start in text edit
-            [:r :!TSe [["tab-mode" 1] :TextEdit]]  ;; tab+e to select line end in text edit
-            
-        ]}
+        ;; {:des "tab mode" :rules [
+        ;;     [:tab [{:key :!CTOleft_shift :lazy true :repeat false} {:set ["tab-mode" 1]}] nil {:afterup ["tab-mode" 0] :alone :tab}]
+        ;;     [:4 :!Sup_arrow ["tab-mode" 1]]  ;; extend line up
+        ;;     [:r :!Sdown_arrow ["tab-mode" 1]]  ;; extend line down
+        ;; ]}
+        
 
-        {:des "misc" :rules [
-            [:##f24 :spacebar]  ;; right thumb to spacebar
-        ]}
+
         
-        ;; Version 1: layer
-        {:des "thumb" :rules [
-            [:f23 [{:key :!Cleft_option :lazy true :repeat false} {:set ["thumb-mode" 1]}] nil {:afterup ["thumb-mode" 0] :alone :return_or_enter}]
-            [:d :!CStab ["thumb-mode" 1]]  ;; thumb+d to prev application
-            [:f :!Ctab ["thumb-mode" 1]]  ;; thumb+f to next application
-            [:c :!CSgrave_accent_and_tilde ["thumb-mode" 1]]  ;; thumb+c to prev window
-            [:v :!Cgrave_accent_and_tilde ["thumb-mode" 1]]  ;; thumb+v to next window
-            [:e :!TStab ["thumb-mode" 1]]  ;; thumb+e to prev tab
-            [:r :!Ttab ["thumb-mode" 1]]  ;; thumb+e to next tab
-            [:j :##left_arrow ["thumb-mode" 1]] ;; thumb+j to left arrow
-            [:k :down_arrow ["thumb-mode" 1]] ;; thumb+k to down arrow
-            [:l :up_arrow ["thumb-mode" 1]]  ;; thumb+l to up arrow
-            [:semicolon :right_arrow ["thumb-mode" 1]]  ;; thumb+semicolon to right arrow
-            [:m :home ["thumb-mode" 1]]
-        ]}
+        ;; {:des "caps" :rules [
+        ;;     [:caps_lock {:key :left_control} nil {:alone :escape}]  ;; left option delete
+        ;;     ;; [:left_control [{:key :left_control} {:set ["cap-mode" 1]}] nil {:afterup ["cap-mode" 0] :alone :escape}]
+        ;;     ;; [:any :!Tany]
+        ;;     ;; [:e :home ["cap-mode" 1]]  ;; caps_lock+e to home
+        ;;     ;; [:r :end ["cap-mode" 1]]  ;; caps_lock+r to end
+        ;;     ;; [:d :!Td ["caps-mode" 1]]  ;; right pane
+        ;;     ;; [:f :!Tf ["caps-mode" 1]]  ;; prev pane
+        ;;     ;; [:!Ta :!Cgrave_accent_and_tilde]
+        ;;     ;; [:!Ts :!CSgrave_accent_and_tilde]
+        ;; ]}
         
+        ;; {:des "tab app switcher" :rules [
+        ;;     [:q :!CStab ["tab-mode" 1]]
+        ;;     [:w :!Ctab ["tab-mode" 1]]
+            
+        ;;     [:!Oa :!TStab]
+        ;;     [:!Os :!Ttab]
+        ;; ]}
+
+        ;; {:des "textedit fix" :rules [
+        ;;     [:e :!Ta [["cap-mode" 1] :TextEdit]]  ;; caps_lock+e to home in text edit
+        ;;     [:r :!Te [["cap-mode" 1] :TextEdit]]  ;; caps_lock+r to end in text edit
+        ;;     [:e :!TSa [["tab-mode" 1] :TextEdit]]  ;; tab+e to select line start in text edit
+        ;;     [:r :!TSe [["tab-mode" 1] :TextEdit]]  ;; tab+e to select line end in text edit
+            
+        ;; ]}
+
+        ;; {:des "misc" :rules [
+        ;;     [:##f24 :spacebar]  ;; right thumb to spacebar
+        ;; ]}
+
+        
+        
+        ;; ;; Version 1: layer
+        ;; {:des "thumb" :rules [
+        ;;     [:f23 [{:key :!Cleft_option :lazy true :repeat false} {:set ["thumb-mode" 1]}] nil {:afterup ["thumb-mode" 0] :alone :return_or_enter}]
+        ;;     [:d :!CStab ["thumb-mode" 1]]  ;; thumb+d to prev application
+        ;;     [:f :!Ctab ["thumb-mode" 1]]  ;; thumb+f to next application
+        ;;     [:c :!CSgrave_accent_and_tilde ["thumb-mode" 1]]  ;; thumb+c to prev window
+        ;;     [:v :!Cgrave_accent_and_tilde ["thumb-mode" 1]]  ;; thumb+v to next window
+        ;;     [:e :!TStab ["thumb-mode" 1]]  ;; thumb+e to prev tab
+        ;;     [:r :!Ttab ["thumb-mode" 1]]  ;; thumb+e to next tab
+        ;; ]}
+
+        ;; {:des "lthumb rhand" :rules [
+        ;;     [:j :left_arrow ["thumb-mode" 1]] ;; thumb+j to left arrow
+        ;;     [:k :down_arrow ["thumb-mode" 1]] ;; thumb+k to down arrow
+        ;;     [:l :up_arrow ["thumb-mode" 1]]  ;; thumb+l to up arrow
+        ;;     [:semicolon :right_arrow ["thumb-mode" 1]]  ;; thumb+semicolon to right arrow
+        ;;     [:m :home ["thumb-mode" 1]]
+        ;; ]}
+        
+            
         ;; links to character layer examples
         ;; https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum
         ;; https://youtu.be/8wZ8FRwOzhU?t=498
 
-        {:des "sym mode" :rules [
-            ;; {:key :left_command :lazy true :repeat false}}{}
-            [:f22 [{:set ["sym-mode" 1]}] nil {:afterup ["sym-mode" 0] :alone :delete_or_backspace}]
+        ;; {:des "sym mode" :rules [
+        ;;     ;; {:key :left_command :lazy true :repeat false}}{}
+        ;;     [:f22 [{:set ["sym-mode" 1]}] nil {:afterup ["sym-mode" 0] :alone :delete_or_backspace}]
             
-            ;; m, comma, period, slash
-            [:m :open_bracket ["sym-mode" 1]] ;; left square bracket
-            [:comma :close_bracket ["sym-mode" 1]] ;; right square bracket
-            [:period :non_us_pound ["sym-mode" 1]] ;; backslash
-            [:slash :!Snon_us_pound ["sym-mode" 1]] ;; pipe
+        ;;     ;; m, comma, period, slash
+        ;;     [:m :open_bracket ["sym-mode" 1]] ;; left square bracket
+        ;;     [:comma :close_bracket ["sym-mode" 1]] ;; right square bracket
+        ;;     [:period :non_us_pound ["sym-mode" 1]] ;; backslash
+        ;;     [:slash :!Snon_us_pound ["sym-mode" 1]] ;; pipe
 
-            ;; j, k, l, semicolon
-            [:j :!S9 ["sym-mode" 1]] ;; left parenthesis
-            [:k :!S0 ["sym-mode" 1]]  ;; right parenthesis
-            [:l :hyphen ["sym-mode" 1]] ;; hyphen
-            [:semicolon :equal_sign ["sym-mode" 1]] ;; equal
+        ;;     ;; j, k, l, semicolon
+        ;;     [:j :!S9 ["sym-mode" 1]] ;; left parenthesis
+        ;;     [:k :!S0 ["sym-mode" 1]]  ;; right parenthesis
+        ;;     [:l :hyphen ["sym-mode" 1]] ;; hyphen
+        ;;     [:semicolon :equal_sign ["sym-mode" 1]] ;; equal
             
-            ;; u, i, o, p
-            [:u :!Sopen_bracket ["sym-mode" 1]] ;; left curly bracket
-            [:i :!Sclose_bracket ["sym-mode" 1]]  ;; right curly bracket
-            [:o :!Shyphen ["sym-mode" 1]] ;; underscore
-            [:p :!Sequal_sign ["sym-mode" 1]] ;; plus
-        ]}
+        ;;     ;; u, i, o, p
+        ;;     [:u :!Sopen_bracket ["sym-mode" 1]] ;; left curly bracket
+        ;;     [:i :!Sclose_bracket ["sym-mode" 1]]  ;; right curly bracket
+        ;;     [:o :!Shyphen ["sym-mode" 1]] ;; underscore
+        ;;     [:p :!Sequal_sign ["sym-mode" 1]] ;; plus
+        ;; ]}
 
     ]
 }
