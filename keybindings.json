@@ -49,6 +49,19 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "Format" // declared in settings.json in commands menu
     },
     //////////////////////////////////////////////////////////////////////////
+    {   "key": "escape", // Focus editor
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorFocus"  // terminalFocus || sideBarFocus
+    },
+    {   "key": "ctrl+e", // End
+        "command": "cursorHome",
+    },
+    {   "key": "ctrl+r", // End
+        "command": "cursorEnd",
+    },
+    {   "key": "shift+cmd+p", // Focus Left Pane
+        "command": "workbench.action.showCommands",
+    },
     {   "key": "ctrl+d", // Focus Left Pane
         "command": "workbench.action.navigateLeft",
         "when": "!terminalFocus"
@@ -65,7 +78,7 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "workbench.action.focusRightGroup",
         "when": "terminalFocus"
     },
-    {   "key": "ctrl+cmd+d", // Move Pane Right
+    {   "key": "ctrl+cmd+f", // Move Pane Right
         "command": "workbench.action.moveEditorToRightGroup"
     },
     {   "key": "ctrl+cmd+d", // Move Pane Left
@@ -77,8 +90,8 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "ctrl+shift+tab", // Previous Tab
         "command": "workbench.action.previousEditorInGroup"
     },
-    {   "key": "alt+cmd+x",  // show command menu
-        "command": "commands.openAsQuickPick",
+    {   "key": "alt+x",  // show command menu
+        "command": "commands.openAsQuickPick"
     },
     {   "key": "alt+space", // show auto import context menu
         "command": "editor.action.codeAction"
@@ -92,6 +105,21 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "alt+cmd+]",
         "command": "editor.unfold"
     },
+    {   "key": "ctrl+s", // Turn off buttons on left side
+        "commands": "editor.action.addCommentLine",
+    },
+    {   "key": "shift+cmd+t", // Run pytest under cursor
+        "command": "pytest-runner.run-test"
+    },
+    {   "key": "cmd+space", // Rerun last command
+        "command": "extension.rerunLastCommand"
+    },
+    {   "key": "cmd+d", // Focus terminal
+        "command": "workbench.action.terminal.focus"
+    },
+    {   "key": "shift+ctrl+alt+cmd+d",
+        "command": "workbench.action.navigateBack"
+    },
     //////////////////////////////////////////////////////////////////////////
     // {   "key": "tab",
     //     "command": "editor.action.inlineSuggest.commit",
@@ -100,25 +128,18 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "alt+esc", // show auto complete menu
         "command": "editor.action.triggerSuggest"
     },
-     
     {   "key": "cmd+b",  // Toggle browser visible, hide show browser
         "command": "workbench.action.toggleSidebarVisibility",
-    },
-    {   "key": "shift+ctrl+alt+cmd+s", // Turn off buttons on left side
-        "command": "editor.action.addCommentLine",
     },
     {   "key": "alt+b", // Turn off buttons on left side
         "command": "workbench.action.toggleActivityBarVisibility",
         "when": "editorFocus"
     },
-    {   "key": "ctrl+alt+t",
-        "command": "quickMenuBuilder.openQuickMenu",
-        "args": "Text Menu",
-        "when": "editorTextFocus"
-    },
-    {   "key": "shift+ctrl+alt+cmd+d",
-        "command": "workbench.action.navigateBack"
-    },
+    // {   "key": "ctrl+alt+t",
+    //     "command": "quickMenuBuilder.openQuickMenu",
+    //     "args": "Text Menu",
+    //     "when": "editorTextFocus"
+    // },
     {   "key": "alt+cmd+[", // See al referneces
         "command": "references-view.findReferences"
     },
@@ -133,9 +154,6 @@ Neovim: goes to end of select block if selected from bottom up.
     // },
     {   "key": "shift+ctrl+alt+cmd+a", // Terminal reset bottom
         "command": "workbench.action.terminal.scrollToBottom"
-    },
-    {   "key": "shift+cmd+t", // Run pytest under cursor
-        "command": "pytest-runner.run-test"
     },
     {   "key": "alt+r", // Right click in place
         "command": "editor.action.showContextMenu"
@@ -154,18 +172,6 @@ Neovim: goes to end of select block if selected from bottom up.
     },
     {   "key": "ctrl+space", // Run active pane
         "command": "code-runner.run"
-    },
-    {   "key": "cmd+space", // Rerun last command
-        "command": "extension.rerunLastCommand"
-    },
-    {   "key": "ctrl+alt+cmd+t", // Focus terminal
-        "command": "workbench.action.terminal.focus"
-    },
-    {   "key": "alt+t", // Focus terminal
-        "command": "workbench.action.terminal.focus"
-    },
-    {   "key": "shift+ctrl+alt+cmd+e", // Focus editor
-        "command": "workbench.action.focusActiveEditorGroup"
     },
     {   "key": "shift+ctrl+alt+cmd+r", // Focus browser
         "command": "workbench.files.action.focusFilesExplorer"
@@ -233,7 +239,7 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "cmd+shift+f", // unmap shift+cmd+d
         "command": "workbench.action.findInFiles"
     },
-//#endregion    
+//#endregion
 //#region VIM
     {   "key": "tab", // Vim Indent right (normal mode)
         "when": "inputFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine",

@@ -1,76 +1,97 @@
-{
-"from": {
-    "key_code": "tab"
-},
-"to": [
-    {
-        "set_variable": {
-            "name": "tab_modifier",
-            "value": 1
-        }
-    },
-    {
-        "key_code": "left_control",
-        "lazy": true,
-        "modifiers": [
-            "left_control",
-            "left_option",
-            "left_shift",
-            "left_command"
-        ],
-        "repeat": false
-    }
-],
-"to_after_key_up": [
-    {
-        "set_variable": {
-            "name": "tab_modifier",
-            "value": 0
-        }
-    }
-],
-"to_if_alone": {
-    "key_code": "tab"
-},
-"type": "basic"
-},
-{
-"conditions": [
-    {
-        "name": "tab_modifier",
-        "type": "variable_if",
-        "value": 1
-    }
-],
-"from": {
-    "any": "key_code"
-},
-"to": [
-    {
-        "any": "key_code"
-    }
-],
-"type": "basic"
-}
+[:!Te :home]  ;; caps_lock+e to home
+[:!Tr :end]  ;; caps_lock+r to end
 
-;; {:des   "modifiers" :rules [
-    ;; [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
-    ;; [:##spacebar {:key :!CTOleft_shift :lazy true} nil {:alone :spacebar}]
-    ;; [:##tab {:key :!Sleft_control :lazy true} nil {:alone :tab}]  ;; tab to shift+ctrl
-    ;; [:##caps_lock {:key :left_control :lazy true} nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
-    ;; [:##left_option {:key :left_option :lazy true} nil {:alone :delete_or_backspace}]  ;; left option delete
-    ;; [:##left_command {:key :left_command :lazy true} nil {:alone :spacebar}]  ;; left_command to space
-    ;; [:##right_command {:key :right_command :lazy true} nil {:alone :return_or_enter}] ;; right thumb to return
-    ;; [:##right_option {:key :right_option :lazy true} nil {:alone :delete_or_backspace}]
-    ;; [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
-;; ]}
-;; {:des   "modifiers" :rules [
-;;     [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
-;;     ;; [:##tab :!Sleft_control nil {:alone :tab}]  ;; tab to shift+ctrl
-;;     [:##caps_lock :left_control nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
-;;     [:##left_option :left_option nil {:alone :delete_or_backspace}]  ;; left option delete
-;;     ;; [:##left_command :left_command nil {:alone :spacebar}]  ;; left_command to space
-;;     [:##right_command :right_command nil {:alone :return_or_enter}] ;; right thumb to return
-;;     [:##right_option :right_option nil {:alone :delete_or_backspace}]
-;;     [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
-;; ]}
+Option layer
+{:des "opt mode"
+    :rules [
+        [:left_option [{:key :left_option} {:set ["opt-mode" 1]}] nil {:afterup ["opt-mode" 0] :alone :delete_or_backspace}]
+        ;; [:q :!Ctab ["opt-mode" 1]]
+        ;; [:tab :!CStab ["opt-mode" 1]]
+        ;; [:a :!Cgrave_accent_and_tilde ["opt-mode" 1]]
+        ;; [:caps_lock :!CSgrave_accent_and_tilde ["opt-mode" 1]]
+]}
+
+
+Caps Lock with variable layer
+{:des "caps mode"
+    :rules [
+        [:caps_lock [{:key :left_control :lazy true :repeat false} {:set ["caps-mode" 1]}] nil {:afterup ["caps-mode" 0] :alone :escape}]
+        [:e :home ["caps-mode" 1]]  ;; caps_lock+e to home
+        [:r :end ["caps-mode" 1]]  ;; caps_lock+r to end
+        [:e :!Ta [["caps-mode" 1] :TextEdit]]  ;; caps_lock+e to home in text edit
+        [:r :!Te [["caps-mode" 1] :TextEdit]]  ;; caps_lock+r to end in text edit
+        [:d :!Td ["caps-mode" 1]]  ;; right pane
+        [:f :!Tf ["caps-mode" 1]]  ;; prev pane
+        [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+]}
+
+Version 2: different way of setting up a layer  m
+{:des   "thumb" :rules [
+    [:##f23 {:key :!Cleft_option :lazy true} nil {:alone :return_or_enter}]  ;; left thumb to hyper
+    [:!COd :!CStab]  ;; thumb+d to prev application
+    [:!COf :!Ctab]  ;; thumb+f to next application
+    [:!COc :!CSgrave_accent_and_tilde]  ;; thumb+c to prev window
+    [:!COv :!Cgrave_accent_and_tilde]  ;; thumb+v to next window
+    [:!COe :!Ttab]  ;; thumb+e to prev tab
+    [:!COr :!TStab]  ;; thumb+r to next tab
+    [:!COj :left_arrow] ;; thumb+j to left arrow
+    [:!COk :down_arrow] ;; thumb+k to down arrow
+    [:!COl :up_arrow]  ;; thumb+l to up arrow
+    [:!COsemicolon :right_arrow]  ;; thumb+semicolon to right arrow
+]}
+
+;; ALT application switcher
+{:des "modifiers" :rules [
+    [:left_option {:key :left_option} nil {:alone :delete_or_backspace}]  ;; left option delete
+    [:!Oq :!Ctab]
+    [:!Otab :!CStab]
+    [:!Oa :!Cgrave_accent_and_tilde]
+    [:!Ocaps_lock :!CSgrave_accent_and_tilde]
+    [:!Oleft_shift :!SOtab]
+    [:!Oz :!Otab]
+]}
+
+
+{:des "thumb"
+    :rules [
+            [:left_command [{:key :szleft_command :lazy true :repeat false} {:set ["command-mode" 1]}] nil {:afterup ["command-mode" 0] :alone :delete_or_backspace}]
+]}
+
+
+{:des   "modifiers" :rules [
+    [:##f23 {:key :!Cleft_option :lazy true} nil {:alone :return_or_enter}]  ;; left thumb to hyper
+    tab to shift+ctrl
+    [:##left_command :left_command nil {:alone :delete_or_backspace}]  ;; left_command to space
+    [:##left_option :left_option nil {:alone :delete_or_backspace}]  ;; left option delete
+    [:##right_command {:key :!STleft_option :lazy true}] ;; right thumb to return
+    [:##right_option :right_option nil {:alone :delete_or_backspace}]
+    [:##caps_lock {:key :left_control :lazy true} nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+]}
+
+{:des   "right thumb + arrow keys"
+:rules [ :Safari
+        [:!Cf :!Ttab]
+        [:!Cd :!TStab]
+]}
+
+{:des   "modifiers" :rules [
+    [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
+    [:##spacebar {:key :!CTOleft_shift :lazy true} nil {:alone :spacebar}]
+    [:##tab {:key :!Sleft_control :lazy true} nil {:alone :tab}]  ;; tab to shift+ctrl
+    [:##caps_lock {:key :left_control :lazy true} nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+    [:##left_option {:key :left_option :lazy true} nil {:alone :delete_or_backspace}]  ;; left option delete
+    [:##left_command {:key :left_command :lazy true} nil {:alone :spacebar}]  ;; left_command to space
+    [:##right_command {:key :right_command :lazy true} nil {:alone :return_or_enter}] ;; right thumb to return
+    [:##right_option {:key :right_option :lazy true} nil {:alone :delete_or_backspace}]
+    [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+]}
+{:des   "modifiers" :rules [
+    [:##spacebar :!CTOleft_shift nil {:alone :spacebar}]  ;; left thumb to hyper
+    ;; [:##tab :!Sleft_control nil {:alone :tab}]  ;; tab to shift+ctrl
+    [:##caps_lock :left_control nil {:alone :escape}]  ;; caps_lock to ctrl, esc when pressed
+    [:##left_option :left_option nil {:alone :delete_or_backspace}]  ;; left option delete
+    ;; [:##left_command :left_command nil {:alone :spacebar}]  ;; left_command to space
+    [:##right_command :right_command nil {:alone :return_or_enter}] ;; right thumb to return
+    [:##right_option :right_option nil {:alone :delete_or_backspace}]
+    [:!Ccaps_lock :!CStab]  ;; caps_lock to shift_tab when command held
+]}

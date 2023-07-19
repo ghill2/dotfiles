@@ -1,22 +1,12 @@
 #!/bin/bash
+PARENT="$(dirname "$(realpath "$(readlink -f "${BASH_SOURCE:-$0}" 2>/dev/null || echo "${BASH_SOURCE:-$0}")")")"
+GPARENT="$(dirname "$(dirname "$(realpath "$(readlink -f "${BASH_SOURCE:-$0}" 2>/dev/null || echo "${BASH_SOURCE:-$0}")")")")"
 
-extension=".bin"  # Specify the extension you want to search for
-downloads_folder="$HOME/Downloads"  # Set the path to the Downloads folder
+# TODO exclude .exe and binary files
+selected_file=$(ls -p $PARENT "$PARENT/bin" "$GPARENT/notes" \
+    | grep -v / \
+    | grep -vE "_z" \
+    | choose)
 
-# Change to the Downloads folder
-# cd "$downloads_folder" || exit 1
+code $selected_file --reuse-window
 
-# Find the most recently modified file with the specified extension
-#result=$(ls -lt "$extension")
-
-# ls -lt "$downloads_folder"
-wally-cli $(find "$downloads_folder" -type f -name "*$extension" -exec ls -lt {} + | awk 'NR==1{print $NF}')
-
-# find "$downloads_folder" -type f -name "*.bin"
-# echo $result
-# result=$(find "$downloads_folder" -type f -name "*.bin" -exec stat -c "%Y %n" {} + |
-#     sort -rn |
-#     head -n 1 |
-#     awk '{print $2}')
-
-# echo "The most recently modified file with the extension $extension is: $result"
