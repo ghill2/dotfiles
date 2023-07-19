@@ -10,3 +10,4 @@ selected_file=$(ls -p $PARENT "$PARENT/bin" "$GPARENT/notes" \
 
 code $selected_file --reuse-window
 
+code "/Users/g1/BU/projects/dotfiles/.Brewfile" --reuse-window
