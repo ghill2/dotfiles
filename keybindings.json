@@ -49,19 +49,48 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "Format" // declared in settings.json in commands menu
     },
     //////////////////////////////////////////////////////////////////////////
+    {   "key": "cmd+e", // Rerun last command
+        "command": "extension.rerunLastCommand"
+    },
+    {   "key": "cmd+d", // Turn off buttons on left side
+        "commands": "editor.action.addCommentLine",
+    },
+    {   "key": "cmd+r", // Focus terminal
+        "command": "workbench.action.terminal.focus"
+    },
     {   "key": "escape", // Focus editor
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorFocus"  // terminalFocus || sideBarFocus
     },
-    {   "key": "ctrl+e", // End
-        "command": "cursorHome",
+    {   "key": "alt+x",  // show command menu
+        "command": "commands.openAsQuickPick"
     },
-    {   "key": "ctrl+r", // End
-        "command": "cursorEnd",
-    },
-    {   "key": "shift+cmd+p", // Focus Left Pane
+    {   "key": "cmd+j", // Focus Left Pane
         "command": "workbench.action.showCommands",
     },
+    {   "key": "cmd+k", // show auto import context menu
+        "command": "editor.action.codeAction"
+    },
+    {   "key": "shift+cmd+c",  // Copy active file to path
+        "command": "copyFilePath",
+    },
+    {   "key": "alt+cmd+[",
+        "command": "editor.fold"
+    },
+    {   "key": "alt+cmd+]",
+        "command": "editor.unfold"
+    },
+    {   "key": "shift+cmd+t", // Run pytest under cursor
+        "command": "pytest-runner.run-test"
+    },
+    {   "key": "alt+b", // Turn off buttons on left side
+        "command": "workbench.action.toggleActivityBarVisibility",
+        "when": "editorFocus"
+    },
+
+    //////////////////////////////////////////////////////////////////////////
+    // Navigation
+    
     {   "key": "ctrl+d", // Focus Left Pane
         "command": "workbench.action.navigateLeft",
         "when": "!terminalFocus"
@@ -90,36 +119,11 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "ctrl+shift+tab", // Previous Tab
         "command": "workbench.action.previousEditorInGroup"
     },
-    {   "key": "alt+x",  // show command menu
-        "command": "commands.openAsQuickPick"
-    },
-    {   "key": "alt+space", // show auto import context menu
-        "command": "editor.action.codeAction"
-    },
-    {   "key": "shift+cmd+c",  // Copy active file to path
-        "command": "copyFilePath",
-    },
-    {   "key": "alt+cmd+[",
-        "command": "editor.fold"
-    },
-    {   "key": "alt+cmd+]",
-        "command": "editor.unfold"
-    },
-    {   "key": "ctrl+s", // Turn off buttons on left side
-        "commands": "editor.action.addCommentLine",
-    },
-    {   "key": "shift+cmd+t", // Run pytest under cursor
-        "command": "pytest-runner.run-test"
-    },
-    {   "key": "cmd+space", // Rerun last command
-        "command": "extension.rerunLastCommand"
-    },
-    {   "key": "cmd+d", // Focus terminal
-        "command": "workbench.action.terminal.focus"
-    },
     {   "key": "shift+ctrl+alt+cmd+d",
         "command": "workbench.action.navigateBack"
     },
+    
+    
     //////////////////////////////////////////////////////////////////////////
     // {   "key": "tab",
     //     "command": "editor.action.inlineSuggest.commit",
@@ -130,11 +134,7 @@ Neovim: goes to end of select block if selected from bottom up.
     },
     {   "key": "cmd+b",  // Toggle browser visible, hide show browser
         "command": "workbench.action.toggleSidebarVisibility",
-    },
-    {   "key": "alt+b", // Turn off buttons on left side
-        "command": "workbench.action.toggleActivityBarVisibility",
-        "when": "editorFocus"
-    },
+    }
     // {   "key": "ctrl+alt+t",
     //     "command": "quickMenuBuilder.openQuickMenu",
     //     "args": "Text Menu",
@@ -659,3 +659,9 @@ Neovim: goes to end of select block if selected from bottom up.
 //   "command": "-editor.action.showHover",
 //   "when": "editorTextFocus"
 // },
+// {   "key": "ctrl+e", // End
+    //     "command": "cursorHome",
+    // },
+    // {   "key": "ctrl+r", // End
+    //     "command": "cursorEnd",
+    // },

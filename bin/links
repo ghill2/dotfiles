@@ -29,7 +29,7 @@ make_symlink "$gparent/karabiner.edn" "$HOME/.config/karabiner.edn"
 # if [[ "$OSTYPE" == "darwin"* ]]; then
 
 # elif [[ "$OSTYPE" == "msys" ]]; then
-    :
+    
     # Doing links in powershell for now because git bash needs Administrator priviledges.
     # I can self elevate with powershell
     # make_symlink "$gparent/profile.ps1" "/c/Users/g1/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"

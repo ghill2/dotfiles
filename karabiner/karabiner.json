@@ -20,6 +20,26 @@
           "type" : "basic",
           "to" : [ {
             "set_variable" : {
+              "name" : "launch-mode",
+              "value" : 1
+            }
+          } ],
+          "from" : {
+            "key_code" : "left_option"
+          },
+          "to_after_key_up" : [ {
+            "set_variable" : {
+              "name" : "launch-mode",
+              "value" : 0
+            }
+          } ],
+          "to_if_alone" : [ {
+            "key_code" : "left_option"
+          } ]
+        }, {
+          "type" : "basic",
+          "to" : [ {
+            "set_variable" : {
               "name" : "lthumb",
               "value" : 1
             }
@@ -58,6 +78,127 @@
           } ]
         } ]
       }, {
+        "description" : "launch mode: quick launch application",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "t",
+            "modifiers" : {
+              "mandatory" : [ "left_control" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "open -a \"terminal\""
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "file shortcuts",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "p"
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/code --reuse-window \"/Users/g1/BU/projects/dotfiles/.Brewfile\""
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/code --reuse-window \"/Users/g1/BU/projects/dotfiles/karabiner.edn\""
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l"
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/code --reuse-window \"/Users/g1/BU/projects/dotfiles/keybindings.json\""
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "s"
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/code --reuse-window \"/Users/g1/BU/projects/dotfiles/settings.json\""
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "r"
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/code --reuse-window \"/Users/g1/BU/projects/dotfiles/.bashrc\""
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "v"
+          },
+          "to" : [ {
+            "shell_command" : "open -b com.microsoft.VSCode"
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "b"
+          },
+          "to" : [ {
+            "shell_command" : "open -b com.apple.Safari"
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "d"
+          },
+          "to" : [ {
+            "shell_command" : "open -b com.hnc.Discord"
+          } ],
+          "conditions" : [ {
+            "name" : "launch-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "misc",
         "manipulators" : [ {
           "to_if_alone" : [ {
@@ -74,9 +215,6 @@
           } ],
           "type" : "basic"
         }, {
-          "to_if_alone" : [ {
-            "key_code" : "escape"
-          } ],
           "from" : {
             "key_code" : "caps_lock",
             "modifiers" : {
@@ -84,7 +222,7 @@
             }
           },
           "to" : [ {
-            "key_code" : "caps_lock"
+            "key_code" : "escape"
           } ],
           "type" : "basic"
         } ]

@@ -94,7 +94,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO
+;; right thumb alt to delete word
+;; cmd+d should open terminal if not open already
+;; activate browser should activate if not already
 ;; comment line
+;; filechooser
 ;; highlight to closing bracket
 ;; file jump shortcuts
 ;; focus safari, discord, chatgpt text input
@@ -108,25 +112,28 @@
 ;; delete (lthumb) does not have key repeat
 ;; scroll page with nav
 ;; zoom in page
+;; hash
+;; highlight between quotes
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CAUTION! If you have uncomented code above here gokuw will display Done! without writing to karabiner.json
 
 {
-    :profiles {:Default
-    {:default true
+    :profiles 
+    {:Default
+        {:default true
         :sim     50  ;; keys need to be pressed within this threshold to be considered simultaneous
         :delay   500  ;; time after which the key press is delayed
         :alone   250    ;; hold for .. ms to register single tap (freddie is at 250)
         :held    500  ;; amount of ms to trigger if helds
-        }}
+    }}
     :applications
     {;; To obtain the app ID: `grep -A1 "CFBundleIdentifier" /Applications/The.app/Contents/Info.plist`
-        :Chrome    ["com.google.Chrome", "com.google.Chrome.beta"]
-        :Finder    ["com.apple.finder"]
-        :Safari    ["com.apple.Safari"]
-        :VSCode    ["com.microsoft.VSCode"]
-        :TextEdit  ["com.apple.TextEdit"]
+        :Chrome-mode    ["com.google.Chrome", "com.google.Chrome.beta"]
+        :Finder-mode    ["com.apple.finder"]
+        :Safari-mode    ["com.apple.Safari"]
+        :VSCode-mode    ["com.microsoft.VSCode"]
+        :TextEdit-mode  ["com.apple.TextEdit"]
     }
     ;; :froms [
     ;;     {:modi [:left_command :left_shift] :key :v}
@@ -135,10 +142,12 @@
     ;; With layer and variable, how to trigger the original modifier with other keys?
 
     ;; [:alfred "search google" "net.deanishe.alfred-searchio"]
+    ;; ;; you can create templates for running shell commands. These follow clojure string template syntax.
     :templates {
         :open   "open \"%s\""
         :alfred "osascript -e 'tell application \"Alfred 3\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
-        :focus_file "code --reuse-window \"%s\""
+        :focus_file "/usr/local/bin/code --reuse-window \"%s\""
+        :open-app "open -a \"%s\""
     }
     ;; :modifiers {:cap [:left_control]}
     
@@ -146,12 +155,29 @@
         :lthumb {:key :f23 :alone {:key :return_or_enter}}
         :sym {:key :f22 :alone {:key :delete_or_backspace}}
         :rthumb {:key :f24 :alone {:key :spacebar}}
+        :launch-mode { :key :left_option }
     }
     :main [
+
         
+        {:des "launch mode: quick launch application" :rules [
+            [:!Tt [:open-app "terminal"]]                   ;; and t is pressed, open Terminal
+        ]}
+        
+        {:des "file shortcuts" :rules [ :launch-mode
+            [:p [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
+            [:k [:focus_file "/Users/g1/BU/projects/dotfiles/karabiner.edn"]]
+            [:l [:focus_file "/Users/g1/BU/projects/dotfiles/keybindings.json"]]
+            [:s [:focus_file "/Users/g1/BU/projects/dotfiles/settings.json"]]
+            [:r [:focus_file "/Users/g1/BU/projects/dotfiles/.bashrc"]]
+            [:v "open -b com.microsoft.VSCode"]
+            [:b "open -b com.apple.Safari"]
+            [:d "open -b com.hnc.Discord"]
+        ]}
+
         {:des "misc" :rules [
             [:##f24 :left_shift nil {:alone :spacebar}]
-            [:##caps_lock :caps_lock nil {:alone :escape}]
+            [:##caps_lock :escape]
             ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
         ]}
         
@@ -200,8 +226,6 @@
             [:##slash :end]
             
         ]}
-        
-        
 
         {:des "sym rhand" :rules [:sym
             [:u :!Sopen_bracket] ;; left curly bracket
@@ -219,6 +243,8 @@
             [:period :non_us_pound] ;; backslash
             [:slash :!Snon_us_pound] ;; pipe
         ]}
+        
+
     ]
 }
 
