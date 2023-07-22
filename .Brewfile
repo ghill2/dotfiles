@@ -22,8 +22,9 @@ tap "homebrew/services"  # needed for skhd
 tap "koekeishiya/formulae"
 brew 'koekeishiya/formulae/skhd', restart_service: true
 brew 'goku', restart_service: true
-# brew 'watchexec'  # goku dependency
-# brew 'joker'  # goku dependency
+brew 'watchexec'  # goku dependency
+brew 'joker'  # goku dependency
+
 brew 'nmap'  # Port scanning utility for large networks
 brew 'choose-gui'  # choose commands
 brew 'maturin'  # Build and publish crates with pyo3, rust-cpython, cffi and uniffi bindings as well as rust binaries as python packages.
@@ -67,6 +68,7 @@ brew 'bitwarden-cli'
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
 brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
 brew 'libusb' # moonlander keyboard
+brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
@@ -102,6 +104,8 @@ cask 'microsoft-remote-desktop'
 cask 'mixed-in-key'
 cask 'wine-stable'
 cask 'crossover'
+cask "dotnet-sdk"
+
 
 #######################################################################
 

@@ -177,6 +177,7 @@
 
         {:des "misc" :rules [
             [:##f24 :left_shift nil {:alone :spacebar}]
+            [:##left_command :left_command nil {:alone :tab}]
             [:##caps_lock :escape]
             ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
         ]}
