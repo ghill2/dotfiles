@@ -118,6 +118,36 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CAUTION! If you have uncomented code above here gokuw will display Done! without writing to karabiner.json
 
+;; Symbol layer 64 keys
+;; https://github.com/astronautr/60p-keyboard-layout#symbol-keys-mapping
+
+;; 34 Keys symbol layer
+;; https://dreymar.colemak.org/layers-extend.html
+;; https://stevep99.github.io/seniply/
+;; https://github.com/Junsang-Mun/moonwol#layer-2-numbers--symbols
+;; https://github.com/Junsang-Mun/moonwol#layer-4-left-symbols
+;; http://www.pvv.org/~hakonhal/main.cgi/keyboard http://www.pvv.org/~hakonhal/main.cgi/keyboard/arensito_devel
+;; http://mostergonomickeyboard.blogspot.com
+;; https://github.com/getreuer/qmk-keymap/blob/main/doc/layout_symbol.png
+;; https://keymapdb.com
+;; http://www.keyboard-layout-editor.com/#/gists/38f4435ff9a10256d9a7e1a0645c2fec
+;; https://github.com/danielebra/qmk#layers
+;; https://github.com/ecridge/jeo#the-jeo-keyboard-layout
+;; https://josef-adamcik.cz/electronics/in-search-of-the-best-custom-keyboard-layout.html
+;; https://noahfrederick.com/log/the-planck-keyboard
+;; https://neo-layout.org/Layouts/neo/
+;; https://peterxjang.com/blog/designing-a-36-key-custom-keyboard-layout.html
+;; https://getreuer.info/posts/keyboards/symbol-layer/index.html
+
+
+;; TODO create a number layer with non-programming symbols
+;; have programming layer with programming symbols
+
+;; thumb alones: (space, delete, backspace, enter, tab, esc)
+;; I still have all the brackets on symmetrical combos (left side for opening, right for closing)
+;; easy access to the hyphen, underscore, semicolon and colon on the base layer as combos.
+;; lock layer key on both the navigation
+
 {
     :profiles 
     {:Default
@@ -178,6 +208,7 @@
         {:des "misc" :rules [
             [:##f24 :left_shift nil {:alone :spacebar}]
             [:##left_command :left_command nil {:alone :tab}]
+            [:##left_option :left_option nil {:alone :escape}]
             [:##caps_lock :escape]
             ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
         ]}
@@ -185,29 +216,29 @@
         {:des "lthumb-lhand" :rules [:lthumb
             ;; [:q :q]
             ;; [:w :w]
-            [:##e :!TStab]  ;; prev tab
-            [:##r :!Ttab]  ;; next tab
+            ;; [:##e :!TStab]  ;; prev tab
+            ;; [:##r :!Ttab]  ;; next tab
             ;; [:t :t]
 
-            [:##a :!Td]  ;; right pane
-            [:##s :!Tf]  ;; prev pane
-            [:##d :left_shift]
-            [:##f :left_option]
+            [:##a :!CStab]  ;; prev application
+            [:##s :!Ctab]  ;; next application
+            [:##d :!TStab]  ;; prev tab
+            [:##f :!Ttab]  ;; next tab
             ;; [:g :g]
 
             [:##z :!CSgrave_accent_and_tilde]  ;; prev window
             [:##x :!Cgrave_accent_and_tilde]  ;; next window
-            [:##c :!CStab]  ;; prev application
-            [:##v :!Ctab]  ;; next application
+            [:##c :!Td]  ;; right pane
+            [:##v :!Tf]  ;; prev pane
             ;; [:b :b]
         ]}
 
         {:des "lthumb-rhand" :rules [:lthumb
-            ;; [:y :y]
-            ;; [:u :u]
-            ;; [:i :i]
-            ;; [:o :o]
-            ;; [:p :p]
+            [:u :!Cz]  ;; redo
+            [:y :!CSz]  ;; paste
+            ;; [:fUi :i]  ;; copy
+            ;; [:o :o] ;; cut
+            ;; [:p :p] ;; undo
             
             ;; [:h :h]
             [:##j :left_arrow]
@@ -216,18 +247,13 @@
             [:##semicolon :right_arrow]
             
             ;; [:n :n]
-            ;; [:m :m]
-            ;; [:comma :comma]
-            ;; [:period :period]
-            ;; [:slash :slash]
-
-            [:##m :home]
-            ;; [:comma :comma] ;; TODO select to previous bracket
-            ;; [:period :period]  ;; TODO select to next bracket
+            [:##m :!home]
+            [:##comma :Oleft_arrow] ;; TODO select to previous bracket
+            [:##period :!Oright_arrow]  ;; TODO select to next bracket
             [:##slash :end]
             
         ]}
-
+        
         {:des "sym rhand" :rules [:sym
             [:u :!Sopen_bracket] ;; left curly bracket
             [:i :!Sclose_bracket]  ;; right curly bracket
@@ -244,8 +270,67 @@
             [:period :non_us_pound] ;; backslash
             [:slash :!Snon_us_pound] ;; pipe
         ]}
-        
 
+        {:des "sym lhand" :rules [:sym
+            ;; [:q :q]
+            ;; [:w :w]
+            ;; [:e :e]
+            ;; [:r :r]
+            ;; [:t :t]
+
+            ;; [:a :a]
+            ;; [:s :s]
+            ;; [:d :d]
+            ;; [:f :f]
+            ;; [:g :g]
+
+            ;; [:z :z]
+            ;; [:x :x]
+            ;; [:c :c]
+            ;; [:v :v]
+            ;; [:b :b]
+        ]}
+
+        {:des "num lhand" :rules [:sym
+            ;; [:q :q]
+            ;; [:w :w]
+            ;; [:e :e]
+            ;; [:r :r]
+            ;; [:t :t]
+
+            ;; [:a :a]
+            ;; [:s :s]
+            ;; [:d :d]
+            ;; [:f :f]
+            ;; [:g :g]
+
+            ;; [:z :z]
+            ;; [:x :x]
+            ;; [:c :c]
+            ;; [:v :v]
+            ;; [:b :b]
+        ]}
+        
+        {:des "num lhand" :rules [:sym
+            ;; [:y :y]
+            ;; [:u :u]
+            ;; [:i :i]
+            ;; [:o :o]
+            ;; [:p :p]
+
+            ;; [:h :h]
+            ;; [:j :j]
+            ;; [:k :k]
+            ;; [:l :l]
+            ;; [:semicolon :semicolon]
+
+            ;; [:n :n]
+            ;; [:m :m]
+            ;; [:comma :comma]
+            ;; [:period :period]
+            ;; [:slash :slash]
+        ]}
+        
     ]
 }
 
@@ -253,3 +338,4 @@
 
         
         
+

@@ -43,17 +43,36 @@ Neovim: goes to end of select block if selected from bottom up.
 [
 //#region MAPS
     
-    //////////////////////////////////////////////////////////////////////////
-    // commands menu keybindings
-    {   "key": "ctrl+alt+cmd+f",
-        "command": "Format" // declared in settings.json in commands menu
+    // //////////////////////////////////////////////////////////////////////////
+    // // commands menu keybindings
+    // {   "key": "ctrl+alt+cmd+f",
+    //     "command": "Format" // declared in settings.json in commands menu`
+    // },
+    // //////////////////////////////////////////////////////////////////////////
+    {
+        "key": "cmd+b",  // Toggle browser visible and focus
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.action.focusSideBar",
+            ]
+        },
     },
-    //////////////////////////////////////////////////////////////////////////
+    {   "key": "cmd+p",  // Open file palette
+        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "cmd+u",    // Open command palette
+        "command": "workbench.action.showCommands"
+    },
+    {   "key": "cmd+d",  // Line comment
+        "command": "editor.action.addCommentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
     {   "key": "cmd+e", // Rerun last command
         "command": "extension.rerunLastCommand"
-    },
-    {   "key": "cmd+d", // Turn off buttons on left side
-        "commands": "editor.action.addCommentLine",
     },
     {   "key": "cmd+r", // Focus terminal
         "command": "workbench.action.terminal.focus"
@@ -87,10 +106,8 @@ Neovim: goes to end of select block if selected from bottom up.
         "command": "workbench.action.toggleActivityBarVisibility",
         "when": "editorFocus"
     },
-
     //////////////////////////////////////////////////////////////////////////
     // Navigation
-    
     {   "key": "ctrl+d", // Focus Left Pane
         "command": "workbench.action.navigateLeft",
         "when": "!terminalFocus"
@@ -122,24 +139,15 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "shift+ctrl+alt+cmd+d",
         "command": "workbench.action.navigateBack"
     },
-    
-    
     //////////////////////////////////////////////////////////////////////////
-    // {   "key": "tab",
-    //     "command": "editor.action.inlineSuggest.commit",
-    //     "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"     
-    // },
+    
     {   "key": "alt+esc", // show auto complete menu
         "command": "editor.action.triggerSuggest"
     },
     {   "key": "cmd+b",  // Toggle browser visible, hide show browser
         "command": "workbench.action.toggleSidebarVisibility",
-    }
-    // {   "key": "ctrl+alt+t",
-    //     "command": "quickMenuBuilder.openQuickMenu",
-    //     "args": "Text Menu",
-    //     "when": "editorTextFocus"
-    // },
+    },
+    workbench.action.focusSideBar
     {   "key": "alt+cmd+[", // See al referneces
         "command": "references-view.findReferences"
     },
@@ -149,9 +157,9 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "shift+ctrl+alt+cmd+w", // Terminal down
         "command": "workbench.action.terminal.scrollUp"
     },
-    // {   "key": "shift+ctrl+alt+cmd+s", // Terminal down
-    //     "command": "workbench.action.terminal.scrollDown"
-    // },
+    {   "key": "shift+ctrl+alt+cmd+s", // Terminal down
+        "command": "workbench.action.terminal.scrollDown"
+    },
     {   "key": "shift+ctrl+alt+cmd+a", // Terminal reset bottom
         "command": "workbench.action.terminal.scrollToBottom"
     },
@@ -664,4 +672,15 @@ Neovim: goes to end of select block if selected from bottom up.
     // },
     // {   "key": "ctrl+r", // End
     //     "command": "cursorEnd",
+    // },
+
+
+    // {   "key": "tab",
+    //     "command": "editor.action.inlineSuggest.commit",
+    //     "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"     
+    // },
+    // {   "key": "ctrl+alt+t",
+    //     "command": "quickMenuBuilder.openQuickMenu",
+    //     "args": "Text Menu",
+    //     "when": "editorTextFocus"
     // },

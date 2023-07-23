@@ -1,0 +1,1 @@
+https://josef-adamcik.cz/images/keyblayout/vi-vim-cheat-sheet.gif

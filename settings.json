@@ -154,6 +154,7 @@
         "Z": true,
         // ".direnv": true,
         "/usr": false,
+        "submodule": false, // makes sure that the "submodule" folder is not excluded and will be included in searches.
     },
     "search.exclude": { // exclude folders from search index
         "Z": true,

@@ -163,7 +163,8 @@ vscode "charliermarsh.ruff"
 vscode 'ms-vscode.remote-repositories'
 vscode "canadaduane.vscode-kmonad"  # kmonad (lisp) syntax highlighting
 vscode "entibo.vscode-kmonad-format"  # format kmonad (lisp) files
-
+vscode "pokey.command-server"  # run comands using file based RPC
+vscode "ryuta46.multi-command"  # run a sequence of commands from keybindings.json
 
 # cask "backblaze" # also run the installer at /usr/local/Caskroom/backblaze/8.5.0.640/Backblaze Installer.app:
 # vscode "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
