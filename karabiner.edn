@@ -122,6 +122,7 @@
 ;; https://github.com/astronautr/60p-keyboard-layout#symbol-keys-mapping
 
 ;; 34 Keys symbol layer
+;; https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 ;; https://dreymar.colemak.org/layers-extend.html
 ;; https://stevep99.github.io/seniply/
 ;; https://github.com/Junsang-Mun/moonwol#layer-2-numbers--symbols
@@ -147,7 +148,10 @@
 ;; I still have all the brackets on symmetrical combos (left side for opening, right for closing)
 ;; easy access to the hyphen, underscore, semicolon and colon on the base layer as combos.
 ;; lock layer key on both the navigation
-
+;; control + shift up and down to select paragraph
+;; control backspace to delete word
+;; 23 SYMBOL LAYER: " ' # : - _ + = ( { [ ) } ] ~ & | % ` @ $ \
+;; NORMAL POSITION: < . , > ? /
 {
     :profiles 
     {:Default
@@ -234,11 +238,11 @@
         ]}
 
         {:des "lthumb-rhand" :rules [:lthumb
-            [:u :!Cz]  ;; redo
-            [:y :!CSz]  ;; paste
-            ;; [:fUi :i]  ;; copy
-            ;; [:o :o] ;; cut
-            ;; [:p :p] ;; undo
+            [:u :!CSz]  ;; redo
+            [:y :!Cv]  ;; paste
+            [:i :Cc]  ;; copy
+            [:o :Cx]  ;; cut
+            [:p :Cz]  ;; undo
             
             ;; [:h :h]
             [:##j :left_arrow]
@@ -277,6 +281,8 @@
             ;; [:e :e]
             ;; [:r :r]
             ;; [:t :t]
+            [:period :non_us_pound] ;; backslash
+            [:slash :!Snon_us_pound] ;; pipe
 
             ;; [:a :a]
             ;; [:s :s]
