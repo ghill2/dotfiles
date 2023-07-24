@@ -69,8 +69,7 @@
 ;; {:des "a to 1" :rules [[:a :1]]}
 ;; {:des "b to 2" :rules [[:b :2]]}
 ;; {:des "c to insert 123" :rules [[:c [:1 :2 :3]]]}
-
-;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
+    ;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
 ;; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
 
 ;; https://github.com/rgomezcasas/dotfiles/blob/main/os/mac/karabiner-goku/karabiner.edn
@@ -118,13 +117,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CAUTION! If you have uncomented code above here gokuw will display Done! without writing to karabiner.json
 
-;; Symbol layer 64 keys
-;; https://github.com/astronautr/60p-keyboard-layout#symbol-keys-mapping
+;; Symbol layers favourites:
+;; https://stevep99.github.io/seniply/
+;; https://github.com/Junsang-Mun/moonwol#layer-2-numbers--symbols
+;; https://github.com/getreuer/qmk-keymap/blob/main/doc/layout_symbol.png
 
-;; 34 Keys symbol layer
+;; Symbol layer list:
 ;; https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 ;; https://dreymar.colemak.org/layers-extend.html
-;; https://stevep99.github.io/seniply/
 ;; https://github.com/Junsang-Mun/moonwol#layer-2-numbers--symbols
 ;; https://github.com/Junsang-Mun/moonwol#layer-4-left-symbols
 ;; http://www.pvv.org/~hakonhal/main.cgi/keyboard http://www.pvv.org/~hakonhal/main.cgi/keyboard/arensito_devel
@@ -139,7 +139,7 @@
 ;; https://neo-layout.org/Layouts/neo/
 ;; https://peterxjang.com/blog/designing-a-36-key-custom-keyboard-layout.html
 ;; https://getreuer.info/posts/keyboards/symbol-layer/index.html
-
+;; https://github.com/astronautr/60p-keyboard-layout#symbol-keys-mapping
 
 ;; TODO create a number layer with non-programming symbols
 ;; have programming layer with programming symbols
@@ -150,10 +150,14 @@
 ;; lock layer key on both the navigation
 ;; control + shift up and down to select paragraph
 ;; control backspace to delete word
-;; 23 SYMBOL LAYER: " ' # : - _ + = ( { [ ) } ] ~ & | % ` @ $ \
-;; NORMAL POSITION: < . , > ? /
+;; delete word
+;; escape tap
+;; duplicate right and left
+;; TODO select to next and prev bracket
+;; map delete so can control + delete?
+
 {
-    :profiles 
+    :profiles
     {:Default
         {:default true
         :sim     50  ;; keys need to be pressed within this threshold to be considered simultaneous
@@ -161,6 +165,64 @@
         :alone   250    ;; hold for .. ms to register single tap (freddie is at 250)
         :held    500  ;; amount of ms to trigger if helds
     }}
+    :tos {
+        :underscore {:key :hyphen :modi [:left_shift]}
+        :plus {:key :equal_sign :modi [:left_shift]}
+        :curly_bracket_open {:key :open_bracket :modi [:left_shift]}
+        :curly_bracket_close {:key :close_bracket :modi [:left_shift]}
+        :square_bracket_open {:key :open_bracket}
+        :square_bracket_close {:key :close_bracket}
+        :parenthesis_open {:key :9 :modi [:left_shift]}
+        :parenthesis_close {:key :0 :modi [:left_shift]}
+        :equal {:key :equal_sign}
+        :dash {:key :hyphen}
+        :backslash {:key :non_us_pound}
+        :pipe {:key :Snon_us_pound}
+        :redo_ {:key :z :modi [:left_shift :left_command]}
+        :undo_ {:key :z :modi [:left_command]}
+        :paste_ {:key :v :modi [:left_command]}
+        :copy_ {:key :c :modi [:left_command]}
+        :cut_ {:key :x :modi [:left_command]}
+        :left {:key :left_arrow}
+        :right {:key :right_arrow}
+        :down {:key :down_arrow}
+        :up {:key :up_arrow}
+
+        :next_app {:key :tab :modi [:left_command]}
+        :prev_app {:key :tab :modi [:left_command :left_shift]}
+        :prev_tab {:key :tab :modi [:left_control :left_shift]}
+        :next_tab {:key :tab :modi [:left_control]}
+        :prev_window {:key :grave_accent_and_tilde :modi [:left_command :left_shift]}
+        :next_window {:key :grave_accent_and_tilde :modi [:left_command]}
+
+        :prev_word {:key :left_arrow :modi [:left_control]}
+        :next_word {:key :right_arrow :modi [:left_control]}
+
+        :single_quote {:key :quote}
+        :double_quote {:key :quote :modi [:left_shift]}
+        
+        :apostrophe {:key :1 :modi [:left_shift]}
+        :at {:key :2 :modi [:left_shift]}
+        :hash {:key :3 :modi [:left_shift]}
+        :dollar {:key :4 :modi [:left_shift]}
+        :percent {:key :5 :modi [:left_shift]}
+        :caret {:key :6 :modi [:left_shift]}
+        :ampersand {:key :7 :modi [:left_shift]}
+        :asterisk {:key :8 :modi [:left_shift]}
+        
+        :less_than {:key :comma :modi [:left_shift]}
+        :greater_than {:key :period :modi [:left_shift]}
+
+        :return {:key :return_or_enter}
+        :enter {:key :return_or_enter}
+        :delete {:key :delete_forward}
+        
+        :left_pane {:key :d :modi [:left_control]}
+        :right_pane {:key :f :modi [:left_control]}
+
+        :colon {:key :semicolon :modi [:left_shift]}
+    }
+
     :applications
     {;; To obtain the app ID: `grep -A1 "CFBundleIdentifier" /Applications/The.app/Contents/Info.plist`
         :Chrome-mode    ["com.google.Chrome", "com.google.Chrome.beta"]
@@ -169,9 +231,6 @@
         :VSCode-mode    ["com.microsoft.VSCode"]
         :TextEdit-mode  ["com.apple.TextEdit"]
     }
-    ;; :froms [
-    ;;     {:modi [:left_command :left_shift] :key :v}
-    ;; ]
     
     ;; With layer and variable, how to trigger the original modifier with other keys?
 
@@ -192,7 +251,6 @@
         :launch-mode { :key :left_option }
     }
     :main [
-
         
         {:des "launch mode: quick launch application" :rules [
             [:!Tt [:open-app "terminal"]]                   ;; and t is pressed, open Terminal
@@ -218,76 +276,80 @@
         ]}
         
         {:des "lthumb-lhand" :rules [:lthumb
-            ;; [:q :q]
-            ;; [:w :w]
-            ;; [:##e :!TStab]  ;; prev tab
-            ;; [:##r :!Ttab]  ;; next tab
-            ;; [:t :t]
+            [:q :prev_window]
+            [:w :next_window]
+            [:##e :left_pane]
+            [:##r :right_pane]
+            [:##t :left_shift]
 
-            [:##a :!CStab]  ;; prev application
-            [:##s :!Ctab]  ;; next application
-            [:##d :!TStab]  ;; prev tab
-            [:##f :!Ttab]  ;; next tab
-            ;; [:g :g]
+            [:##a :prev_app]
+            [:##s :next_app]
+            [:##d :prev_tab]
+            [:##f :next_tab]
+            [:##g :left_shift]
 
-            [:##z :!CSgrave_accent_and_tilde]  ;; prev window
-            [:##x :!Cgrave_accent_and_tilde]  ;; next window
-            [:##c :!Td]  ;; right pane
-            [:##v :!Tf]  ;; prev pane
-            ;; [:b :b]
+            [:##z :undo_]
+            [:##x :cut_]
+            [:##c :copy_]
+            [:##v :paste_]
+            [:##b :redo_]
         ]}
 
         {:des "lthumb-rhand" :rules [:lthumb
-            [:u :!CSz]  ;; redo
-            [:y :!Cv]  ;; paste
-            [:i :Cc]  ;; copy
-            [:o :Cx]  ;; cut
-            [:p :Cz]  ;; undo
+            [:u :page_up]
+            [:y :prev_word]
+            [:i :up]
+            [:o :next_word]
+            [:p :undo_]
             
-            ;; [:h :h]
-            [:##j :left_arrow]
-            [:##k :down_arrow]
-            [:##l :up_arrow]
-            [:##semicolon :right_arrow]
+            [:h :page_down]
+            [:##j :left]
+            [:##k :down]
+            [:##l :right]
+            [:##semicolon :delete]
+
             
             ;; [:n :n]
-            [:##m :!home]
-            [:##comma :Oleft_arrow] ;; TODO select to previous bracket
-            [:##period :!Oright_arrow]  ;; TODO select to next bracket
-            [:##slash :end]
+            [:##m :home]
+            ;; [:##comma :prev_word]
+            [:##period :end]
+            ;; [:##slash :end]
             
         ]}
-        
+        {:des "sym normal remap" :rules [
+            [:semicolon :underscore]
+            [:slash :hash]
+        ]}
+        ;; 23 SYMBOL LAYER: " ' # : - _ ( [ + = { ) } ] ~ & | % ` @ $ \
+        ;; NORMAL POSITION: < . , > ? /
         {:des "sym rhand" :rules [:sym
-            [:u :!Sopen_bracket] ;; left curly bracket
-            [:i :!Sclose_bracket]  ;; right curly bracket
-            [:o :!Shyphen] ;; underscore
-            [:p :!Sequal_sign] ;; plus
+            ;; [:u :square_backet_open]
+            ;; [:e :parenthesis_close]
+            ;; [:o :underscore]
+            ;; [:p :plus]
 
-            [:j :!S9] ;; left parenthesis
-            [:k :!S0]  ;; right parenthesis
-            [:l :hyphen] ;; hyphen
-            [:semicolon :equal_sign] ;; equal
+            ;; [:j :colon]
+            ;; [:k :underscore]
+            ;; [:l :dash]
+            ;; [:semicolon :equal]
             
-            [:m :open_bracket] ;; left square bracket
-            [:comma :close_bracket] ;; right square bracket
-            [:period :non_us_pound] ;; backslash
-            [:slash :!Snon_us_pound] ;; pipe
+            ;; [:m :square_bracket_open]
+            ;; [:comma :square_bracket_close]
+            ;; [:period :backslash]
+            ;; [:slash :pipe]
         ]}
 
         {:des "sym lhand" :rules [:sym
             ;; [:q :q]
-            ;; [:w :w]
-            ;; [:e :e]
-            ;; [:r :r]
+            [:w :curly_bracket_open]
+            [:e :parenthesis_open]
+            [:r :square_bracket_open]
             ;; [:t :t]
-            [:period :non_us_pound] ;; backslash
-            [:slash :!Snon_us_pound] ;; pipe
 
             ;; [:a :a]
             ;; [:s :s]
-            ;; [:d :d]
-            ;; [:f :f]
+            [:d :underscore]
+            [:f :colon]
             ;; [:g :g]
 
             ;; [:z :z]

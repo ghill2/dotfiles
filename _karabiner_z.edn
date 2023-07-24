@@ -1,3 +1,44 @@
+{:des "lthumb-lhand" :rules [:lthumb
+    ;; [:q :q]
+    ;; [:w :w]
+    ;; [:##e :!TStab]  ;; prev tab
+    ;; [:##r :!Ttab]  ;; next tab
+    ;; [:t :t]
+
+    [:##a :prev_app]  ;; prev application
+    [:##s :next_app]  ;; next application
+    [:##d :prev_tab]  ;; prev tab
+    [:##f :next_tab]  ;; next tab
+    ;; [:g :g]
+
+    [:##z :prev_window]
+    [:##x :next_window]
+    [:##c :!Td]  ;; right pane
+    [:##v :!Tf]  ;; prev pane
+    ;; [:b :b]
+]}
+
+{:des "lthumb-rhand" :rules [:lthumb
+    [:u :redo_]
+    [:y :paste_]
+    [:i :copy_]
+    [:o :cut_]
+    [:p :undo_]
+    
+    ;; [:h :h]
+    [:##j :left_arrow]
+    [:##k :down_arrow]
+    [:##l :up_arrow]
+    [:##semicolon :right_arrow]
+    
+    ;; [:n :n]
+    [:##m :home]
+    [:##comma :prev_word]
+    [:##period :next_word]
+    [:##slash :end]
+    
+]}
+
 ;; {:des "caps" :rules [
 ;;     [:caps_lock {:key :left_control} nil {:alone :escape}]  ;; left option delete
 ;;     ;; [:left_control [{:key :left_control} {:set ["cap-mode" 1]}] nil {:afterup ["cap-mode" 0] :alone :escape}]
