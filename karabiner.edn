@@ -204,6 +204,7 @@
         :apostrophe {:key :1 :modi [:left_shift]}
         :at {:key :2 :modi [:left_shift]}
         :hash {:key :3 :modi [:left_shift]}
+        :hash_space [{:key :3 :modi [:left_shift]} {:key :spacebar}]
         :dollar {:key :4 :modi [:left_shift]}
         :percent {:key :5 :modi [:left_shift]}
         :caret {:key :6 :modi [:left_shift]}
@@ -318,45 +319,51 @@
         ]}
         {:des "sym normal remap" :rules [
             [:semicolon :underscore]
-            [:slash :hash]
+            [:slash :double_quote]
+            ;; [:!Sslash :double_quote]
         ]}
         ;; 23 SYMBOL LAYER: " ' # : - _ ( [ + = { ) } ] ~ & | % ` @ $ \
         ;; NORMAL POSITION: < . , > ? /
-        {:des "sym rhand" :rules [:sym
-            ;; [:u :square_backet_open]
-            ;; [:e :parenthesis_close]
-            ;; [:o :underscore]
-            ;; [:p :plus]
-
-            ;; [:j :colon]
-            ;; [:k :underscore]
-            ;; [:l :dash]
-            ;; [:semicolon :equal]
-            
-            ;; [:m :square_bracket_open]
-            ;; [:comma :square_bracket_close]
-            ;; [:period :backslash]
-            ;; [:slash :pipe]
-        ]}
-
+      
         {:des "sym lhand" :rules [:sym
             ;; [:q :q]
             [:w :curly_bracket_open]
-            [:e :parenthesis_open]
-            [:r :square_bracket_open]
+            [:e :square_bracket_open]
+            ;; [:r :square_bracket_open]
             ;; [:t :t]
 
             ;; [:a :a]
-            ;; [:s :s]
-            [:d :underscore]
-            [:f :colon]
+            [:s :dash]
+            [:d :parenthesis_open]
+            [:f :hash]
             ;; [:g :g]
 
             ;; [:z :z]
-            ;; [:x :x]
-            ;; [:c :c]
-            ;; [:v :v]
+            ;; [:x :curly_bracket_open]
+            ;; [:c :curly_bracket_open]
+            [:v :single_quote]
             ;; [:b :b]
+        ]}
+        
+        {:des "sym rhand" :rules [:sym
+            ;; [:y :y]
+            ;; [:u :curly_backet_close]
+            [:i :parenthesis_close]
+            ;; [:o :square_bracket_close]
+            [:p :curly_backet_close]
+            
+            ;; [:h :h]
+            [:j :colon]
+            [:k :parenthesis_close]
+            [:l :plus]
+            [:semicolon :semicolon]
+            [:quote :slash]
+            
+            ;; [:n :n]
+            [:m :equal]
+            [:comma :less_than]
+            [:period :greater_than]
+            [:slash :single_quote]
         ]}
 
         {:des "num lhand" :rules [:sym

@@ -754,7 +754,7 @@
           },
           "to" : [ {
             "modifiers" : [ "left_shift" ],
-            "key_code" : "hyphen"
+            "key_code" : "quote"
           } ],
           "conditions" : [ {
             "name" : "sym",
@@ -765,6 +765,36 @@
         }, {
           "from" : {
             "key_code" : "f"
+          },
+          "to" : [ {
+            "key_code" : "quote"
+          } ],
+          "conditions" : [ {
+            "name" : "sym",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "sym rhand",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "i"
+          },
+          "to" : [ {
+            "modifiers" : [ "left_shift" ],
+            "key_code" : "0"
+          } ],
+          "conditions" : [ {
+            "name" : "sym",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "j"
           },
           "to" : [ {
             "modifiers" : [ "left_shift" ],

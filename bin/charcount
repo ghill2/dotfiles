@@ -54,7 +54,6 @@ if __name__ == "__main__":
        "]",
        "+",
        "=",
-       
        "~",
        "&",
        "|",
@@ -82,5 +81,3 @@ if __name__ == "__main__":
     total = sorted(total.items(), key=lambda x: x[1], reverse=True)
     for char, count in total:
         print(f"{char} {count}")
-        
-    
