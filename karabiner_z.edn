@@ -1,3 +1,45 @@
+;; Navigation version 2
+{:des "lthumb-rhand" :rules [:lthumb
+    [:##y :page_up]
+    [:##u :prev_word]
+    [:##i :up]
+    [:##o :next_word]
+    [:##p :undo_]
+    
+    [:##h :page_down]
+    [:##j :left]
+    [:##k :down]
+    [:##l :right]
+    [:##semicolon :delete]
+    
+    ;; [:n :n]
+    [:##m :home]
+    [:comma :undo_]
+    [:##period :end]
+    ;; [:##slash :end]
+]}
+
+;; Navigation version 1
+{:des "lthumb-rhand" :rules [:lthumb
+    [:##y :redo_]
+    [:##u :paste_]
+    [:##i :copy_]
+    [:##o :cut_]
+    [:##p :undo_]
+    
+    [:##h :page_up]
+    [:##j :left_arrow]
+    [:##k :down_arrow]
+    [:##l :up_arrow]
+    [:##semicolon :right_arrow]
+    
+    [:##n :page_down]
+    [:##m :home]
+    [:##comma :prev_word]
+    [:##period :next_word]
+    [:##slash :end]
+]}
+
 {:des "lthumb-lhand" :rules [:lthumb
     ;; [:q :q]
     ;; [:w :w]
@@ -18,26 +60,7 @@
     ;; [:b :b]
 ]}
 
-{:des "lthumb-rhand" :rules [:lthumb
-    [:u :redo_]
-    [:y :paste_]
-    [:i :copy_]
-    [:o :cut_]
-    [:p :undo_]
-    
-    ;; [:h :h]
-    [:##j :left_arrow]
-    [:##k :down_arrow]
-    [:##l :up_arrow]
-    [:##semicolon :right_arrow]
-    
-    ;; [:n :n]
-    [:##m :home]
-    [:##comma :prev_word]
-    [:##period :next_word]
-    [:##slash :end]
-    
-]}
+
 
 ;; {:des "caps" :rules [
 ;;     [:caps_lock {:key :left_control} nil {:alone :escape}]  ;; left option delete

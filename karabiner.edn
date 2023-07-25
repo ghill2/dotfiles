@@ -69,7 +69,7 @@
 ;; {:des "a to 1" :rules [[:a :1]]}
 ;; {:des "b to 2" :rules [[:b :2]]}
 ;; {:des "c to insert 123" :rules [[:c [:1 :2 :3]]]}
-    ;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
+;; https://github.com/yqrashawn/yqdotfiles/blob/master/modules/yqrashawn/home-manager/dotfiles/karabiner.edn
 ;; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
 
 ;; https://github.com/rgomezcasas/dotfiles/blob/main/os/mac/karabiner-goku/karabiner.edn
@@ -165,6 +165,7 @@
         :alone   250    ;; hold for .. ms to register single tap (freddie is at 250)
         :held    500  ;; amount of ms to trigger if helds
     }}
+    
     :tos {
         :underscore {:key :hyphen :modi [:left_shift]}
         :plus {:key :equal_sign :modi [:left_shift]}
@@ -187,20 +188,16 @@
         :right {:key :right_arrow}
         :down {:key :down_arrow}
         :up {:key :up_arrow}
-
         :next_app {:key :tab :modi [:left_command]}
         :prev_app {:key :tab :modi [:left_command :left_shift]}
         :prev_tab {:key :tab :modi [:left_control :left_shift]}
         :next_tab {:key :tab :modi [:left_control]}
         :prev_window {:key :grave_accent_and_tilde :modi [:left_command :left_shift]}
         :next_window {:key :grave_accent_and_tilde :modi [:left_command]}
-
-        :prev_word {:key :left_arrow :modi [:left_control]}
-        :next_word {:key :right_arrow :modi [:left_control]}
-
+        :prev_word {:key :left_arrow :modi [:left_option] :lazy true}
+        :next_word {:key :right_arrow :modi [:left_option] :lazy true}
         :single_quote {:key :quote}
         :double_quote {:key :quote :modi [:left_shift]}
-        
         :apostrophe {:key :1 :modi [:left_shift]}
         :at {:key :2 :modi [:left_shift]}
         :hash {:key :3 :modi [:left_shift]}
@@ -210,17 +207,13 @@
         :caret {:key :6 :modi [:left_shift]}
         :ampersand {:key :7 :modi [:left_shift]}
         :asterisk {:key :8 :modi [:left_shift]}
-        
         :less_than {:key :comma :modi [:left_shift]}
         :greater_than {:key :period :modi [:left_shift]}
-
         :return {:key :return_or_enter}
         :enter {:key :return_or_enter}
         :delete {:key :delete_forward}
-        
         :left_pane {:key :d :modi [:left_control]}
         :right_pane {:key :f :modi [:left_control]}
-
         :colon {:key :semicolon :modi [:left_shift]}
     }
 
@@ -244,20 +237,33 @@
         :open-app "open -a \"%s\""
     }
     ;; :modifiers {:cap [:left_control]}
-    
-    :layers {
-        :lthumb {:key :f23 :alone {:key :return_or_enter}}
-        :sym {:key :f22 :alone {:key :delete_or_backspace}}
-        :rthumb {:key :f24 :alone {:key :spacebar}}
-        :launch-mode { :key :left_option }
+    :froms {
+        :lthumb1 {:key :f23}
+        :rthumb1 {:key :f24}
+        :rthumb2 {:key :f22}
+        :rthumb3 {:key :f22}
+    }
+    :simlayers {
+        ;; all layers are mapped to f20, which does nothing. Layers are toggled in section in main.
+        :nav {:key :f20}
+        :sym {:key :f20}
+        :launch {:key :f20}
     }
     :main [
-        
-        {:des "launch mode: quick launch application" :rules [
-            [:!Tt [:open-app "terminal"]]                   ;; and t is pressed, open Terminal
+        {:des "thumbs" :rules [
+            ;; [:##f24 :[{:key :left_shift} {:set ["cap-mode" 1]}] nil {:afterup ["cap-mode" 0] :alone :escape}]
+            [:lthumb1 [{:key :left_shift} {:set ["nav" 1]}] nil {:alone :enter :afterup ["nav" 0]}]
+            [:rthumb1 {:key :left_shift} nil {:alone :spacebar}]
+            ;; [:rthumb2 {:set ["sym" 1]} nil {:afterup ["sym" 0] :alone :delete_or_backspace}]
+                  
+            ;; [:##f22 :left_shift nil {:alone :delete_or_backspace}]
+            [:##left_command :left_command nil {:alone :tab}]
+            [:##left_option :left_option nil {:alone :escape}]
+            [:##caps_lock :escape]
+            ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
         ]}
-        
-        {:des "file shortcuts" :rules [ :launch-mode
+
+        {:des "file shortcuts" :rules [ :launch
             [:p [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
             [:k [:focus_file "/Users/g1/BU/projects/dotfiles/karabiner.edn"]]
             [:l [:focus_file "/Users/g1/BU/projects/dotfiles/keybindings.json"]]
@@ -267,13 +273,27 @@
             [:b "open -b com.apple.Safari"]
             [:d "open -b com.hnc.Discord"]
         ]}
+        
+        {:des "lthumb-rhand" :rules [:lthumb
+            [:##y :redo_]
+            [:##u :paste_]
+            [:##i :copy_]
+            [:##o :cut_]
+            [:##p :undo_]
+            
+            [:##h :page_up]
+            [:##j :prev_word]
+            [:##k :down_arrow]
+            [:##l :up_arrow]
+            [:##semicolon :next_word]
+            
+            [:##n :page_down]
+            [:##m :home]
+            [:##comma :left]
+            [:##period :right]
+            [:##slash :end]
 
-        {:des "misc" :rules [
-            [:##f24 :left_shift nil {:alone :spacebar}]
-            [:##left_command :left_command nil {:alone :tab}]
-            [:##left_option :left_option nil {:alone :escape}]
-            [:##caps_lock :escape]
-            ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
+            ;; [:f22 :left_shift] ;; rthumb
         ]}
         
         {:des "lthumb-lhand" :rules [:lthumb
@@ -295,33 +315,7 @@
             [:##v :paste_]
             [:##b :redo_]
         ]}
-
-        {:des "lthumb-rhand" :rules [:lthumb
-            [:u :page_up]
-            [:y :prev_word]
-            [:i :up]
-            [:o :next_word]
-            [:p :undo_]
-            
-            [:h :page_down]
-            [:##j :left]
-            [:##k :down]
-            [:##l :right]
-            [:##semicolon :delete]
-
-            
-            ;; [:n :n]
-            [:##m :home]
-            ;; [:##comma :prev_word]
-            [:##period :end]
-            ;; [:##slash :end]
-            
-        ]}
-        {:des "sym normal remap" :rules [
-            [:semicolon :underscore]
-            [:slash :double_quote]
-            ;; [:!Sslash :double_quote]
-        ]}
+        
         ;; 23 SYMBOL LAYER: " ' # : - _ ( [ + = { ) } ] ~ & | % ` @ $ \
         ;; NORMAL POSITION: < . , > ? /
       
@@ -347,10 +341,8 @@
         
         {:des "sym rhand" :rules [:sym
             ;; [:y :y]
-            ;; [:u :curly_backet_close]
-            [:i :parenthesis_close]
-            ;; [:o :square_bracket_close]
-            [:p :curly_backet_close]
+            ;; [:u :curly_backet_close] [()))))]
+            [:p :curly_bracket_close]
             
             ;; [:h :h]
             [:j :colon]
@@ -364,6 +356,12 @@
             [:comma :less_than]
             [:period :greater_than]
             [:slash :single_quote]
+
+        ]}
+        {:des "sym normal remap" :rules [
+            [:semicolon :underscore]
+            [:slash :double_quote]
+            ;; [:!Sslash :double_quote]
         ]}
 
         {:des "num lhand" :rules [:sym
