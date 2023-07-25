@@ -152,13 +152,14 @@
     "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
     "files.exclude": { // exclude files from explorer
         "Z": true,
-        // ".direnv": true,
         "/usr": false,
         "submodule": false, // makes sure that the "submodule" folder is not excluded and will be included in searches.
     },
     "search.exclude": { // exclude folders from search index
         "Z": true,
         ".direnv": true,
+        ".venv": true,
+        "venv": true,
         "node_modules": true    // this excludes the folder only from the root of your workspace 
     },
     "window.zoomLevel": 1,

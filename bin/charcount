@@ -81,12 +81,25 @@ def get_bigrams(path):
         counts = {f"{bigram[0]}{bigram[1]}": count for bigram, count in counts}
 
     return counts
-# def bigrams(text):
-#     words = iter(text.split())
-#     last = words.next()
-#     for piece in words:
-#         yield (last, piece)
-#         last = piece
+
+def calculate_bigram_percentages(text):
+    # Use regular expression to find bigrams with at least one letter and one non-letter character
+    bigrams = re.findall(r'[a-zA-Z][^a-zA-Z]|[^\W_][a-zA-Z]', text)
+
+    # Count the occurrences of each bigram
+    bigram_counts = Counter(bigrams)
+
+    # Calculate the total occurrences of each letter in the text
+    letter_counts = Counter(re.findall(r'[a-zA-Z]', text))
+
+    # Calculate the percentage of each bigram relative to the total occurrences of the letter it is next to
+    bigram_percentages = {}
+    for bigram, count in bigram_counts.items():
+        letter = bigram[0]
+        percentage = count / letter_counts[letter] * 100
+        bigram_percentages[bigram] = percentage
+
+    return bigram_percentages
 
 if __name__ == "__main__":
     path1 = "/Users/g1/BU/projects/pytower_develop/pytower/data/files.py"
