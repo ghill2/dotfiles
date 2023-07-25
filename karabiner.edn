@@ -113,14 +113,29 @@
 ;; zoom in page
 ;; hash
 ;; highlight between quotes
-
+;; implement long press: https://www.jonashietala.se/blog/2022/09/06/the_current_t-34_keyboard_layout/#long-press
+;; implement repeat key https://www.jonashietala.se/blog/2022/09/06/the_current_t-34_keyboard_layout/#repeat-key
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CAUTION! If you have uncomented code above here gokuw will display Done! without writing to karabiner.json
 
+
+;; Effort Grids and Maps
+;; https://www.jonashietala.se/blog/2021/06/03/the-t-34-keyboard-layout/
+;; https://deskthority.net/wiki/images/b/bd/Keyboard_effort_grid.png
+;; Nav layers favourites:
+;; https://decorous-derby-cf1.notion.site/Thoughts-on-keyboard-layouts-63ee6a98536044d394d178a807426972
+
 ;; Symbol layers favourites:
+;; https://getreuer.info/posts/keyboards/symbol-layer/index.html
+;; https://deskthority.net/wiki/BEAKL
 ;; https://stevep99.github.io/seniply/
 ;; https://github.com/Junsang-Mun/moonwol#layer-2-numbers--symbols
 ;; https://github.com/getreuer/qmk-keymap/blob/main/doc/layout_symbol.png
+;; https://www.jonashietala.se/images/t-34/lmod.png
+;; https://www.jonashietala.se/blog/2022/09/06/the_current_t-34_keyboard_layout/
+
+;; Numpad Layer
+;;https://decorous-derby-cf1.notion.site/Thoughts-on-keyboard-layouts-63ee6a98536044d394d178a807426972
 
 ;; Symbol layer list:
 ;; https://github.com/manna-harbour/miryoku/tree/master/docs/reference

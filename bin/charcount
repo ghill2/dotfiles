@@ -1,6 +1,46 @@
 #!python
 
 from pathlib import Path
+from collections import Counter
+from nltk import ngrams
+
+chars = {
+    '"',
+    "'",
+    "#",
+    ":",
+    "-",
+    "_",
+    "(",
+    "{"
+    "[",
+    ")",
+    "}",
+    "]",
+    "+",
+    "=",
+    "~",
+    "&",
+    "|",
+    "%",
+    "`",
+    "@",
+    "$",
+    "/",
+    ",",
+    ".",
+    "<",
+    ">",
+    "?",
+    "/",
+    "!",
+    "@",
+    "%",
+    "^",
+    "&",
+    "*",
+    ";",
+}
 
 def count_characters_in_file(file_path) -> dict:
     char_count = {}
@@ -23,9 +63,35 @@ def find_files_by_extensions(folders, extensions):
                     matching_files.append(path)
     return matching_files
 
+def get_bigrams(path):
+    with open(path, 'r') as file:
+        bigrams = list(ngrams(file.read(), n=2))
+
+        bigrams = [(first, second) for first, second in bigrams
+                   if any(char in chars for char in second)
+                   and any(char in chars for char in first)]
+        
+        bigrams = [(first, second) for first, second in bigrams
+                   if first != second]
+        
+        counts = Counter(bigrams)
+        counts = {k: v for k, v in counts.items() if v > 100}
+        counts = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+
+        counts = {f"{bigram[0]}{bigram[1]}": count for bigram, count in counts}
+
+    return counts
+# def bigrams(text):
+#     words = iter(text.split())
+#     last = words.next()
+#     for piece in words:
+#         yield (last, piece)
+#         last = piece
+
 if __name__ == "__main__":
     path1 = "/Users/g1/BU/projects/pytower_develop/pytower/data/files.py"
     path2 = "/Users/g1/BU/projects/pytower_develop/pytower/data/import.py"
+    
     
     folders = [
             "/Users/g1/BU/projects/pytower_develop/pytower",
@@ -33,49 +99,28 @@ if __name__ == "__main__":
     ]
     
     paths = find_files_by_extensions(folders, ["py", "pyx", "pxd"])
+    
+    #######################################################
+
+    bigrams = {}
+    for path in paths:
+        counts = get_bigrams(path)
+        for bigram, count in counts.items():
+            bigrams[bigram] = bigrams.get(bigram, 0) + count
+
+    bigrams = sorted(bigrams.items(), key=lambda x: x[1], reverse=True)
+
+    for bigram, count in bigrams:
+        print(bigram, count)
+    exit()
+    #######################################################
 
     total = {}
     for path in paths:
         counts = count_characters_in_file(path)
         for char, count in counts.items():
             total[char] = total.get(char, 0) + count
-    chars = {
-       '"',
-       "'",
-       "#",
-       ":",
-       "-",
-       "_",
-       "(",
-       "{"
-       "[",
-       ")",
-       "}",
-       "]",
-       "+",
-       "=",
-       "~",
-       "&",
-       "|",
-       "%",
-       "`",
-       "@",
-       "$",
-       "/",
-       ",",
-       ".",
-       "<",
-       ">",
-       "?",
-       "/",
-       "!",
-       "@",
-       "%",
-       "^",
-       "&",
-       "*",
-       ";",
-    }
+    
     
     total = {key: value for key, value in total.items() if key in chars}
     total = sorted(total.items(), key=lambda x: x[1], reverse=True)
