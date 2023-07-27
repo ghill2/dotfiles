@@ -47,11 +47,12 @@
     
     //////////////////////////////////////////////////////////////////////////
     // Python Config
-    "python.linting.enabled": false,
+    
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     // "python.languageServer": "Default",
     "ruff.enable": false, // python linting using ruff
+    "python.linting.enabled": false,
     "python.linting.pyLanceEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.banditEnabled": false,
