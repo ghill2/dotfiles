@@ -142,7 +142,6 @@
     "editor.semanticTokenColorCustomizations": {
     
     },
-    
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 15,
     "editor.scrollBeyondLastLine": true,
@@ -152,7 +151,6 @@
     "editor.glyphMargin": false, // Hide/Show breakpoint margin, gutter
     "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
     "files.exclude": { // exclude files from explorer
-        "Z": true,
         "/usr": false,
         "submodule": false, // makes sure that the "submodule" folder is not excluded and will be included in searches.
     },
@@ -256,7 +254,12 @@
     ///////////////////////////////////////////////////////////////////////////////////
     // Extensions & Misc
     "openline.programpath": "/Users/g1/BU/projects/linktrigger.py",
-    "pytest_runner.pytest_exec": "pytest -s", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
+    // python -m pytest -rA --tb=native --capture=tee-sys -v
+    // python -m pytest -rA --tb=native --capture=tee-sys
+    "pytest_runner.pytest_exec": "python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
+    "pytest_runner.pytest_options": [
+        "-rA", "--tb=native", "--capture=tee-sys", "-v",
+    ],
     "jumpToCounterpart.pairs": {
         ".h": ".cpp",
         ".js": ".css",

@@ -36,6 +36,7 @@ brew 'mas' # brew bundle requirement. install mac app store apps.
 
 # mas 'XCode', id: 497799835  # not working with georgehill010@icloud.com
 # mas 'Blackmagic Disk Speed Test', id: 425264550
+brew "stunnel"  # LMAX trading adapter"
 brew 'virtualenv'  # make virtualenv with pyenv
 brew 'wget'
 brew 'libsndfile'  # needed for spleeter
@@ -165,6 +166,8 @@ vscode "canadaduane.vscode-kmonad"  # kmonad (lisp) syntax highlighting
 vscode "entibo.vscode-kmonad-format"  # format kmonad (lisp) files
 vscode "pokey.command-server"  # run comands using file based RPC
 vscode "ryuta46.multi-command"  # run a sequence of commands from keybindings.json
+vscode "Minkey27.pytest-grabber"  # copy pytest path of method to clipboard for pasting to terminal
+vscode "pamaron.pytest-runner" # run pytest method and class with action
 
 # cask "backblaze" # also run the installer at /usr/local/Caskroom/backblaze/8.5.0.640/Backblaze Installer.app:
 # vscode "kira-dev.copy-unix-path" # add copy unix path (WSL) to menu
@@ -174,7 +177,7 @@ vscode "ryuta46.multi-command"  # run a sequence of commands from keybindings.js
 # "formulahendry.code-runner"
 # "TomRijndorp.find-it-faster"
 # "bradlc.vscode-tailwindcss" # tailwind intellisense
-# "pamaron.pytest-runner" # run pytest test
+
 
 
 # "maruruh.vscode-quick-menu-builder" # build your own command palette menu
