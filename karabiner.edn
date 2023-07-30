@@ -253,10 +253,12 @@
     }
     ;; :modifiers {:cap [:left_control]}
     :froms {
-        :lthumb1 {:key :f23}
-        :rthumb1 {:key :f24}
-        :rthumb2 {:key :f22}
-        :rthumb3 {:key :f22}
+        :lthumb1 {:key :f21}
+        :lthumb2 {:key :f20}
+        :lthumb3 {:key :f19}
+        :rthumb1 {:key :f22}
+        :rthumb2 {:key :f23}
+        :rthumb3 {:key :f24}
     }
     :simlayers {
         ;; all layers are mapped to f20, which does nothing. Layers are toggled in section in main.
@@ -267,14 +269,13 @@
     :main [
         {:des "thumbs" :rules [
             ;; [:##f24 :[{:key :left_shift} {:set ["cap-mode" 1]}] nil {:afterup ["cap-mode" 0] :alone :escape}]
-            [:lthumb1 [{:key :left_shift} {:set ["nav" 1]}] nil {:alone :enter :afterup ["nav" 0]}]
-            [:rthumb1 {:key :left_shift} nil {:alone :spacebar}]
-            ;; [:rthumb2 {:set ["sym" 1]} nil {:afterup ["sym" 0] :alone :delete_or_backspace}]
-                  
-            ;; [:##f22 :left_shift nil {:alone :delete_or_backspace}]
-            [:##left_command :left_command nil {:alone :tab}]
-            [:##left_option :left_option nil {:alone :escape}]
-            [:##caps_lock :escape]
+            [:lthumb1 [{:key :left_shift} {:set ["nav" 1]}] nil {:afterup ["nav" 0] :alone :enter}]
+            [:lthumb2 :left_command nil {:alone :spacebar}]
+            [:lthumb2 :left_option nil {:alone :escape}]
+            [:rthumb2 {:set ["sym" 1]} nil {:afterup ["sym" 0]}]
+            [:rthumb3 nil nil {:alone :delete_or_backspace}]
+
+            ;; [:##caps_lock :escape]
             ;; [:##b [:focus_file "/Users/g1/BU/projects/dotfiles/.Brewfile"]]
         ]}
 
@@ -289,7 +290,7 @@
             [:d "open -b com.hnc.Discord"]
         ]}
         
-        {:des "lthumb-rhand" :rules [:lthumb
+        {:des "lthumb-rhand" :rules [ :nav
             [:##y :redo_]
             [:##u :paste_]
             [:##i :copy_]
@@ -311,7 +312,7 @@
             ;; [:f22 :left_shift] ;; rthumb
         ]}
         
-        {:des "lthumb-lhand" :rules [:lthumb
+        {:des "lthumb-lhand" :rules [ :nav
             [:q :prev_window]
             [:w :next_window]
             [:##e :left_pane]
@@ -336,40 +337,42 @@
       
         {:des "sym lhand" :rules [:sym
             ;; [:q :q]
-            [:w :curly_bracket_open]
-            [:e :square_bracket_open]
+            ;; [:w :curly_bracket_open]
+            ;; [:e :comma]
             ;; [:r :square_bracket_open]
             ;; [:t :t]
 
             ;; [:a :a]
-            [:s :dash]
+            ;; [:s :comma]
             [:d :parenthesis_open]
-            [:f :hash]
+            ;; [:f :double_quote]
             ;; [:g :g]
 
             ;; [:z :z]
-            ;; [:x :curly_bracket_open]
-            ;; [:c :curly_bracket_open]
-            [:v :single_quote]
+            [:x :curly_bracket_open]
+            [:c :square_bracket_open]
+            ;; [:v :single_quote]
             ;; [:b :b]
         ]}
         
         {:des "sym rhand" :rules [:sym
             ;; [:y :y]
-            ;; [:u :curly_backet_close] [()))))]
-            [:p :curly_bracket_close]
+            [:u :less_than]
+            [:i :equal]
+            [:o :greater_than]
+            [:p :plus]
             
             ;; [:h :h]
             [:j :colon]
             [:k :parenthesis_close]
-            [:l :plus]
+            [:l :double_quote]
             [:semicolon :semicolon]
             [:quote :slash]
             
             ;; [:n :n]
-            [:m :equal]
-            [:comma :less_than]
-            [:period :greater_than]
+            [:m :comma]
+            [:comma :square_bracket_close]
+            [:period :curly_bracket_close]
             [:slash :single_quote]
 
         ]}
