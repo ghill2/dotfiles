@@ -30,6 +30,7 @@ ppy () {
     pl $PYTHONPATH
 }
 
+export OPENSSL_FIPS=1
 # . ~/.bashrc
 # update_prompt() {
 #     echo "Executing custom_precmd function"
@@ -126,7 +127,7 @@ if [[ "$OSTYPE" == "msys" ]]; then
 fi
 
 . "$HOME/.cargo/env"
-
+# path_add_front "/Users/g1/Downloads/openssl-3.0.8"
 
 # https://unix.stackexchange.com/a/310714 https://superuser.com/questions/273047/zsh-up-arrow-only-repeats-unique-commands
 # ignore duplicates in terminal history

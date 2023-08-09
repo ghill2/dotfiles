@@ -161,7 +161,6 @@
         "venv": true,
         "node_modules": true    // this excludes the folder only from the root of your workspace 
     },
-    "window.zoomLevel": 1,
     "workbench.sideBar.location": "right",
     "workbench.editor.revealIfOpen": false, // https://superuser.com/a/1313190
     "terminal.integrated.smoothScrolling": true,
@@ -353,6 +352,8 @@
     "vim.overrideCopy": false,
     "vim.useCtrlKeys": true,
     "editor.inlineSuggest.enabled": true,
+    "workbench.activityBar.visible": false,
+    "window.zoomLevel": 1,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
