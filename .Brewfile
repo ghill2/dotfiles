@@ -70,6 +70,7 @@ brew 'defaultbrowser'  # set the default browser from the terminal, used in sett
 brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
 brew 'libusb' # moonlander keyboard
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
+brew 'virtualenv'  # for pyenv
 
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
