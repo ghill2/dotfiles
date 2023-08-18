@@ -107,6 +107,8 @@ cask 'mixed-in-key'
 cask 'wine-stable'
 cask 'crossover'
 cask "dotnet-sdk"
+cask 'wireshark'
+cask 'debookee'
 
 
 #######################################################################
