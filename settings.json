@@ -255,7 +255,7 @@
     "openline.programpath": "/Users/g1/BU/projects/linktrigger.py",
     // python -m pytest -rA --tb=native --capture=tee-sys -v
     // python -m pytest -rA --tb=native --capture=tee-sys
-    "pytest_runner.pytest_exec": "python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
+    "pytest_runner.pytest_exec": "RUST_BACKTRACE=1 python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
     
     "pytest_runner.pytest_options": "-rA --tb=native --capture=tee-sys -vv",
     "pytest_runner.check_config": false,
