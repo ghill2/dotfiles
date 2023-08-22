@@ -85,6 +85,8 @@ alias c=auto_commit
 alias ac='git add . && git commit --amend --no-edit'  # he --no-edit flag ensures that the commit message remains unchanged.
 alias up='update'  # he --no-edit flag ensures that the commit message remains unchanged.
 alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
+alias de='deactivate'
+
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate

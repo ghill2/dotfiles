@@ -354,6 +354,9 @@
     "editor.inlineSuggest.enabled": true,
     "workbench.activityBar.visible": false,
     "window.zoomLevel": 1,
+    "gitlens.advanced.messages": {
+        "suppressCreatePullRequestPrompt": true
+    },
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
