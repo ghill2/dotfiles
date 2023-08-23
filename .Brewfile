@@ -50,7 +50,8 @@ brew 'make'
 brew 'npm'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
-brew 'rustup-init' # RUN rustup-init afterwards! for rustup analyzer vscode extension
+# brew 'rustup-init' # RUN rustup-init afterwards! for rustup analyzer vscode extension
+brew 'rust'
 brew 'pre-commit'
 brew 'lua'
 brew 'duti' # set default app for file in terminal
