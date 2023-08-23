@@ -353,10 +353,10 @@
     "vim.useCtrlKeys": true,
     "editor.inlineSuggest.enabled": true,
     "workbench.activityBar.visible": false,
-    "window.zoomLevel": 1,
     "gitlens.advanced.messages": {
         "suppressCreatePullRequestPrompt": true
     },
+    "window.zoomLevel": 1,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
