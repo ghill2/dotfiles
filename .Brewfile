@@ -111,7 +111,7 @@ cask "dotnet-sdk"
 # cask 'wireshark'
 # cask 'debookee'
 cask 'proxyman'
-
+cask "microsoft-teams"
 
 #######################################################################
 
