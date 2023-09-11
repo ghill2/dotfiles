@@ -16,11 +16,38 @@
     //     "ms-python.pylint",
     //     "ms-python.flake8"
     // ],
+    // "fucking": {
+        //     "sequence": [ // keep in ths order otherwise overwrite fails
+        //     ]
+        // },
     //////////////////////////////////////////////////////////////////////////
     // Commands https://github.com/usernamehw/vscode-commands
+    
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
-    "commands.populateCommandPalette": true, // Adds all items to Command Palette
+    "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
+        "run_test": {
+            "sequence": [
+                "workbench.action.terminal.clear",
+                "insert_pytest",
+                "pytest-grabber.generatePath",
+                "workbench.action.terminal.focus",
+                "editor.action.clipboardPasteAction",
+                "run_terminal",
+            ]
+        },
+        "insert_pytest": {
+            "command": "workbench.action.terminal.sendSequence",
+            "args": {
+                "text": "RUST_BACKTRACE=1 python -m pytest -rP --tb=native --capture=tee-sys -vv ",
+            },
+        },
+        "run_terminal": {
+            "command": "workbench.action.terminal.sendSequence",
+            "args": {
+                "text": "\r",
+            }
+        },
         "Format": {
             "sequence": [ // keep in ths order otherwise overwrite fails
                 "editor.action.formatDocument",
@@ -256,8 +283,18 @@
     // python -m pytest -rA --tb=native --capture=tee-sys -v
     // python -m pytest -rA --tb=native --capture=tee-sys
     "pytest_runner.pytest_exec": "RUST_BACKTRACE=1 python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
-    
-    "pytest_runner.pytest_options": "-rA --tb=native --capture=tee-sys -vv",
+    "pytest_runner.pytest_options": "-rP --tb=native --capture=tee-sys -vv --exitfirst",
+
+    "python.testing.pytestArgs": [
+        "-rP",
+        "--tb=native",
+        "--capture=tee-sys",
+        "-vv",
+        "--exitfirst"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestPath": "RUST_BACKTRACE=1 python -m pytest",
     "pytest_runner.check_config": false,
     "jumpToCounterpart.pairs": {
         ".h": ".cpp",
@@ -352,7 +389,6 @@
     "vim.overrideCopy": false,
     "vim.useCtrlKeys": true,
     "editor.inlineSuggest.enabled": true,
-    "workbench.activityBar.visible": false,
     "gitlens.advanced.messages": {
         "suppressCreatePullRequestPrompt": true
     },
