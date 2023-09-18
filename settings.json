@@ -393,6 +393,7 @@
         "suppressCreatePullRequestPrompt": true
     },
     "window.zoomLevel": 1,
+    "search.useIgnoreFiles": false,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
