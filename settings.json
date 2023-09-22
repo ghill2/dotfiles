@@ -198,7 +198,7 @@
     "window.openFoldersInNewWindow": "off",
     "explorer.confirmDragAndDrop": false,
     "workbench.iconTheme": "Monokai Classic Icons",
-    "terminal.integrated.scrollback": 100000, // increase by x10 // 2147483647
+    "terminal.integrated.scrollback": 2147483647, // increase by x10 // 2147483647
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate":false,
     "extensions.autoCheckUpdates": false,
