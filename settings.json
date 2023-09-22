@@ -178,6 +178,7 @@
     "editor.glyphMargin": false, // Hide/Show breakpoint margin, gutter
     "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
     "files.exclude": { // exclude files from explorer
+        ".c": false,
         "/usr": false,
         "submodule": false, // makes sure that the "submodule" folder is not excluded and will be included in searches.
     },
