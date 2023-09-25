@@ -36,7 +36,7 @@ brew 'mas' # brew bundle requirement. install mac app store apps.
 
 # mas 'XCode', id: 497799835  # not working with georgehill010@icloud.com
 # mas 'Blackmagic Disk Speed Test', id: 425264550
-brew "stunnel"  # LMAX trading adapter"
+# brew "stunnel"  # LMAX trading adapter"
 brew 'virtualenv'  # make virtualenv with pyenv
 brew 'wget'
 brew 'libsndfile'  # needed for spleeter
@@ -111,7 +111,7 @@ cask "dotnet-sdk"
 # cask 'wireshark'
 # cask 'debookee'
 cask 'proxyman'
-cask "microsoft-teams"
+# cask "microsoft-teams"
 
 #######################################################################
 
