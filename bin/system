@@ -28,11 +28,11 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 # sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 # Turn Wifi off completely
-sudo networksetup -setnetworkserviceenabled Wi-Fi off
-sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.wifi.WiFiAgent.plist
+# sudo networksetup -setnetworkserviceenabled Wi-Fi off
+# sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.wifi.WiFiAgent.plist
 
 # Turn Bluetooth off completely
-sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
+# sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0
 
 # Turn on smb file sharing
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.smbd.plist
@@ -132,7 +132,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
- 
+
 # Trackpad: map bottom right corner to right-click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true

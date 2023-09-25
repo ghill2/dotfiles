@@ -393,7 +393,7 @@ main() {
         print_header "Dotfiles exists, skipping cloning..."
     fi
     
-    exit 0
+   
     install_xcode_command_line_tools
     install_homebrew
     setup_hostname

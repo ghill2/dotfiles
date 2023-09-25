@@ -72,6 +72,10 @@ function auto_commit {
     fi
 }
 
+if [[ ":$PATH:" != *":/your/directory:"* ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+fi
+
 alias g1='ssh g1@g1'
 alias g2='ssh g1@g2'
 alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2~/BU/projects/'
