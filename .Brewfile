@@ -68,7 +68,7 @@ brew 'hudochenkov/sshpass/sshpass' # ssh without password prompt
 brew 'p7zip'  # extract dmg files on mac
 brew 'bitwarden-cli'
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
-brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
+# brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
 brew 'libusb' # moonlander keyboard
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 brew 'virtualenv'  # for pyenv
@@ -78,6 +78,7 @@ brew 'virtualenv'  # for pyenv
 # brew install --HEAD LouisBrunner/valgrind/valgrind
 #######################################################################
 # Cask
+cask 'trader-workstation'
 cask 'zsa-wally'
 cask 'anydesk'
 cask 'bitwarden'
