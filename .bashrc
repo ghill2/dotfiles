@@ -72,7 +72,7 @@ function auto_commit {
     fi
 }
 
-if [[ ":$PATH:" != *":/your/directory:"* ]]; then
+if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
