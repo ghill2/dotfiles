@@ -18,6 +18,12 @@ tap "esolitos/ipa"
 tap "yulrizka/tap"
 tap "yqrashawn/goku"
 
+# pysystemtrade
+tap "mongodb/brew"  # pysystemtrade
+brew "mongodb-community@7.0"  # pysystemtrade
+brew "mongodb-compass"  # pysystemtrade
+brew "mongodbcli"  # pysystemtrade
+
 tap "homebrew/services"  # needed for skhd
 tap "koekeishiya/formulae"
 brew 'koekeishiya/formulae/skhd', restart_service: true
@@ -72,6 +78,7 @@ brew 'defaultbrowser'  # set the default browser from the terminal, used in sett
 brew 'libusb' # moonlander keyboard
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 brew 'virtualenv'  # for pyenv
+
 # brew 'mongocli'  # for pysystemtrade
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
