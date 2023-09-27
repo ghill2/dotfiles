@@ -72,7 +72,7 @@ brew 'defaultbrowser'  # set the default browser from the terminal, used in sett
 brew 'libusb' # moonlander keyboard
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 brew 'virtualenv'  # for pyenv
-
+# brew 'mongocli'  # for pysystemtrade
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
 # brew install --HEAD LouisBrunner/valgrind/valgrind
