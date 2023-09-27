@@ -92,6 +92,9 @@ alias up='update'  # he --no-edit flag ensures that the commit message remains u
 alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
 alias de='deactivate'
 
+function makeenv() {
+    
+}
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate
@@ -102,8 +105,11 @@ function activate() {
 alias act='activate'
 
 function mkenv() {
-    deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
-    virtualenv --python=$(pyenv which python) --always-copy ./.venv
+    # deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
+    # virtualenv --python=$(pyenv which python) --always-copy ./.venv
+    rm -rf ./.venv && \
+	python -m venv ./.venv && \
+	. ./.venv/bin/activate
 }
 
 # https://superuser.com/a/39995

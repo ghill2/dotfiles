@@ -21,7 +21,7 @@ tap "yqrashawn/goku"
 # pysystemtrade
 tap "mongodb/brew"  # pysystemtrade
 brew "mongodb-community@7.0"  # pysystemtrade
-brew "mongodb-compass"  # pysystemtrade
+cask "mongodb-compass"  # pysystemtrade
 brew "mongodbcli"  # pysystemtrade
 
 tap "homebrew/services"  # needed for skhd
