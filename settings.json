@@ -207,7 +207,6 @@
     "security.workspace.trust.untrustedFiles": "open",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "diffEditor.ignoreTrimWhitespace": false,
     "printcode.lineNumbers": "off",
     "telemetry.telemetryLevel": "off",
     "security.workspace.trust.enabled": false,
@@ -394,7 +393,9 @@
         "suppressCreatePullRequestPrompt": true
     },
     "search.useIgnoreFiles": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
+    "git.autofetch": true,
+    "diffEditor.ignoreTrimWhitespace": false,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
