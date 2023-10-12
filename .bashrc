@@ -79,11 +79,11 @@ fi
 # 192.168.0.7
 alias g1='ssh g1@g1.local'
 alias g2='ssh g1@g2.local'
-alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2~/BU/projects/'
+alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2/Users/g1/BU/projects/'
 alias g3='ssh g1@g3.local'
-alias g3c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g3~/BU/projects/'
+alias g3c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g3/Users/g1//BU/projects/'
 alias t2='ssh -t g1@t2 powershell'
-alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2~/BU/projects/'
+alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2/Users/g1/BU/projects/'
 alias d='cd ~/BU/projects/dotfiles'
 alias p='cd ~/BU/projects'
 alias c=auto_commit
