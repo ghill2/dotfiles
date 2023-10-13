@@ -14,41 +14,14 @@
 
 # for app store apps use mas search "Blackmagic Disk Speed Test" to search for the id
 tap "homebrew/cask"
-tap "esolitos/ipa"
-tap "yulrizka/tap"
-tap "yqrashawn/goku"
 
-# pysystemtrade
-tap "mongodb/brew"  # pysystemtrade
-brew "mongodb-community@7.0"  # pysystemtrade
-cask "mongodb-compass"  # pysystemtrade
-brew "mongodbcli"  # pysystemtrade
-
-tap "homebrew/services"  # needed for skhd
-tap "koekeishiya/formulae"
-brew 'koekeishiya/formulae/skhd', restart_service: true
-brew 'goku', restart_service: true
-brew 'watchexec'  # goku dependency
-brew 'joker'  # goku dependency
 
 brew 'nmap'  # Port scanning utility for large networks
 brew 'choose-gui'  # choose commands
 brew 'maturin'  # Build and publish crates with pyo3, rust-cpython, cffi and uniffi bindings as well as rust binaries as python packages.
-brew 'mas' # brew bundle requirement. install mac app store apps.
-
-# brew 'setvolume'  # using karabiner to change function keys to native keys
-# brew 'setvolume'  # using karabiner to change function keys to native keys
-# cask 'sound-control'  # using karabiner to change function keys to native keys
-
-# mas 'XCode', id: 497799835  # not working with georgehill010@icloud.com
-# mas 'Blackmagic Disk Speed Test', id: 425264550
-# brew "stunnel"  # LMAX trading adapter"
 brew 'virtualenv'  # make virtualenv with pyenv
 brew 'wget'
-brew 'libsndfile'  # needed for spleeter
-brew 'ffmpeg'  # needed for spleeter
 brew 'coreutils' # realpath
-brew 'yarn'  # npm scaffolder
 brew 'rsync'
 brew 'fswatch' # run bash script when directory changes
 brew 'ta-lib'
@@ -56,69 +29,52 @@ brew 'make'
 brew 'npm'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
-# brew 'rustup-init' # RUN rustup-init afterwards! for rustup analyzer vscode extension
 brew 'rust'
 brew 'pre-commit'
 brew 'lua'
 brew 'duti' # set default app for file in terminal
 brew 'direnv'
-brew 'libusb' # moonlander keyboard
 brew 'poetry'
 brew 'pyenv'
-brew 'weasyprint'  # for creating invoices. html > pdf
 brew 'iperf'  # test lan speed
 brew 'iperf3'  # test lan speed
+
+tap "esolitos/ipa"
 brew 'esolitos/ipa/sshpass' # ssh without password prompt
 brew 'hudochenkov/sshpass/sshpass' # ssh without password prompt
-# brew 'cliclick' # keystrokes in terminal
-brew 'p7zip'  # extract dmg files on mac
-brew 'bitwarden-cli'
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
-# brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
-brew 'libusb' # moonlander keyboard
+cask "dotnet-sdk"
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 brew 'virtualenv'  # for pyenv
 
+cask 'visual-studio-code'
+cask 'tailscale'  # Additional Step Afterwards: Security & Private > Allow
+
+# brew 'rustup-init' # RUN rustup-init afterwards! for rustup analyzer vscode extension
+# brew 'setvolume'  # using karabiner to change function keys to native keys
+# brew 'setvolume'  # using karabiner to change function keys to native keys
+# cask 'sound-control'  # using karabiner to change function keys to native keys
+
+# mas 'XCode', id: 497799835  # not working with georgehill010@icloud.com
+# mas 'Blackmagic Disk Speed Test', id: 425264550
+# brew "stunnel"  # LMAX trading adapter"
+# brew 'cliclick' # keystrokes in terminal
+# brew 'tree-sitter'  # tree-sitter syntax highlighting in vscode
 # brew 'mongocli'  # for pysystemtrade
 # macOS Valgrind
 # brew tap LouisBrunner/valgrind
 # brew install --HEAD LouisBrunner/valgrind/valgrind
 #######################################################################
 # Cask
-cask 'trader-workstation'
-cask 'zsa-wally'
-cask 'anydesk'
-cask 'bitwarden'
-cask 'visual-studio-code'
-cask 'microsoft-excel'
+
+
+
 # cask 'microsoft-powerpoint'
 # cask 'syncthing'
-cask 'karabiner-elements'
-cask 'find-any-file'
-cask 'tailscale'  # Additional Step Afterwards: Security & Private > Allow
-cask 'geekbench'
-cask 'pycharm'
-cask 'keka'
-cask 'the-unarchiver'
-cask 'firefox'
-cask 'fman'
-cask 'symboliclinker' # Service that allows users to make symbolic links in the Finder
-cask 'google-chrome'
-cask 'vlc'
-cask 'Discord'
-cask 'evernote'
-cask 'tor-browser'
-cask 'whatsapp'
-cask 'slack'
-cask 'pacifist'
 # cask 'microsoft-remote-desktop'
-cask 'mixed-in-key'
-cask 'wine-stable'
-cask 'crossover'
-cask "dotnet-sdk"
 # cask 'wireshark'
 # cask 'debookee'
-cask 'proxyman'
+
 # cask "microsoft-teams"
 
 #######################################################################
