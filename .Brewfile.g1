@@ -1,6 +1,7 @@
+cask keyboard-maestro
+
 tap "homebrew/services"  # needed for skhd
 tap "koekeishiya/formulae"
-
 
 # pysystemtrade
 tap "mongodb/brew"  # pysystemtrade
