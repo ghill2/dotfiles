@@ -396,6 +396,7 @@
     "window.zoomLevel": 2,
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
+    "window.density.editorTabHeight": "compact",
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
