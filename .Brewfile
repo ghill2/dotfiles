@@ -49,6 +49,7 @@ brew 'virtualenv'  # for pyenv
 
 cask 'visual-studio-code'
 cask 'tailscale'  # Additional Step Afterwards: Security & Private > Allow
+# brew 'joker'  # goku dependency
 
 # brew 'rustup-init' # RUN rustup-init afterwards! for rustup analyzer vscode extension
 # brew 'setvolume'  # using karabiner to change function keys to native keys
