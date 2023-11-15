@@ -1,0 +1,5 @@
+filepath = "/Users/g1/BU/projects/dotfiles/.Brewfile.main"
+puts filepath
+if File.exist?(filepath)
+    instance_eval(File.read(filepath))
+end

@@ -1,0 +1,42 @@
+cask "keyboard-maestro"
+tap "homebrew/services"  # needed for skhd
+tap "koekeishiya/formulae"
+
+brew 'yarn'  # npm scaffolder
+brew 'libsndfile'  # needed for spleeter
+brew 'ffmpeg'  # needed for spleeter
+
+tap "yqrashawn/goku"
+tap "yulrizka/tap"
+
+brew 'koekeishiya/formulae/skhd', restart_service: true
+brew 'mas' # brew bundle requirement. install mac app store apps.
+brew 'goku', restart_service: true
+brew 'watchexec'  # goku dependency
+brew 'joker'  # goku dependency
+brew 'p7zip'  # extract dmg files on mac
+brew 'bitwarden-cli'
+brew 'libusb' # moonlander keyboard
+brew 'weasyprint'  # for creating invoices. html > pdf
+cask 'karabiner-elements'
+cask 'keka'
+cask 'firefox'
+cask 'the-unarchiver'
+cask 'find-any-file'
+cask 'bitwarden'
+cask 'zsa-wally'
+cask 'trader-workstation'
+cask 'symboliclinker' # Service that allows users to make symbolic links in the Finder
+cask 'google-chrome'
+cask 'vlc'
+cask 'Discord'
+cask 'slack'
+cask 'whatsapp'
+cask 'tor-browser'
+cask 'evernote'
+cask 'pacifist'
+cask 'mixed-in-key'
+cask 'proxyman'
+cask 'geekbench'
+brew 'libusb' # moonlander keyboard
+cask 'microsoft-excel'
