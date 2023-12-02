@@ -1,5 +1,6 @@
 # for app store apps use mas search "Blackmagic Disk Speed Test" to search for the id
 tap "homebrew/cask"
+tap "candid82/brew"  # for joker dependency
 
 brew 'nmap'  # Port scanning utility for large networks
 brew 'choose-gui'  # choose commands
@@ -84,7 +85,7 @@ vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
 vscode "baincd.copy-path-unixstyle" # copy unix path when ssh'ed to windows using git-bash
 vscode "VisualStudioExptTeam.vscodeintellicode"  # ai powered suggestions for python, typescript, javascript
-vscode "GitHub.copilot"
+# vscode "GitHub.copilot"
 vscode "charliermarsh.ruff"
 vscode 'ms-vscode.remote-repositories'
 vscode "canadaduane.vscode-kmonad"  # kmonad (lisp) syntax highlighting
