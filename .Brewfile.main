@@ -42,4 +42,6 @@ brew 'libusb' # moonlander keyboard
 cask 'microsoft-excel'
 cask "ableton-live-suite"
 cask "google-chrome"
-cask "transmission"  # torrents
+cask "transmission"
+cask "wine-stable"
+cask "crossover"
