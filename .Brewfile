@@ -24,6 +24,7 @@ brew 'poetry'
 brew 'pyenv'
 brew 'iperf'  # test lan speed
 brew 'iperf3'  # test lan speed
+#  brew "python@3.10"  # managing python versions with pyenv
 
 tap "esolitos/ipa"
 brew 'esolitos/ipa/sshpass' # ssh without password prompt
