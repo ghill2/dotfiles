@@ -33,6 +33,8 @@ brew 'defaultbrowser'  # set the default browser from the terminal, used in sett
 cask "dotnet-sdk"
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
 brew 'virtualenv'  # for pyenv
+# brew 'docker'
+cask 'docker'
 # brew 'klogg'  # log GUI inspector, fails install on m1
 cask 'visual-studio-code'
 cask 'tailscale'  # Additional Step Afterwards: Security & Private > Allow
