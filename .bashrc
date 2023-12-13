@@ -84,6 +84,8 @@ if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
+
+
 # 192.168.0.7
 alias g1='ssh g1@g1.local'
 alias g2='ssh g1@g2.local'
@@ -178,6 +180,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(direnv hook zsh)"
 fi
 
+export PATH="/opt/ibc:$PATH"
+
+
+# /opt/homebrew/opt/openjdk/bin:/Users/g1/.pyenv/shims:/Users/g1/.cargo/bin:/Users/g1/BU/projects/dotfiles/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools
+# export PATH=/opt/homebrew/bin:/opt/ibc
 # For the system Java wrappers to find this JDK, symlink it with
   # sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
