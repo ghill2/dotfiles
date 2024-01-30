@@ -9,7 +9,7 @@ make_symlink() {
 }
 
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
-make_symlink "$gparent/.Brewfile" "$HOME/.Brewfile"
+# make_symlink "$gparent/.Brewfile" "$HOME/.Brewfile"
 make_symlink "$gparent/.bash_profile" "$HOME/.bash_profile"
 make_symlink "$gparent/.zshrc" "$HOME/.zshrc"
 make_symlink "$gparent/.zshenv" "$HOME/.zshenv"

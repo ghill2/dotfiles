@@ -30,6 +30,9 @@ ppy () {
     pl $PYTHONPATH
 }
 
+# add brew to path
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export OPENSSL_FIPS=1
 # . ~/.bashrc
 # update_prompt() {
