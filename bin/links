@@ -13,8 +13,11 @@ make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.bash_profile" "$HOME/.bash_profile"
 make_symlink "$gparent/.zshrc" "$HOME/.zshrc"
 make_symlink "$gparent/.zshenv" "$HOME/.zshenv"
+
+mkdir -p "$HOME/Library/Application Support/Code/User/"
 make_symlink "$gparent/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 make_symlink "$gparent/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+
 make_symlink "$gparent/init.lua" "$HOME/.hammerspoon/init.lua"
 make_symlink "$gparent/.direnvrc" "$gparent/.direnvrc"
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"

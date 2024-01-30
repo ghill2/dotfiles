@@ -385,6 +385,11 @@ main() {
   # fix permissions on a folder
   # sudo chown -Rv g1 ~/BU
 
+    # fix git permissions 
+    # chmod 700 ~/.ssh
+    # chmod 600 ~/.ssh/*
+  
+
     # Clone my private dotfiles repo and run update to install packages, settings, etc
     dotfiles=$HOME/BU/projects/dotfiles
     if ! [ -d $dotfiles ]; then
