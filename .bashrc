@@ -47,53 +47,35 @@ if [ "$system" = "Linux" ]; then
     # intel-mkl libraries for RVC singing voice conversion
     export PATH="$PATH:/opt/intel/bin"
     export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
-    
-elif [ "$system" = "Darwin" ]; then
-    echo "This is a Mac OSX system"
+fi
 
-    
-else
-    echo "Unknown operating system."
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
+    # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
+
+    # https://stackoverflow.com/a/19770395
+    export LC_CTYPE=C
+    export LANG=C
+
+    # Switches the terminal to use pyenv versions
+    eval "$(pyenv init -)"
+
+    # Add chrome alias
+    # https://github.com/asyne/cproto#running-chrome-in-debug-mode
+    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+    # Direnv shell hook
+    eval "$(direnv hook zsh)"
+
+    export PATH="/opt/ibc:$PATH"
+    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 fi
 
 
 
 
-
-
-
-
 export OPENSSL_FIPS=1
-# . ~/.bashrc
-# update_prompt() {
-#     echo "Executing custom_precmd function"
-# }
-# PROMPT_COMMAND=custom_precmd
-
-# NOT WORKING in git-bash, doesn't update when cd'ing
-# Define color code variables
-# BLACK="\[\033[0;30m\]"
-# RED="\[\033[0;31m\]"
-# GREEN="\[\033[0;32m\]"
-# YELLOW="\[\033[0;33m\]"
-# BLUE="\[\033[0;34m\]"
-# MAGENTA="\[\033[0;35m\]"
-# CYAN="\[\033[0;36m\]"
-# WHITE="\[\033[0;37m\]"
-# RESET="\[\033[0m\]"
-# PS1="${YELLOW}$PWD${RESET} $(echo `which python` | awk -F/ '{print $(NF-2), $(NF-1), $NF}' OFS="/") "
-# Define the function to update the Git prompt
-# update_prompt() {
-#     PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
-#     source ~/.bashrc
-#     # PS1="$PWD "
-# }
-# Set the PROMPT_COMMAND to call the update_git_prompt function
-# PROMPT_COMMAND='update_prompt'
-# precmd_functions+=(update_prompt)
-# Initialize the Git prompt initially
-# update_git_prompt
-# export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
 
 function auto_commit {
     if [ -d .git ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -191,26 +173,6 @@ HISTCONTROL=$HISTCONTROL:ignoredups
 ulimit -n 10240
 RUST_BACKTRACE=full
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
-    # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
-
-    # https://stackoverflow.com/a/19770395
-    export LC_CTYPE=C
-    export LANG=C
-
-    # Switches the terminal to use pyenv versions
-    eval "$(pyenv init -)"
-
-    # Add chrome alias
-    # https://github.com/asyne/cproto#running-chrome-in-debug-mode
-    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-
-    # Direnv shell hook
-    eval "$(direnv hook zsh)"
-fi
-
-export PATH="/opt/ibc:$PATH"
 
 
 # /opt/homebrew/opt/openjdk/bin:/Users/g1/.pyenv/shims:/Users/g1/.cargo/bin:/Users/g1/BU/projects/dotfiles/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools
@@ -228,7 +190,39 @@ export PATH="/opt/ibc:$PATH"
 # For compilers to find openjdk you may need to set:
   # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+
+# . ~/.bashrc
+# update_prompt() {
+#     echo "Executing custom_precmd function"
+# }
+# PROMPT_COMMAND=custom_precmd
+
+# NOT WORKING in git-bash, doesn't update when cd'ing
+# Define color code variables
+# BLACK="\[\033[0;30m\]"
+# RED="\[\033[0;31m\]"
+# GREEN="\[\033[0;32m\]"
+# YELLOW="\[\033[0;33m\]"
+# BLUE="\[\033[0;34m\]"
+# MAGENTA="\[\033[0;35m\]"
+# CYAN="\[\033[0;36m\]"
+# WHITE="\[\033[0;37m\]"
+# RESET="\[\033[0m\]"
+# PS1="${YELLOW}$PWD${RESET} $(echo `which python` | awk -F/ '{print $(NF-2), $(NF-1), $NF}' OFS="/") "
+# Define the function to update the Git prompt
+# update_prompt() {
+#     PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
+#     source ~/.bashrc
+#     # PS1="$PWD "
+# }
+# Set the PROMPT_COMMAND to call the update_git_prompt function
+# PROMPT_COMMAND='update_prompt'
+# precmd_functions+=(update_prompt)
+# Initialize the Git prompt initially
+# update_git_prompt
+# export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
+
 
 # echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
