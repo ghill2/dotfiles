@@ -198,8 +198,7 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "Monokai Classic Icons",
-    "terminal.integrated.scrollback": 2147483647, // increase by x10 // 2147483647
+    "workbench.iconTheme": "Monokai Classic Icons", // increase by x10 // 2147483647
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate":false,
     "extensions.autoCheckUpdates": false,
@@ -397,6 +396,7 @@
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
+    "terminal.integrated.scrollback": 50000,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",

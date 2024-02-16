@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-brew bundle --verbose --no-upgrade --global
-brew bundle cleanup  --global --force  # keep as separate command
+brew bundle --verbose --no-upgrade --file="$HOME/BU/projects/pymusic/installers/.Brewfile"
+brew bundle cleanup --force --file="$HOME/BU/projects/pymusic/installers/.Brewfile" # keep as separate command
+
 
 # Homebrew does not support installing specific versions of a library, only the most recent one, so there is no good mechanism for storing installed versions in a .lock file.
 # If your software needs specific versions then perhaps you'll want to look at using Vagrant to better match your development and production environments.
