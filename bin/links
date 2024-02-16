@@ -13,21 +13,39 @@ make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.bash_profile" "$HOME/.bash_profile"
 make_symlink "$gparent/.zshrc" "$HOME/.zshrc"
 make_symlink "$gparent/.zshenv" "$HOME/.zshenv"
-
-mkdir -p "$HOME/Library/Application Support/Code/User/"
-make_symlink "$gparent/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-make_symlink "$gparent/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
-
-make_symlink "$gparent/init.lua" "$HOME/.hammerspoon/init.lua"
 make_symlink "$gparent/.direnvrc" "$gparent/.direnvrc"
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.zprofile" "$HOME/.zprofile"
-make_symlink "$gparent/.skhdrc" "$HOME/.skhdrc"
-make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
 
-rm -rf "$HOME/.config/karabiner"  # required for karabiner
-make_symlink "$gparent/karabiner" "$HOME/.config/karabiner" # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
-make_symlink "$gparent/karabiner.edn" "$HOME/.config/karabiner.edn"
+# Get the system name
+system=$(uname -s)
+
+if [ "$system" = "Linux" ]; then
+    # Debian or any Linux distribution
+    echo "This is a Linux system (Debian or other Linux distribution)."
+    mkdir -p "$HOME/.config/Code/User"
+    make_symlink "$gparent/settings.json" "$HOME/.config/Code/User/settings.json"
+    make_symlink "$gparent/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+elif [ "$system" = "Darwin" ]; then
+    echo "This is a Mac OSX system"
+    mkdir -p "$HOME/Library/Application Support/Code/User/"
+    make_symlink "$gparent/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+    make_symlink "$gparent/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+
+    make_symlink "$gparent/init.lua" "$HOME/.hammerspoon/init.lua"
+    rm -rf "$HOME/.config/karabiner"  # required for karabiner
+    make_symlink "$gparent/karabiner" "$HOME/.config/karabiner" # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/
+    make_symlink "$gparent/karabiner.edn" "$HOME/.config/karabiner.edn"
+    make_symlink "$gparent/.skhdrc" "$HOME/.skhdrc"
+    make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
+else
+    echo "Unknown operating system."
+fi
+
+
+
+
+
 
 # if [[ "$OSTYPE" == "darwin"* ]]; then
 
