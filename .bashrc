@@ -87,7 +87,21 @@ if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
+# Load pyenv automatically by appending
+# the following to 
+# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+# and ~/.bashrc (for interactive shells) :
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
 
 # 192.168.0.7
 alias g1='ssh g1@g1.local'
@@ -107,9 +121,6 @@ alias up='update'  # he --no-edit flag ensures that the commit message remains u
 alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
 alias de='deactivate'
 
-function makeenv() {
-    
-}
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate
