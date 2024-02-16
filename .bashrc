@@ -38,24 +38,16 @@ if [ "$system" = "Linux" ]; then
     # Debian or any Linux distribution
     echo "This is a Linux system (Debian or other Linux distribution)."
 
-    # Load pyenv automatically by appending
-    # the following to 
-    # ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
-    # and ~/.bashrc (for interactive shells) :
-
+    # add pyhenv to path
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
-
-    # Restart your shell for the changes to take effect.
-
-    # Load pyenv-virtualenv automatically by adding
-    # the following to ~/.bashrc:
-
     eval "$(pyenv virtualenv-init -)"
-
+    
+    # intel-mkl libraries for RVC singing voice conversion
     export PATH="$PATH:/opt/intel/bin"
     export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
+    
 elif [ "$system" = "Darwin" ]; then
     echo "This is a Mac OSX system"
 
