@@ -33,6 +33,44 @@ ppy () {
 # add brew to path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+system=$(uname -s)
+if [ "$system" = "Linux" ]; then
+    # Debian or any Linux distribution
+    echo "This is a Linux system (Debian or other Linux distribution)."
+
+    # Load pyenv automatically by appending
+    # the following to 
+    # ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+    # and ~/.bashrc (for interactive shells) :
+
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+
+    # Restart your shell for the changes to take effect.
+
+    # Load pyenv-virtualenv automatically by adding
+    # the following to ~/.bashrc:
+
+    eval "$(pyenv virtualenv-init -)"
+
+    export PATH="$PATH:/opt/intel/bin"
+    export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
+elif [ "$system" = "Darwin" ]; then
+    echo "This is a Mac OSX system"
+
+    
+else
+    echo "Unknown operating system."
+fi
+
+
+
+
+
+
+
+
 export OPENSSL_FIPS=1
 # . ~/.bashrc
 # update_prompt() {
@@ -87,21 +125,7 @@ if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
-# Load pyenv automatically by appending
-# the following to 
-# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
-# and ~/.bashrc (for interactive shells) :
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Restart your shell for the changes to take effect.
-
-# Load pyenv-virtualenv automatically by adding
-# the following to ~/.bashrc:
-
-eval "$(pyenv virtualenv-init -)"
 
 # 192.168.0.7
 alias g1='ssh g1@g1.local'

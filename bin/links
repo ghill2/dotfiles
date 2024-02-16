@@ -17,9 +17,8 @@ make_symlink "$gparent/.direnvrc" "$gparent/.direnvrc"
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.zprofile" "$HOME/.zprofile"
 
-# Get the system name
-system=$(uname -s)
 
+system=$(uname -s)
 if [ "$system" = "Linux" ]; then
     # Debian or any Linux distribution
     echo "This is a Linux system (Debian or other Linux distribution)."
