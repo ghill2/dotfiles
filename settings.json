@@ -397,6 +397,7 @@
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
+    "workbench.colorTheme": "Default Dark Modern",
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
