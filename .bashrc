@@ -134,9 +134,8 @@ alias de='deactivate'
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate
-    if [[ "$OSTYPE" == "linux"* ]]; then
+    elif [[ "$OSTYPE" == "linux"* ]]; then
         source ./.venv/bin/activate
-    fi
     elif [[ "$OSTYPE" == "msys" ]]; then
         source ./.venv/Scripts/activate
     fi
