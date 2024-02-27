@@ -70,6 +70,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="/opt/ibc:$PATH"
     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+    # export PATH="/opt/homebrew/Cellar/faiss/1.7.4/include:$PATH"
+    # export LD_LIBRARY_PATH=/opt/homebrew/Cellar/faiss/1.7.4/include:$LD_LIBRARY_PATH
+
+    # sudo ln /opt/homebrew/Cellar/faiss/1.7.4/include/faiss /usr/local/include
+
+    # # Check if the directory is not already in the LD_LIBRARY_PATH
+    # LIBRARY_DIR="/opt/homebrew/Cellar/faiss/1.7.4/include"
+    # if [[ ":$LD_LIBRARY_PATH:" != *":$LIBRARY_DIR:"* ]]; then
+    #     export LD_LIBRARY_PATH=$LIBRARY_DIR:$LD_LIBRARY_PATH
+    # fi
+
 fi
 
 
@@ -111,6 +122,7 @@ alias t2='ssh -t g1@t2 powershell'
 alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2.local/Users/g1/BU/projects/'
 alias server='ssh g1@server.local'
 alias serverc='code -n --folder-uri=vscode-remote://ssh-remote+g1@server.local/Users/g1/BU/projects/'
+alias aic='code -n --folder-uri=vscode-remote://ssh-remote+g1@100.66.2.47/home/g1/bu/projects'
 alias d='cd ~/BU/projects/dotfiles'
 alias p='cd ~/BU/projects'
 alias c=auto_commit
@@ -122,6 +134,9 @@ alias de='deactivate'
 function activate() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         source ./.venv/bin/activate
+    if [[ "$OSTYPE" == "linux"* ]]; then
+        source ./.venv/bin/activate
+    fi
     elif [[ "$OSTYPE" == "msys" ]]; then
         source ./.venv/Scripts/activate
     fi
