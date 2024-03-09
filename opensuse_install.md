@@ -102,6 +102,11 @@ sudo smbpasswd -a g1
 sudo systemctl restart smb
 sudo systemctl enable smb
 
-# Install g++ needed for RVC fairseq dependency
+# Install RVC system packages
 
+
+- g++ needed for RVC fairseq dependency
 sudo zypper install gcc-c++
+
+- needed for RVC
+sudo zupper install ffmpeg
