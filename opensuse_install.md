@@ -7,6 +7,7 @@ sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.5/repo/oss
 sudo zypper install git
 
 # Install Visual Studio Code
+https://code.visualstudio.com/docs/setup/linux#_opensuse-and-slebased-distributions
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
 sudo zypper refresh
@@ -34,3 +35,22 @@ sudo zypper ref
 sudo zypper in tailscale
 sudo systemctl enable --now tailscaled
 sudo tailscale up
+
+# Install ROCm
+https://rocm.docs.amd.com/projects/install-on-linux/en/latest/tutorial/quick-start.html#suse-linux-enterprise-server
+
+first command fails but installation is okay, it's just installing perl which is installed by default on linux desktop
+sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15_SP5/devel:languages:perl.repo
+
+sudo zypper install kernel-default-devel
+
+- See prerequisites. Adding current user to Video and Render groups
+sudo usermod -a -G render,video $LOGNAME
+sudo zypper --no-gpg-checks install https://repo.radeon.com/amdgpu-install/6.0.2/sle/15.5/amdgpu-install-6.0.60002-1.noarch.rpm
+sudo zypper refresh
+sudo zypper install amdgpu-dkms
+sudo zypper install rocm
+echo "Please reboot system for all settings to take effect."
+
+- after restarting confirm working:
+rocm-smi --showreboot
