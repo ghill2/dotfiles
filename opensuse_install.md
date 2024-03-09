@@ -18,6 +18,7 @@ sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/oss
 # Add packages
 sudo zypper install git
 sudo zypper install nano
+sudo zypper install bzip2-devel  # required for RVC_CLI
 
 # setup ssh keys to access github
 
@@ -35,7 +36,7 @@ sudo zypper refresh
 sudo zypper install code
 
 # Install pyenv
-sudo zypper install -y gcc make patch gdbm-devel openssl-devel bzip2 readline-devel sqlite3-devel zlib-devel libffi-devel
+zypper install gcc automake bzip2 libbz2-devel xz xz-devel openssl-devel ncurses-devel readline-devel zlib-devel tk-devel libffi-devel sqlite3-devel
 sudo zypper install pyenv
 pyenv install 3.10.7
 pyenv global 3.10.7
