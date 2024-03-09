@@ -12,6 +12,14 @@ sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/oss
 sudo zypper install git
 sudo zypper install nano
 
+# setup ssh keys to access github
+
+ssh-keygen -t rsa -b 4096 -C "georgehill010@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+copy key and add to github ins ettings -> keys
+
 # Install Visual Studio Code
 https://code.visualstudio.com/docs/setup/linux#_opensuse-and-slebased-distributions
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
