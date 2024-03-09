@@ -18,7 +18,6 @@ sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/oss
 # Add packages
 sudo zypper install git
 sudo zypper install nano
-sudo zypper install bzip2-devel  # required for RVC_CLI
 
 # setup ssh keys to access github
 
