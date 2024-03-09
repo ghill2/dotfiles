@@ -1,8 +1,14 @@
 # OS Version:
-cat /etc/os-release | grep VERSION
-g1@localhost:~> VERSION="15.3"
-g1@localhost:~> VERSION_ID="15.3"
-g1@localhost:~> PRETTY_NAME="openSUSE Leap 15.3"
+cat /etc/os-release
+NAME="SLED"
+VERSION="15-SP5"
+VERSION_ID="15.5"
+PRETTY_NAME="SUSE Linux Enterprise Desktop 15 SP5"
+ID="sled"
+ID_LIKE="suse"
+ANSI_COLOR="0;32"
+CPE_NAME="cpe:/o:suse:sled:15:sp5"
+DOCUMENTATION_URL="https://documentation.suse.com/"
 
 # Kernel Version
 uname -r
