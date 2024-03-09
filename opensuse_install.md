@@ -18,3 +18,7 @@ sudo zypper install pyenv
 pyenv install 3.10.7
 pyenv global 3.10.7
 
+# Install pyenv
+git config --global user.name "George Hill"
+git config --global user.email "georgehill010@gmail.com"
+
