@@ -1,6 +1,175 @@
 GPARENT="$(dirname "$(dirname "$(realpath "$(readlink -f "${BASH_SOURCE:-$0}" 2>/dev/null || echo "${BASH_SOURCE:-$0}")")")")"
 PARENT="$(dirname "$(realpath "$(readlink -f "${BASH_SOURCE:-$0}" 2>/dev/null || echo "${BASH_SOURCE:-$0}")")")"
 
+# https://unix.stackexchange.com/a/310714 https://superuser.com/questions/273047/zsh-up-arrow-only-repeats-unique-commands
+# ignore duplicates in terminal history
+HISTCONTROL=$HISTCONTROL:ignoredups
+
+remove_from_path() {
+    local remove_path="$1"
+    local path_var=":$PATH:"
+    
+    # Check if the directory exists in the PATH
+    if [[ ":$PATH:" == *":$remove_path:"* ]]; then
+        # Remove all occurrences of the directory from the PATH
+        PATH=${path_var//$remove_path:/}
+        PATH=${PATH#:}
+        PATH=${PATH%:}
+        export PATH
+        echo "Removed all occurrences of '$remove_path' from PATH."
+    else
+        echo "'$remove_path' is not in PATH."
+    fi
+}
+
+# https://superuser.com/a/39995
+path_add_front() {
+    # This checks whether the directory exists & is a directory before adding it
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="$1${PATH:+":$PATH"}"
+    fi
+}
+
+path_add_back() {
+    # This checks whether the directory exists & is a directory before adding it
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+system=$(uname -s)
+if [ "$system" = "Linux" ]; then
+    echo "This is a Linux system"
+
+    # add pyenv to path
+    export PYENV_ROOT="$HOME/.pyenv"
+    path_add_front "$PYENV_ROOT/bin"
+    eval "$(pyenv init -)"
+    # eval "$(pyenv virtualenv-init -)"
+    
+    # intel-mkl libraries for RVC singing voice conversion
+    # export PATH="$PATH:/opt/intel/bin"
+    # export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
+    # remove_from_path "/opt/intel/bin"
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "This is a Mac system"
+
+    alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
+    # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
+
+    # https://stackoverflow.com/a/19770395
+    export LC_CTYPE=C
+    export LANG=C
+
+
+    # Add chrome alias
+    # https://github.com/asyne/cproto#running-chrome-in-debug-mode
+    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+    path_add_front "/opt/ibc"
+    path_add_front "/opt/homebrew/opt/openjdk/bin"
+    # export PATH="/opt/homebrew/Cellar/faiss/1.7.4/include:$PATH"
+    # export LD_LIBRARY_PATH=/opt/homebrew/Cellar/faiss/1.7.4/include:$LD_LIBRARY_PATH
+
+    # sudo ln /opt/homebrew/Cellar/faiss/1.7.4/include/faiss /usr/local/include
+
+    # # Check if the directory is not already in the LD_LIBRARY_PATH
+    # LIBRARY_DIR="/opt/homebrew/Cellar/faiss/1.7.4/include"
+    # if [[ ":$LD_LIBRARY_PATH:" != *":$LIBRARY_DIR:"* ]]; then
+    #     export LD_LIBRARY_PATH=$LIBRARY_DIR:$LD_LIBRARY_PATH
+    # fi
+    
+    # Switches the terminal to use pyenv versions. Linux and Mac
+    eval "$(pyenv init -)"
+    
+    # Direnv shell hook
+    eval "$(direnv hook zsh)"
+
+    # add brew to path
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    . "$HOME/.cargo/env"
+
+    ulimit -n 10240
+    RUST_BACKTRACE=full
+
+    export OPENSSL_FIPS=1
+
+    path_add_front "$PARENT/bin"
+
+fi
+
+if [[ "$system" == "msys" ]]; then
+    path_add_front "$HOME/BU/projects/nautilus_trader"
+    path_add_front "$HOME/BU/projects/pytower"
+    # Avoid ssh error using poetry install
+    # [WinError 1312] A specified logon session does not exist. It may already have been terminated
+    export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+fi
+
+function auto_commit {
+    if [ -d .git ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        
+        if [ -n "$1" ]; then
+            msg="$1"
+        else
+            msg="auto commit $(date +"%Y-%m-%d %H:%M:%S")"
+        fi
+        
+
+        git add . \
+        && git commit -m "$msg" \
+        && git push origin `git rev-parse --abbrev-ref HEAD`
+    else
+        echo "Current directory is not a top-level git project"
+    fi
+}
+
+
+if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+fi
+
+alias g1='ssh g1@g1.local'
+alias g2='ssh g1@g2.local'
+alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2.local/Users/g1/BU/projects/'
+alias g3='ssh g1@g3.local'
+alias g3c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g3.local/Users/g1//BU/projects/'
+alias t2='ssh -t g1@t2 powershell'
+alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2.local/Users/g1/BU/projects/'
+alias server='ssh g1@server.local'
+alias serverc='code -n --folder-uri=vscode-remote://ssh-remote+g1@server.local/Users/g1/BU/projects/'
+alias aic='code -n --folder-uri=vscode-remote://ssh-remote+g1@100.66.2.47/home/g1/bu/projects'
+alias d='cd ~/BU/projects/dotfiles'
+alias p='cd ~/BU/projects'
+alias c=auto_commit
+alias ac='git add . && git commit --amend --no-edit'  # he --no-edit flag ensures that the commit message remains unchanged.
+alias up='update'  # he --no-edit flag ensures that the commit message remains unchanged.
+alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
+alias de='deactivate'
+
+
+function activate() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        source ./.venv/bin/activate
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+        source ./.venv/bin/activate
+    elif [[ "$OSTYPE" == "msys" ]]; then
+        source ./.venv/Scripts/activate
+    fi
+}
+alias act='activate'
+
+function mkenv() {
+    # deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
+    # virtualenv --python=$(pyenv which python) --always-copy ./.venv
+    rm -rf ./.venv && \
+	python -m venv ./.venv && \
+	. ./.venv/bin/activate
+}
+
 re () {
     echo "Reloading bashrc..."
     source ~/.bashrc
@@ -30,162 +199,12 @@ ppy () {
     pl $PYTHONPATH
 }
 
-# add brew to path
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
-system=$(uname -s)
-if [ "$system" = "Linux" ]; then
-    # Debian or any Linux distribution
-    echo "This is a Linux system (Debian or other Linux distribution)."
-
-    # add pyhenv to path
-    export PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    
-    # intel-mkl libraries for RVC singing voice conversion
-    export PATH="$PATH:/opt/intel/bin"
-    export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
-fi
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
-    # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
-
-    # https://stackoverflow.com/a/19770395
-    export LC_CTYPE=C
-    export LANG=C
-
-    # Switches the terminal to use pyenv versions
-    eval "$(pyenv init -)"
-
-    # Add chrome alias
-    # https://github.com/asyne/cproto#running-chrome-in-debug-mode
-    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-
-    # Direnv shell hook
-    eval "$(direnv hook zsh)"
-
-    export PATH="/opt/ibc:$PATH"
-    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-    # export PATH="/opt/homebrew/Cellar/faiss/1.7.4/include:$PATH"
-    # export LD_LIBRARY_PATH=/opt/homebrew/Cellar/faiss/1.7.4/include:$LD_LIBRARY_PATH
-
-    # sudo ln /opt/homebrew/Cellar/faiss/1.7.4/include/faiss /usr/local/include
-
-    # # Check if the directory is not already in the LD_LIBRARY_PATH
-    # LIBRARY_DIR="/opt/homebrew/Cellar/faiss/1.7.4/include"
-    # if [[ ":$LD_LIBRARY_PATH:" != *":$LIBRARY_DIR:"* ]]; then
-    #     export LD_LIBRARY_PATH=$LIBRARY_DIR:$LD_LIBRARY_PATH
-    # fi
-
-fi
-
-
-
-
-export OPENSSL_FIPS=1
-
-function auto_commit {
-    if [ -d .git ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-        
-        if [ -n "$1" ]; then
-            msg="$1"
-        else
-            msg="auto commit $(date +"%Y-%m-%d %H:%M:%S")"
-        fi
-        
-
-        git add . \
-        && git commit -m "$msg" \
-        && git push origin `git rev-parse --abbrev-ref HEAD`
-    else
-        echo "Current directory is not a top-level git project"
-    fi
-}
-
-if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-    export PATH=/opt/homebrew/bin:$PATH
-fi
-
-
-
-# 192.168.0.7
-alias g1='ssh g1@g1.local'
-alias g2='ssh g1@g2.local'
-alias g2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g2.local/Users/g1/BU/projects/'
-alias g3='ssh g1@g3.local'
-alias g3c='code -n --folder-uri=vscode-remote://ssh-remote+g1@g3.local/Users/g1//BU/projects/'
-alias t2='ssh -t g1@t2 powershell'
-alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2.local/Users/g1/BU/projects/'
-alias server='ssh g1@server.local'
-alias serverc='code -n --folder-uri=vscode-remote://ssh-remote+g1@server.local/Users/g1/BU/projects/'
-alias aic='code -n --folder-uri=vscode-remote://ssh-remote+g1@100.66.2.47/home/g1/bu/projects'
-alias d='cd ~/BU/projects/dotfiles'
-alias p='cd ~/BU/projects'
-alias c=auto_commit
-alias ac='git add . && git commit --amend --no-edit'  # he --no-edit flag ensures that the commit message remains unchanged.
-alias up='update'  # he --no-edit flag ensures that the commit message remains unchanged.
-alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
-alias de='deactivate'
-
-function activate() {
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        source ./.venv/bin/activate
-    elif [[ "$OSTYPE" == "linux"* ]]; then
-        source ./.venv/bin/activate
-    elif [[ "$OSTYPE" == "msys" ]]; then
-        source ./.venv/Scripts/activate
-    fi
-}
-alias act='activate'
-
-function mkenv() {
-    # deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
-    # virtualenv --python=$(pyenv which python) --always-copy ./.venv
-    rm -rf ./.venv && \
-	python -m venv ./.venv && \
-	. ./.venv/bin/activate
-}
-
-# https://superuser.com/a/39995
-path_add_front() {
-    # This checks whether the directory exists & is a directory before adding it
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="$1${PATH:+":$PATH"}"
-    fi
-}
-
-path_add_back() {
-    # This checks whether the directory exists & is a directory before adding it
-    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-    fi
-}
-
-# Avoid ssh error using poetry install
-# [WinError 1312] A specified logon session does not exist. It may already have been terminated
-export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
-
-
-# $GIT_BASH_DEFAULT_PS1
-path_add_front "$PARENT/bin"
-if [[ "$OSTYPE" == "msys" ]]; then
-    path_add_front "$HOME/BU/projects/nautilus_trader"
-    path_add_front "$HOME/BU/projects/pytower"
-fi
-
-. "$HOME/.cargo/env"
 # path_add_front "/Users/g1/Downloads/openssl-3.0.8"
 
-# https://unix.stackexchange.com/a/310714 https://superuser.com/questions/273047/zsh-up-arrow-only-repeats-unique-commands
-# ignore duplicates in terminal history
-HISTCONTROL=$HISTCONTROL:ignoredups
 
-ulimit -n 10240
-RUST_BACKTRACE=full
+
+
 
 
 
