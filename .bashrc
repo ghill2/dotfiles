@@ -141,7 +141,7 @@ alias t2='ssh -t g1@t2 powershell'
 alias t2c='code -n --folder-uri=vscode-remote://ssh-remote+g1@t2.local/Users/g1/BU/projects/'
 alias server='ssh g1@server.local'
 alias serverc='code -n --folder-uri=vscode-remote://ssh-remote+g1@server.local/Users/g1/BU/projects/'
-alias aic='code -n --folder-uri=vscode-remote://ssh-remote+g1@100.66.2.47/home/g1/bu/projects'
+alias aic='code -n --folder-uri=vscode-remote://ssh-remote+g1@100.78.148.55/home/g1/bu/projects'
 alias d='cd ~/BU/projects/dotfiles'
 alias p='cd ~/BU/projects'
 alias c=auto_commit
