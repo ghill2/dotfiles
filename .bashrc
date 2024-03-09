@@ -97,7 +97,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     export OPENSSL_FIPS=1
 
-    path_add_front "$PARENT/bin"
+    path_add_front "$PARENT/bin" # DOES THIS ACTUALLY WORK? just adds ~/bin
 
 fi
 
