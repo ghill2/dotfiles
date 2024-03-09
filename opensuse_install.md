@@ -54,3 +54,7 @@ echo "Please reboot system for all settings to take effect."
 
 - after restarting confirm working:
 rocm-smi --showreboot
+
+# Setup SSH
+
+opensuse desktop has openssh installed by default, with the service automatically started at boot.
