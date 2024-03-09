@@ -58,3 +58,6 @@ rocm-smi --showreboot
 # Setup SSH
 
 opensuse desktop has openssh installed by default, with the service automatically started at boot.
+
+on client computer from ssh@ g1@<ip adress of server computer> first
+
