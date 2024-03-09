@@ -22,3 +22,15 @@ pyenv global 3.10.7
 git config --global user.name "George Hill"
 git config --global user.email "georgehill010@gmail.com"
 
+# Install poetry
+https://python-poetry.org/docs/#installing-with-the-official-installer
+make sure `python` is accessible in terminal (install pyenv above) 
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Install tailscale
+https://tailscale.com/download/linux/opensuse-leap-15.2
+sudo zypper ar -g -r https://pkgs.tailscale.com/stable/opensuse/leap/15.2/tailscale.repo
+sudo zypper ref
+sudo zypper in tailscale
+sudo systemctl enable --now tailscaled
+sudo tailscale up
