@@ -1,8 +1,15 @@
-# Version:
+# OS Version:
 cat /etc/os-release | grep VERSION
 g1@localhost:~> VERSION="15.3"
 g1@localhost:~> VERSION_ID="15.3"
 g1@localhost:~> PRETTY_NAME="openSUSE Leap 15.3"
+
+# Kernel Version
+uname -r
+5.14.21-150500.53-default
+
+ROCm supported operating systems: SLES 15 SP4 - 5.14.21-150500
+
 
 # Add package repositories
 sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/non-oss/ opensuse-non-oss
