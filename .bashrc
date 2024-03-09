@@ -51,6 +51,9 @@ if [ "$system" = "Linux" ]; then
     # export PATH="$PATH:/opt/intel/bin"
     # export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
     # remove_from_path "/opt/intel/bin"
+
+    path_add_front "/opt/rocm"
+
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
