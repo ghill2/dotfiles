@@ -1,10 +1,16 @@
+# Version:
+cat /etc/os-release | grep VERSION
+g1@localhost:~> VERSION="15.3"
+g1@localhost:~> VERSION_ID="15.3"
+g1@localhost:~> PRETTY_NAME="openSUSE Leap 15.3"
 
 # Add package repositories
-sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.5/repo/non-oss/ opensuse-non-oss
-sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.5/repo/oss/ opensuse-oss
+sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/non-oss/ opensuse-non-oss
+sudo zypper addrepo http://download.opensuse.org/distribution/leap/15.3/repo/oss/ opensuse-oss
 
 # Add packages
 sudo zypper install git
+sudo zypper install nano
 
 # Install Visual Studio Code
 https://code.visualstudio.com/docs/setup/linux#_opensuse-and-slebased-distributions
@@ -53,11 +59,31 @@ sudo zypper install rocm
 echo "Please reboot system for all settings to take effect."
 
 - after restarting confirm working:
-rocm-smi --showreboot
+rocm-smi
+
+==================================== ROCm System Management Interface ====================================
+============================================== Concise Info ==============================================
+Device  [Model : Revision]    Temp    Power  Partitions      SCLK  MCLK   Fan  Perf  PwrCap  VRAM%  GPU%  
+        Name (20 chars)       (Edge)  (Avg)  (Mem, Compute)                                               
+==========================================================================================================
+0       [0x2328 : 0xc1]       42.0°C  13.0W  N/A, N/A        0Mhz  96Mhz  0%   auto  264.0W    7%   1%    
+        Navi 21 [Radeon RX 6                                                                              
+==========================================================================================================
+========================================== End of ROCm SMI Log ===========================================
 
 # Setup SSH
 
 opensuse desktop has openssh installed by default, with the service automatically started at boot.
 
 on client computer from ssh@ g1@<ip adress of server computer> first
+
+
+
+# Setup SMB
+
+sudo firewall-cmd --add-service=samba --permanent
+sudo firewall-cmd --reload
+sudo smbpasswd -a g1
+sudo systemctl restart smb
+sudo systemctl enable smb
 
