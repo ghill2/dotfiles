@@ -50,6 +50,7 @@ pyenv global 3.10.7
 git config --global user.name "George Hill"
 git config --global user.email "georgehill010@gmail.com"
 
+
 # Install poetry
 https://python-poetry.org/docs/#installing-with-the-official-installer
 make sure `python` is accessible in terminal (install pyenv above) 
@@ -108,6 +109,8 @@ sudo smbpasswd -a g1
 sudo systemctl restart smb
 sudo systemctl enable smb
 
+# Install direnv
+
 # Install RVC system packages
 
 
@@ -116,3 +119,5 @@ sudo zypper install gcc-c++
 
 - needed for RVC
 sudo zupper install ffmpeg
+
+

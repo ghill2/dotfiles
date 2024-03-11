@@ -53,6 +53,9 @@ if [ "$system" = "Linux" ]; then
     # remove_from_path "/opt/intel/bin"
     export ROCM_PATH=/opt/rocm
 
+    # Direnv shell hook
+    eval "$(direnv hook bash)"
+
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
