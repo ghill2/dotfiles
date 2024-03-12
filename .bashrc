@@ -126,7 +126,7 @@ function auto_commit {
 
         git add . \
         && git commit -m "$msg" \
-        && git push origin `git rev-parse --abbrev-ref HEAD`
+        git push origin `git rev-parse --abbrev-ref HEAD`
     else
         echo "Current directory is not a top-level git project"
     fi
