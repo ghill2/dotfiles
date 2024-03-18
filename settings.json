@@ -393,10 +393,10 @@
         "suppressCreatePullRequestPrompt": true
     },
     "search.useIgnoreFiles": false,
-    "window.zoomLevel": 2,
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
+    "window.zoomLevel": 1,
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
