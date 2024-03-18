@@ -198,8 +198,7 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "Monokai Classic Icons",
-    "terminal.integrated.scrollback": 2147483647, // increase by x10 // 2147483647
+    "workbench.iconTheme": "Monokai Classic Icons", // increase by x10 // 2147483647
     "extensions.ignoreRecommendations": true,
     "extensions.autoUpdate":false,
     "extensions.autoCheckUpdates": false,
@@ -283,7 +282,7 @@
     // python -m pytest -rA --tb=native --capture=tee-sys -v
     // python -m pytest -rA --tb=native --capture=tee-sys
     "pytest_runner.pytest_exec": "RUST_BACKTRACE=1 python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
-    "pytest_runner.pytest_options": "-rP --tb=native --capture=tee-sys -vv --exitfirst",
+    "pytest_runner.pytest_options": "-rP --tb=native --capture=tee-sys -vv --exitfirst -o log_cli=true",
 
     "python.testing.pytestArgs": [
         "-rP",

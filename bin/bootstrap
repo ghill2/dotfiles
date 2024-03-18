@@ -232,7 +232,7 @@ setup_ssh_keys() {
 
 set_github_ssh_key() {
   local sshKeyFileName="$HOME/.ssh/github"
-
+  sudo mkdir -p "$HOME/.ssh"
   # If there is already a file with that name, generate another, unique, file name.
   if [ -f "$sshKeyFileName" ]; then
     sshKeyFileName="$(mktemp -u "$HOME/.ssh/github_XXXXX")"
@@ -324,16 +324,16 @@ install_homebrew() {
 }
 
 setup_gitconfig() {
-    git config --global init.defaultBranch master
+    sudo git config --global init.defaultBranch master
     # git config --global pull.rebase false
-    git config --global pull.rebase true
+    sudo git config --global pull.rebase true
     # git config --global pull.ff only
 
     # https://stackoverflow.com/a/44549734
-    git config --global core.editor "code --wait"  # set visual studio code as default editor
-    git config --global mergetool.vscode.cmd 'code --wait --merge $REMOTE $LOCAL $BASE $MERGED'
-    git config --global diff.tool vscode
-    git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
+    sudo git config --global core.editor "code --wait"  # set visual studio code as default editor
+    sudo git config --global mergetool.vscode.cmd 'code --wait --merge $REMOTE $LOCAL $BASE $MERGED'
+    sudo git config --global diff.tool vscode
+    sudo git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 
   # if [ ! -f ~/.gitconfig.user ]; then
     printf "What is your GitHub username? > "
@@ -381,6 +381,15 @@ setup_hostname() {
 }
 
 main() {
+  
+  # fix permissions on a folder
+  # sudo chown -Rv g1 ~/BU
+
+    # fix git permissions 
+    # chmod 700 ~/.ssh
+    # chmod 600 ~/.ssh/*
+  
+
     # Clone my private dotfiles repo and run update to install packages, settings, etc
     dotfiles=$HOME/BU/projects/dotfiles
     if ! [ -d $dotfiles ]; then
