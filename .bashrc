@@ -116,17 +116,15 @@ fi
 
 function auto_commit {
     if [ -d .git ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-        
         if [ -n "$1" ]; then
-            msg="$1"
+            msg="$*"
         else
             msg="auto commit $(date +"%Y-%m-%d %H:%M:%S")"
         fi
         
-
         git add . \
             && git commit -m "$msg" \
-            && git push origin `git rev-parse --abbrev-ref HEAD`
+            && git push origin "$(git rev-parse --abbrev-ref HEAD)"
     else
         echo "Current directory is not a top-level git project"
     fi
