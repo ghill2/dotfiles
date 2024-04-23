@@ -160,7 +160,7 @@ function activate() {
     elif [[ "$OSTYPE" == "linux"* ]]; then
         source ./.venv/bin/activate
     elif [[ "$OSTYPE" == "msys" ]]; then
-        source ./.venv/Scripts/activate
+    e    source ./.venv/Scripts/activate
     fi
 }
 alias act='activate'

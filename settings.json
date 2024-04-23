@@ -396,6 +396,11 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
     "window.zoomLevel": 1,
+    "terminal.integrated.scrollback": 50000,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.editorAssociations": {
+        "*.xlsx": "default"
+    },
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
