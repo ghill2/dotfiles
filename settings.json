@@ -395,7 +395,7 @@
     "git.autofetch": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "terminal.integrated.scrollback": 50000,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.editorAssociations": {
