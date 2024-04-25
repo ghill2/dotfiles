@@ -281,16 +281,17 @@
     "openline.programpath": "/Users/g1/BU/projects/linktrigger.py",
     // python -m pytest -rA --tb=native --capture=tee-sys -v
     // python -m pytest -rA --tb=native --capture=tee-sys
-    "pytest_runner.pytest_exec": "RUST_BACKTRACE=1 python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv 
-    "pytest_runner.pytest_options": "-rP --tb=native --capture=tee-sys -vv --exitfirst -o log_cli=true",
+    "pytest_runner.pytest_exec": "python -m pytest", // run pytest extension: default is /usr/bin/pytest, which doesn't use .venv RUST_BACKTRACE=1 
+    // "pytest_runner.pytest_options": "-rP --tb=native --capture=tee-sys -vv --exitfirst -o log_cli=true",
+    "pytest_runner.pytest_options": "-s",
 
     "python.testing.pytestArgs": [
         // "-rP",
         // "--tb=native",
         // "--capture=tee-sys",
         // "-vv",
-        "--exitfirst",
-        "-s"
+        // "--exitfirst",
+        // "-s"
     ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
