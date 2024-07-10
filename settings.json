@@ -77,7 +77,7 @@
     
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
-    // "python.languageServer": "Default",
+    "python.languageServer": "Pylance",
     "ruff.enable": false, // python linting using ruff
     "python.linting.enabled": false,
     "python.linting.pyLanceEnabled": false,
@@ -165,7 +165,6 @@
     //     ]
     // },
     // "editor.semanticHighlighting.enabled": false,
-    
     "editor.semanticTokenColorCustomizations": {
     
     },
@@ -398,7 +397,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "window.density.editorTabHeight": "compact",
     "window.zoomLevel": 2,
-    "terminal.integrated.scrollback": 50000,
+    "terminal.integrated.scrollback": 500000,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.editorAssociations": {
         "*.xlsx": "default"
