@@ -229,7 +229,7 @@
     "security.warnOnExternalOpen": false,
     // "editor.scrollbar.horizontal": "hidden",
     // "editor.scrollbar.vertical": "hidden",
-    // "editor.scrollbar.verticalScrollbarSize": 5,
+    "editor.scrollbar.verticalScrollbarSize": 15,
 
     //////////////////////////////////////////////////////////////////////////
     // Rust
@@ -401,6 +401,9 @@
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.editorAssociations": {
         "*.xlsx": "default"
+    },
+    "editor.quickSuggestions": {
+        "other": "off"
     },
     
     // "vim.enableNeovim": true,
