@@ -64,9 +64,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
     # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
 
-    # https://stackoverflow.com/a/19770395
-    export LC_CTYPE=C
-    export LANG=C
+    
 
 
     # Add chrome alias
@@ -326,3 +324,9 @@ ppy () {
 # }
 # added
 
+
+
+# https://stackoverflow.com/a/19770395
+    # CAUSES ERROR DO NOT USE!
+    # export LC_CTYPE=C
+    # export LANG=C
