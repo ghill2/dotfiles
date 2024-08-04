@@ -404,14 +404,13 @@
     },
     "editor.quickSuggestions": {
         "other": "off"
-    },
+    }
+    
     
     // "vim.enableNeovim": true,
     // "vim.neovimPath": "/usr/local/bin/nvim",
     // "vim.neovimConfigPath": "/Users/g2/Desktop/dotfiles/init.vim",
     // "vim.neovimUseConfigFiliie": true,
-    
-    
 
     
 }

@@ -56,6 +56,8 @@ if [ "$system" = "Linux" ]; then
     # Direnv shell hook
     eval "$(direnv hook bash)"
 
+    export PATH="$PATH:~/bu/projects/pymusic"
+
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
