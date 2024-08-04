@@ -56,7 +56,7 @@ if [ "$system" = "Linux" ]; then
     # Direnv shell hook
     eval "$(direnv hook bash)"
 
-    export PATH="$PATH:~/bu/projects/pymusic"
+    export PATH="$PATH:/home/g1/bu/projects/pymusic"
 
 fi
 
