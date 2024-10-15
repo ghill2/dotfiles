@@ -49,6 +49,7 @@ Neovim: goes to end of select block if selected from bottom up.
     //     "command": "Format" // declared in settings.json in commands menu`
     // },
     // //////////////////////////////////////////////////////////////////////////
+    
     {
         "key": "cmd+b",  // Toggle browser visible and focus
         "command": "extension.multiCommand.execute",
@@ -59,6 +60,9 @@ Neovim: goes to end of select block if selected from bottom up.
             ]
         },
     },
+    {   "key": "cmd+d",  // Open file palette
+        "command": "editor.action.revealDefinition",
+    },
     {   "key": "cmd+p",  // Open file palette
         "command": "workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
@@ -67,7 +71,7 @@ Neovim: goes to end of select block if selected from bottom up.
         "key": "cmd+u",    // Open command palette
         "command": "workbench.action.showCommands"
     },
-    {   "key": "cmd+d",  // Line comment
+    {   "key": "",  // Line comment
         "command": "editor.action.addCommentLine",
         "when": "editorTextFocus && !editorReadonly"
     },

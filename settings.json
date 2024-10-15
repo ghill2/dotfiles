@@ -175,7 +175,7 @@
     "editor.lineNumbers": "on",
     "editor.hideCursorInOverviewRuler": true, // This will keep the scrollbar, but will result in it only appearing when the cursor is within the editor, as seen in the image below:
     "editor.glyphMargin": false, // Hide/Show breakpoint margin, gutter
-    "editor.rulers": [ 100, 120], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
+    "editor.rulers": [100], // 79, 100  In Python code, the length of a line should be limited to at most 79 characters.
     "files.exclude": { // exclude files from explorer
         ".c": false,
         "/usr": false,
