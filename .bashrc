@@ -168,7 +168,7 @@ alias act='activate'
 function mkenv() {
     # deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
     # virtualenv --python=$(pyenv which python) --always-copy ./.venv
-    rm -rf ./.venv && \
+    sudo rm -rf ./.venv && \
 	python -m venv ./.venv && \
 	. ./.venv/bin/activate
 }
