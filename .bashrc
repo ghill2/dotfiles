@@ -185,9 +185,9 @@ re () {
     fi
 }
 rmenv () {
-    rm -rf ./.venv
-    rm -rf ./.direnv
-    rm -rf ./venv
+    sudo rm -rf ./.venv
+    sudo rm -rf ./.direnv
+    sudo rm -rf ./venv
 }
 pl () {
     echo $1 | tr : '\n' #separate a string with lines
