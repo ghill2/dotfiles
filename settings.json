@@ -74,7 +74,9 @@
     
     //////////////////////////////////////////////////////////////////////////
     // Python Config
-    
+    "rust-analyzer.env": {
+        "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
+    },
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
@@ -168,9 +170,7 @@
     "editor.semanticTokenColorCustomizations": {
     
     },
-    "rust-analyzer.env": {
-        "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1",
-    },
+    
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 15,
     "editor.scrollBeyondLastLine": true,
