@@ -92,6 +92,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Direnv shell hook
     eval "$(direnv hook zsh)"
 
+
     # add brew to path
     eval "$(/opt/homebrew/bin/brew shellenv)"
 

@@ -74,9 +74,12 @@
     
     //////////////////////////////////////////////////////////////////////////
     // Python Config
-    "rust-analyzer.env": {
-        "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
-    },
+    // this might trigger re-compilation each time
+    // https://github.com/rust-lang/rust-analyzer/issues/17807
+    // "rust-analyzer.env": {
+    //     "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
+    // },
+    "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
@@ -407,7 +410,8 @@
     },
     "editor.quickSuggestions": {
         "other": "off"
-    }
+    },
+    "hediet.vscode-drawio.resizeImages": null
     
     
     // "vim.enableNeovim": true,
