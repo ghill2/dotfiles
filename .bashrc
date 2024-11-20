@@ -98,7 +98,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     . "$HOME/.cargo/env"
 
-    ulimit -n 10240
+    ulimit -n 4294967295
     RUST_BACKTRACE=full
 
     export OPENSSL_FIPS=1

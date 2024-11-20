@@ -190,8 +190,8 @@
     "search.exclude": { // exclude folders from search index
         "Z": true,
         ".direnv": true,
-        ".venv": true,
-        "venv": true,
+        // ".venv": true,
+        // "venv": true,
         "node_modules": true    // this excludes the folder only from the root of your workspace 
     },
     "workbench.sideBar.location": "right",
@@ -411,7 +411,8 @@
     "editor.quickSuggestions": {
         "other": "off"
     },
-    "hediet.vscode-drawio.resizeImages": null
+    "hediet.vscode-drawio.resizeImages": null,
+    "chat.editing.alwaysSaveWithGeneratedChanges": true
     
     
     // "vim.enableNeovim": true,
