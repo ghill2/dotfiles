@@ -135,7 +135,7 @@ function auto_commit {
 if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
-export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
+# export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
 alias g1='ssh g1@g1.local'
 alias g2='ssh g1@g2.local'

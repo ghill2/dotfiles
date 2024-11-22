@@ -408,9 +408,9 @@
     "workbench.editorAssociations": {
         "*.xlsx": "default"
     },
-    "editor.quickSuggestions": {
-        "other": "off"
-    },
+    // "editor.quickSuggestions": {
+    //     "other": "off"
+    // },
     "hediet.vscode-drawio.resizeImages": null,
     "chat.editing.alwaysSaveWithGeneratedChanges": true
     
