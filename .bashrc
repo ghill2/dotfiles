@@ -204,7 +204,7 @@ ppy () {
     pl $PYTHONPATH
 }
 
-
+export PGDATA=/path/to/your/data/directory
 # path_add_front "/Users/g1/Downloads/openssl-3.0.8"
 
 

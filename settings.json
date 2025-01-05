@@ -319,10 +319,19 @@
     "gitlens.views.searchAndCompare.files.layout": "tree",
     "gitlens.hovers.enabled": false,
     "gitlens.views.contributors.showAllBranches": true,
+    ///////////////////////////////////////////////////////////////////////////////////
+    // SSH
     "remote.SSH.remotePlatform": {
         "100.72.182.126": "windows",
         "100.100.132.113": "windows"
     },
+    "remote.SSH.remoteHosts": [
+        {
+            "host": "ai",
+            "hostName": "100.121.100.19",
+            "user": "g1"
+        }
+    ],
 
     ///////////////////////////////////////////////////////////////////////////////////
     // VIM & Neovim
@@ -412,7 +421,10 @@
     //     "other": "off"
     // },
     "hediet.vscode-drawio.resizeImages": null,
-    "chat.editing.alwaysSaveWithGeneratedChanges": true
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
+    "editor.quickSuggestions": {
+        "comments": "on"
+    }
     
     
     // "vim.enableNeovim": true,
