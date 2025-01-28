@@ -204,8 +204,11 @@ ppy () {
     pl $PYTHONPATH
 }
 
-export PGDATA=/path/to/your/data/directory
+# export PGDATA=/path/to/your/data/directory
 # path_add_front "/Users/g1/Downloads/openssl-3.0.8"
+path_add_front "/opt/homebrew/opt/postgresql@17/bin"
+path_add_front "/opt/homebrew/opt/trash-cli/bin"
+
 
 
 

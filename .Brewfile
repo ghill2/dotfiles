@@ -157,7 +157,7 @@ brew 'joker'  # goku dependency
 cask 'zsa-wally'
 
 
-
+brew 'duckdb'
 tap 'timescale/tap'
 brew 'timescaledb'  # installs postgresql@17 too
 # cask "redisinsight"  # GUI for redis
