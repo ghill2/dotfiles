@@ -28,9 +28,9 @@ brew 'ta-lib'
 brew 'make'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
-brew 'rust'
+# brew 'rust'
 brew 'rustup'
-brew 'rustup-init'
+# brew 'rustup-init'
 brew 'pre-commit'
 brew 'lua'
 brew 'duti' # set default app for file in terminal
