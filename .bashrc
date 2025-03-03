@@ -92,7 +92,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # add brew to path
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # . "$HOME/.cargo/env"
+    . "$HOME/.cargo/env"
 
     ulimit -n 4294967295
     RUST_BACKTRACE=full

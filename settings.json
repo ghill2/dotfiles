@@ -80,8 +80,8 @@
     //     "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
     // },
     // "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
-    "rust-analyzer.cargo.targetDir": "/Users/g1/BU/projects/research/bus",
-    "rust-analyzer.server.path": "/Users/g1/.cargo/bin/rust-analyzer",
+    // "rust-analyzer.cargo.targetDir": "/Users/g1/BU/projects/research/bus",
+    // "rust-analyzer.server.path": "/Users/g1/.cargo/bin/rust-analyzer",
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
