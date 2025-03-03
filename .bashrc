@@ -66,9 +66,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias -g sk='pkill skhd && skhd &!'  # kill then relaunch skhd in daemon mode
     # alias -g sk='pkill skhd && skhd --reload'  # kill then relaunch skhd in daemon mode
 
-    
-
-
     # Add chrome alias
     # https://github.com/asyne/cproto#running-chrome-in-debug-mode
     alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -92,11 +89,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Direnv shell hook
     eval "$(direnv hook zsh)"
 
-
     # add brew to path
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    . "$HOME/.cargo/env"
+    # . "$HOME/.cargo/env"
 
     ulimit -n 4294967295
     RUST_BACKTRACE=full
@@ -208,7 +204,7 @@ ppy () {
 # path_add_front "/Users/g1/Downloads/openssl-3.0.8"
 path_add_front "/opt/homebrew/opt/postgresql@17/bin"
 path_add_front "/opt/homebrew/opt/trash-cli/bin"
-path_add_front "//opt/homebrew/opt/rustup/bin"
+# path_add_front "//opt/homebrew/opt/rustup/bin"
 
 
 
