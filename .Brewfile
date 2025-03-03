@@ -28,6 +28,9 @@ brew 'ta-lib'
 brew 'make'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
+
+# CAUTION! do not install rust, rustup comes with rustc compiler and you can change to nightly.
+# rust locks to stable and disallows self updating, useful only if you need the stable channel
 # brew 'rust'
 brew 'rustup'
 # brew 'rustup-init'
