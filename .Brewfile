@@ -29,7 +29,7 @@ brew 'make'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
 
-# JUST INSTALL RUST FROM THEIR WEBSITE, ALOT BETTER!!!!
+# JUST INSTALL RUST FROM THEIR WEBSITE, ALOT BETTER!!!! use default profile, not minimal or complete
 # CAUTION! do not install rust, rustup comes with rustc compiler and you can change to nightly.
 # rust locks to stable and disallows self updating, useful only if you need the stable channel
 # brew 'rust'

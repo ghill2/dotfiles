@@ -92,8 +92,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # add brew to path
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    . "$HOME/.cargo/env"
-
+    
     ulimit -n 4294967295
     RUST_BACKTRACE=full
 
@@ -329,3 +328,4 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
     # CAUSES ERROR DO NOT USE!
     # export LC_CTYPE=C
     # export LANG=C
+. "$HOME/.cargo/env"
