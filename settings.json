@@ -32,6 +32,8 @@
     // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
     "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.checkOnSave.allTargets": true,
     "rust-analyzer.cargo.buildScripts.enable": true,
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
