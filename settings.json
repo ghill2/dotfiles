@@ -29,6 +29,9 @@
         "/Users/g1/BU/projects/pytower/pytower_core/core/Cargo.toml",
         "/Users/g1/BU/projects/pytower/pytower_core/pyo3/Cargo.toml",
     ],
+    // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "rust-analyzer.workspace.symbol.search.scope": "workspace",
+
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
