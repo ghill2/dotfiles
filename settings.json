@@ -20,18 +20,21 @@
         //     "sequence": [ // keep in ths order otherwise overwrite fails
         //     ]
         // },
-    //////////////////////////////////////////////////////////////////////////
-    // Commands https://github.com/usernamehw/vscode-commands
-    "rust-analyzer.linkedProjects": [
-        "/Users/g1/BU/projects/pytower/pytower_core/barter/Cargo.toml",
-        "/Users/g1/BU/projects/pytower/pytower_core/catalog/Cargo.toml",
-        "/Users/g1/BU/projects/pytower/pytower_core/common/Cargo.toml",
+        //////////////////////////////////////////////////////////////////////////
+        // Commands https://github.com/usernamehw/vscode-commands
+        "rust-analyzer.linkedProjects": [
+            "/Users/g1/BU/projects/pytower/pytower_core/barter/Cargo.toml",
+            "/Users/g1/BU/projects/pytower/pytower_core/catalog/Cargo.toml",
+            "/Users/g1/BU/projects/pytower/pytower_core/common/Cargo.toml",
         "/Users/g1/BU/projects/pytower/pytower_core/core/Cargo.toml",
         "/Users/g1/BU/projects/pytower/pytower_core/pyo3/Cargo.toml",
     ],
     // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
-
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.cargo.buildScripts.enable": true,
+    "rust-analyzer.procMacro.enable": true,
+    "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
@@ -86,12 +89,11 @@
     // this might trigger re-compilation each time
     // https://github.com/rust-lang/rust-analyzer/issues/17807
     // "rust-analyzer.env": {
-    //     "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
-    // },
-    "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
-    // "rust-analyzer.cargo.targetDir": "/Users/g1/BU/projects/research/bus",
-    // "rust-analyzer.server.path": "/Users/g1/.cargo/bin/rust-analyzer",
-    "editor.defaultFormatter": "ms-python.black-formatter",
+        //     "PYO3_USE_ABI3_FORWARD_COMPATIBILITY": "1"
+        // },
+        // "rust-analyzer.cargo.targetDir": "/Users/g1/BU/projects/research/bus",
+        // "rust-analyzer.server.path": "/Users/g1/.cargo/bin/rust-analyzer",
+        "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
     "ruff.enable": false, // python linting using ruff
