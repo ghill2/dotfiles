@@ -22,7 +22,13 @@
         // },
     //////////////////////////////////////////////////////////////////////////
     // Commands https://github.com/usernamehw/vscode-commands
-    
+    "rust-analyzer.linkedProjects": [
+        "/Users/g1/BU/projects/pytower/pytower_core/barter",
+        "/Users/g1/BU/projects/pytower/pytower_core/catalog",
+        "/Users/g1/BU/projects/pytower/pytower_core/common",
+        "/Users/g1/BU/projects/pytower/pytower_core/core",
+        "/Users/g1/BU/projects/pytower/pytower_core/pyo3",
+    ],
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
