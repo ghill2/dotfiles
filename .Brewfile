@@ -67,6 +67,7 @@ brew "tmux"
 brew "trash"
 brew "showkey"
 brew "rar"
+brew "uv"
 
 
 brew "lazygit"
