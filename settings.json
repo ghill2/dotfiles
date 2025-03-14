@@ -34,11 +34,12 @@
         "rustfmt.enableRangeFormatting": true
     },
     "rust-analyzer.linkedProjects": [
-        // "/Users/g1/BU/projects/pytower/crates/barter/Cargo.toml",
-        // "/Users/g1/BU/projects/pytower/pytower_core/catalog/Cargo.toml",
-        // "/Users/g1/BU/projects/pytower/pytower_core/common/Cargo.toml",
-        // "/Users/g1/BU/projects/pytower/pytower_core/core/Cargo.toml",
-        // "/Users/g1/BU/projects/pytower/pytower_core/pyo3/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/barter/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/bcatalog/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/catalog/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/common/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/core/Cargo.toml",
+        "/Users/g1/BU/projects/pytower/crates/pyo3/Cargo.toml",
     ],
     // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
