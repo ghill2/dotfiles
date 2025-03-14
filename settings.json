@@ -22,7 +22,18 @@
         // },
         //////////////////////////////////////////////////////////////////////////
         // Commands https://github.com/usernamehw/vscode-commands
-        "rust-analyzer.linkedProjects": [
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "rust-analyzer": {
+        "checkOnSave": {
+            "command": "clippy"
+        },
+        "rustfmt.overrideCommand": ["rustfmt"],
+        "rustfmt.enableRangeFormatting": true
+    },
+    "rust-analyzer.linkedProjects": [
             "/Users/g1/BU/projects/pytower/pytower_core/barter/Cargo.toml",
             "/Users/g1/BU/projects/pytower/pytower_core/catalog/Cargo.toml",
             "/Users/g1/BU/projects/pytower/pytower_core/common/Cargo.toml",
@@ -32,8 +43,6 @@
     // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
     "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-    "rust-analyzer.checkOnSave.allTargets": true,
     "rust-analyzer.cargo.buildScripts.enable": true,
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
