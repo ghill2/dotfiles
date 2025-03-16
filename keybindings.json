@@ -50,6 +50,9 @@ Neovim: goes to end of select block if selected from bottom up.
     // },
     // //////////////////////////////////////////////////////////////////////////
     
+    {   "key": "ctrl+t",  // Insert type of rust
+        "command": "rust-analyzer.insert-type",
+    },
     {
         "key": "cmd+b",  // Toggle browser visible and focus
         "command": "extension.multiCommand.execute",
