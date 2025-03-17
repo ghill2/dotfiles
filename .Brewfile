@@ -68,7 +68,7 @@ brew "trash"
 brew "showkey"
 brew "rar"
 brew "uv"
-
+brew "cargo-instruments"  # rust profiler using mac cargo instruments
 
 brew "lazygit"
 brew "diff-so-fancy"
