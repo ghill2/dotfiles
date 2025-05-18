@@ -26,13 +26,10 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "rust-lang.rust-analyzer"
     },
-    "rust-analyzer": {
-        "checkOnSave": {
-            "command": "clippy"
-        },
-        "rustfmt.overrideCommand": ["rustfmt"],
-        "rustfmt.enableRangeFormatting": true
-    },
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.rustfmt.overrideCommand": ["rustfmt"],
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
+    "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
     "rust-analyzer.linkedProjects": [
         // "/Users/g1/BU/projects/pytower/crates/barter/Cargo.toml",
         // "/Users/g1/BU/projects/pytower/crates/bcatalog/Cargo.toml",
@@ -43,10 +40,12 @@
     ],
     // "rust-analyzer.cargo.loadOutDirsFromCheck": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
-    "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.cargo.buildScripts.enable": true,
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
+    // "rust-analyzer.inlayHints.typeHints.enable": false,
+    // "rust-analyzer.inlayHints.parameterHints.enable": false,
+    // "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
@@ -272,9 +271,7 @@
     "errorLens.enabledDiagnosticLevels": ["error"], // , "warning" , "info"
     // "errorLens.messageMaxChars": 50,
     // "errorLens.removeLinebreaks": false,
-    // "rust-analyzer.inlayHints.typeHints.enable": false,
-    // "rust-analyzer.inlayHints.parameterHints.enable": false,
-    // "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
+    
     
     //////////////////////////////////////////////////////////////////////////
     // Javascript Formatting
