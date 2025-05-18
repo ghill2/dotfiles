@@ -28,8 +28,8 @@
     },
     "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.rustfmt.overrideCommand": ["rustfmt"],
-    "rust-analyzer.rustfmt.enableRangeFormatting": true,
     "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
     "rust-analyzer.linkedProjects": [
         // "/Users/g1/BU/projects/pytower/crates/barter/Cargo.toml",
         // "/Users/g1/BU/projects/pytower/crates/bcatalog/Cargo.toml",
@@ -43,6 +43,7 @@
     "rust-analyzer.cargo.buildScripts.enable": true,
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
+    "rust-analyzer.restartServerOnConfigChange": true,
     // "rust-analyzer.inlayHints.typeHints.enable": false,
     // "rust-analyzer.inlayHints.parameterHints.enable": false,
     // "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
@@ -446,7 +447,9 @@
     "chat.editing.alwaysSaveWithGeneratedChanges": true,
     "editor.quickSuggestions": {
         "comments": "on"
-    }
+    },
+    
+    
     
     
     // "vim.enableNeovim": true,
