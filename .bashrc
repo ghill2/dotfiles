@@ -167,7 +167,7 @@ function mkenv() {
     # virtualenv --python=$(pyenv which python) --always-copy ./.venv
     sudo rm -rf ./.venv && \
 	# python -m venv ./.venv && \
-    uv venv --python 3.11 --python-preference only-managed && \
+    uv venv --python 3.11.11 --python-preference only-managed && \
 	. ./.venv/bin/activate
 }
 
@@ -348,4 +348,5 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
 
 # export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
 # export PYTHONPATH="/Users/g1/BU/projects/pytower"
-export PYO3_PRINT_CONFIG=1
+export PYO3_PYTHON="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/bin/python3.11"
+# export PYO3_PRINT_CONFIG=1
