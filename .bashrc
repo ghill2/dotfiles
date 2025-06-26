@@ -211,18 +211,18 @@ export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
 # export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
 export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
 
-function git() {
-    local root
-    root=$(command git rev-parse --show-toplevel 2>/dev/null)
+# function git() {
+#     local root
+#     root=$(command git rev-parse --show-toplevel 2>/dev/null)
 
-    if [[ -z "$root" ]]; then
-        echo "❌ Not inside a Git repository." >&2
-        return 1
-    fi
+#     if [[ -z "$root" ]]; then
+#         echo "❌ Not inside a Git repository." >&2
+#         return 1
+#     fi
 
-    echo "📁 Git root: $root"
-    command git --git-dir="$root/.git" --work-tree="$root" "$@"
-}
+#     echo "📁 Git root: $root"
+#     command git --git-dir="$root/.git" --work-tree="$root" "$@"
+# }
 
 
 
