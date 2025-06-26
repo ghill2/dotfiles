@@ -18,7 +18,6 @@ brew 'yarn' 23
 brew "npm" # necessary for nvim config to install LSPs
 brew 'nmap'  # Port scanning utility for large networks
 brew 'choose-gui'  # choose commands
-brew 'maturin'  # Build and publish crates with pyo3, rust-cpython, cffi and uniffi bindings as well as rust binaries as python packages.
 brew 'virtualenv'  # make virtualenv with pyenv
 brew 'wget'
 brew 'coreutils' # realpath
@@ -29,6 +28,11 @@ brew 'make'
 brew 'ta-lib'
 brew 'fd'  # linktrigger script
 brew 'git-lfs'
+brew 'lazygit'
+
+# this installs rust as a dependency, but we have to use rustup installed
+# rust from brew can't run on nightly, which is required for settings in cargo fmt
+# brew 'maturin'  # Build and publish crates with pyo3, rust-cpython, cffi and uniffi bindings as well as rust binaries as python packages.
 
 # JUST INSTALL RUST FROM THEIR WEBSITE, ALOT BETTER!!!! use default profile, not minimal or complete
 # CAUTION! do not install rust, rustup comes with rustc compiler and you can change to nightly.
