@@ -5,7 +5,8 @@
         "editor.defaultFormatter": "rust-lang.rust-analyzer"
     },
     "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
+    "rust-analyzer.rustfmt.overrideCommand": ["rustfmt", "+nightly"],
+    // "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
     "rust-analyzer.cargo.buildScripts.enable": true,
@@ -355,5 +356,6 @@
     "chat.editing.alwaysSaveWithGeneratedChanges": true,
     "editor.quickSuggestions": {
         "comments": "on"
-    }
+    },
+    
 }
