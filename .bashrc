@@ -206,6 +206,27 @@ path_add_front "/opt/homebrew/opt/postgresql@17/bin"
 path_add_front "/opt/homebrew/opt/trash-cli/bin"
 # path_add_front "//opt/homebrew/opt/rustup/bin"
 
+# https://stackoverflow.com/a/19770395
+    # CAUSES ERROR DO NOT USE!
+    # export LC_CTYPE=C
+    # export LANG=C
+. "$HOME/.cargo/env"
+
+# Set the library path for the Python interpreter (in this case Python 3.13.4)
+export LD_LIBRARY_PATH="/Users/g1/BU/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
+
+# Set the Python executable path for PyO3
+export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
+
+# export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
+export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
+
+function git() {
+    local root
+    root=$(git rev-parse --show-toplevel 2>/dev/null) || return
+    command git --git-dir="$root/.git" --work-tree="$root" "$@"
+}
+
 
 
 # /opt/homebrew/opt/openjdk/bin:/Users/g1/.pyenv/shims:/Users/g1/.cargo/bin:/Users/g1/BU/projects/dotfiles/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools
@@ -325,11 +346,6 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
 
 
 
-# https://stackoverflow.com/a/19770395
-    # CAUSES ERROR DO NOT USE!
-    # export LC_CTYPE=C
-    # export LANG=C
-. "$HOME/.cargo/env"
 
 
 # Set the library path for the Python interpreter (in this case Python 3.13.4)
@@ -351,11 +367,3 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
 # export PYO3_PRINT_CONFIG=1
 # export PYO3_PYTHON="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/bin/python3.11"
 
-# Set the library path for the Python interpreter (in this case Python 3.13.4)
-export LD_LIBRARY_PATH="/Users/g1/BU/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
-
-# Set the Python executable path for PyO3
-export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
-
-# export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
-export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
