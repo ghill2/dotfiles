@@ -223,7 +223,14 @@ export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch6
 
 function git() {
     local root
-    root=$(git rev-parse --show-toplevel 2>/dev/null) || return
+    root=$(command git rev-parse --show-toplevel 2>/dev/null)
+
+    if [[ -z "$root" ]]; then
+        echo "❌ Not inside a Git repository." >&2
+        return 1
+    fi
+
+    echo "📁 Git root: $root"
     command git --git-dir="$root/.git" --work-tree="$root" "$@"
 }
 
