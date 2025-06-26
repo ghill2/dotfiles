@@ -348,5 +348,11 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
 
 # export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
 # export PYTHONPATH="/Users/g1/BU/projects/pytower"
-export PYO3_PYTHON="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/bin/python3.11"
 # export PYO3_PRINT_CONFIG=1
+# export PYO3_PYTHON="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/bin/python3.11"
+
+# Set the library path for the Python interpreter (in this case Python 3.13.4)
+export LD_LIBRARY_PATH="$HOME/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
+
+# Set the Python executable path for PyO3
+export PYO3_PYTHON=$(pwd)/.venv/bin/python
