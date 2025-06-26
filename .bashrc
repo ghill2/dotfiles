@@ -40,12 +40,6 @@ path_add_back() {
 system=$(uname -s)
 if [ "$system" = "Linux" ]; then
     echo "This is a Linux system"
-
-    # add pyenv to path
-    export PYENV_ROOT="$HOME/.pyenv"
-    path_add_front "$PYENV_ROOT/bin"
-    eval "$(pyenv init -)"
-    # eval "$(pyenv virtualenv-init -)"
     
     # intel-mkl libraries for RVC singing voice conversion
     # export PATH="$PATH:/opt/intel/bin"
@@ -83,8 +77,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     #     export LD_LIBRARY_PATH=$LIBRARY_DIR:$LD_LIBRARY_PATH
     # fi
     
-    # Switches the terminal to use pyenv versions. Linux and Mac
-    eval "$(pyenv init -)"
+    
     
     # Direnv shell hook
     eval "$(direnv hook zsh)"
@@ -162,11 +155,8 @@ function activate() {
 }
 alias act='activate'
 
-function mkenv() {
-    # deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
-    # virtualenv --python=$(pyenv which python) --always-copy ./.venv
+function mkenv() {    
     sudo rm -rf ./.venv && \
-	# python -m venv ./.venv && \
     uv venv --python 3.11.11 --python-preference only-managed && \
 	. ./.venv/bin/activate
 }
@@ -374,3 +364,16 @@ function git() {
 # export PYO3_PRINT_CONFIG=1
 # export PYO3_PYTHON="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/bin/python3.11"
 
+
+# # add pyenv to path
+# export PYENV_ROOT="$HOME/.pyenv"
+# path_add_front "$PYENV_ROOT/bin"
+# eval "$(pyenv init -)"
+# # eval "$(pyenv virtualenv-init -)"
+
+# # Switches the terminal to use pyenv versions. Linux and Mac
+# eval "$(pyenv init -)"
+
+# deactivate > /dev/null 2>&1; pyenv virtualenv $PYENV_VERSION .venv
+# virtualenv --python=$(pyenv which python) --always-copy ./.venv
+# python -m venv ./.venv && \
