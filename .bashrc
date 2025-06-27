@@ -202,13 +202,9 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
     # export LANG=C
 . "$HOME/.cargo/env"
 
-# Set the library path for the Python interpreter (in this case Python 3.13.4)
-export LD_LIBRARY_PATH="/Users/g1/BU/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
 
-# Set the Python executable path for PyO3
+export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
 export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
-
-# export PYTHONHOME="/Users/g1/BU/projects/pytower/.venv"
 export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
 
 # function git() {
