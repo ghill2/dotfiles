@@ -70,7 +70,7 @@
     },
     
     //////////////////////////////////////////////////////////////////////////
-    // Python Config
+    // Python Config    
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",

@@ -50,6 +50,9 @@ Neovim: goes to end of select block if selected from bottom up.
     // },
     // //////////////////////////////////////////////////////////////////////////
     
+    {   "key": "shift+cmd+r",  // focus on problems view
+        "command": "workbench.panel.markers.view.focus",
+    },
     {   "key": "ctrl+t",  // Insert type of rust
         "command": "rust-analyzer.insert-type",
     },

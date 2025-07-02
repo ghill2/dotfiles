@@ -203,6 +203,7 @@ path_add_front "/opt/homebrew/opt/trash-cli/bin"
 . "$HOME/.cargo/env"
 
 
+# Freddie only requires the LD_LIBRARY_PATH to be set, not the PYO3_PYTHON or PYTHONHOME
 export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
 export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
 export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
