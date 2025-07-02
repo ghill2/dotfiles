@@ -184,7 +184,7 @@ Neovim: goes to end of select block if selected from bottom up.
     {   "key": "shift+cmd+3",    // Triple pane view
         "command": "workbench.action.editorLayoutThreeColumns"
     },
-    {   "key": "shift+cmd+r", // Reset panes sizes to their default sizes
+    {   "key": "shift+cmd+ctrl+r", // Reset panes sizes to their default sizes
         "command": "workbench.action.evenEditorWidths"
     },
     {   "key": "ctrl+space", // Run active pane
