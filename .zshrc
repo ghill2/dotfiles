@@ -109,3 +109,4 @@ setopt histignoredups
 # unset __conda_setup
 # # <<< conda initialize <<<
 
+export PATH="$PATH:/Users/g1/.influxdb/"

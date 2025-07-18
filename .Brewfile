@@ -13,6 +13,7 @@ brew "mas"  # install apps through app store
 
 # CLI Apps
 cask "kitty"
+cask "tableplus"
 brew 'node'
 brew 'yarn' 23
 brew "npm" # necessary for nvim config to install LSPs
