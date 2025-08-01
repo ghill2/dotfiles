@@ -15,6 +15,7 @@
     "rust-analyzer.check": {
         "command": "clippy"
     },
+    "rust-analyzer.imports.granularity.enforce": true,
     "rust-analyzer.rustfmt.overrideCommand": ["rustfmt", "+nightly"],
     // "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
     "rust-analyzer.rustfmt.rangeFormatting.enable": true,

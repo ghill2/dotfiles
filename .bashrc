@@ -155,9 +155,9 @@ function activate() {
 }
 alias act='activate'
 
-function mkenv() {    
+function mkenv() {
     sudo rm -rf ./.venv && \
-    uv venv --python 3.11.11 --python-preference only-managed && \
+    uv venv --python 3.11.11 --python-preference only-managed --upgrade-deps && \
 	. ./.venv/bin/activate
 }
 
