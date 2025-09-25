@@ -172,3 +172,5 @@ brew 'duckdb'
 tap 'timescale/tap'
 brew 'timescaledb'  # installs postgresql@17 too
 # cask "redisinsight"  # GUI for redis
+
+brew 'db-browser-for-sqlite'
