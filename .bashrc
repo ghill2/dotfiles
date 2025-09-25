@@ -57,7 +57,6 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "This is a Mac system"
-
     
     path_add_front "/opt/ibc"
     path_add_front "/opt/homebrew/opt/openjdk/bin"
@@ -67,14 +66,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)" # add brew to path
     
     ulimit -n 4294967295
-    RUST_BACKTRACE=full
 
     export OPENSSL_FIPS=1
-
-    path_add_front "$PARENT/bin" # DOES THIS ACTUALLY WORK? just adds ~/bin
-
+    
     path_add_front "/opt/homebrew/opt/postgresql@17/bin"
     path_add_front "/opt/homebrew/opt/trash-cli/bin"
+    path_add_front "/Users/g1/.influxdb/"
     
     . "$HOME/.cargo/env"
 
@@ -82,10 +79,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
     export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
     export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
-
-    if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-        export PATH=/opt/homebrew/bin:$PATH
-    fi
 
 fi
 
