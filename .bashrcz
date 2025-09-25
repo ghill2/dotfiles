@@ -325,3 +325,7 @@ if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
 fi
 
 path_add_front "$PARENT/bin" # DOES THIS ACTUALLY WORK? just adds ~/bin
+# eval "$(direnv hook zsh)" # direnv shell hook
+# path_add_front "/opt/homebrew/opt/postgresql@17/bin"
+
+path_add_front "/Users/g1/.influxdb/"

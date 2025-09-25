@@ -58,10 +58,9 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "This is a Mac system"
     
-    path_add_front "/opt/ibc"
     path_add_front "/opt/homebrew/opt/openjdk/bin"
     
-    eval "$(direnv hook zsh)" # direnv shell hook
+    path_add_front "/opt/ibc"
 
     eval "$(/opt/homebrew/bin/brew shellenv)" # add brew to path
     
@@ -69,9 +68,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     export OPENSSL_FIPS=1
     
-    path_add_front "/opt/homebrew/opt/postgresql@17/bin"
     path_add_front "/opt/homebrew/opt/trash-cli/bin"
-    path_add_front "/Users/g1/.influxdb/"
     
     . "$HOME/.cargo/env"
 
