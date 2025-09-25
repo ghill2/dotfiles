@@ -3,8 +3,8 @@
 # ignore duplicates in terminal history
 HISTCONTROL=$HISTCONTROL:ignoredups
 
-alias node='ssh g1@192.168.0.76'
-alias nodec='code -n --folder-uri=vscode-remote://ssh-remote+g1@192.168.0.76/Users/g1/BU/projects/'
+alias trade='ssh g1@192.168.0.76'
+alias tradevs='code -n --folder-uri=vscode-remote://ssh-remote+g1@192.168.0.76/Users/g1/BU/projects/'
 alias c=auto_commit
 alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
 alias de='deactivate'
