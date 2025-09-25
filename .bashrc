@@ -46,11 +46,14 @@ if [ "$system" = "Linux" ]; then
     # export LD_LIBRARY_PATH="$PATH:opt/intel/mkl/lib/intel64_lin/"
     # remove_from_path "/opt/intel/bin"
     export ROCM_PATH=/opt/rocm
+    export ROCM_HOME=/opt/rocm
 
     # Direnv shell hook
     eval "$(direnv hook bash)"
 
     path_add_front "/home/g1/bu/projects/pymusic"
+    path_add_front "/opt/rocm/bin"
+    # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROCM_HOME/lib
 
 fi
 
