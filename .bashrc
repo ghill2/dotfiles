@@ -46,6 +46,10 @@ path_add_back() {
 system=$(uname -s)
 if [ "$system" = "Linux" ]; then
     echo "This is a Linux system"
+
+
+    . "$HOME/.cargo/env"
+
         
     export ROCM_PATH=/opt/rocm
     export ROCM_HOME=/opt/rocm
@@ -76,10 +80,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     
     . "$HOME/.cargo/env"
 
-    # Freddie only requires the LD_LIBRARY_PATH to be set, not the PYO3_PYTHON or PYTHONHOME
-    export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
-    export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
-    export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
+    # # Freddie only requires the LD_LIBRARY_PATH to be set, not the PYO3_PYTHON or PYTHONHOME
+    # export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
+    # export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
+    # export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
+    # export PYO3_USE_VENDOR_PYTHON=1
+    # export PYO3_VENDORED_PYTHON_VERSION=3.11.11
+
+    
 
 fi
 
