@@ -9,6 +9,7 @@ alias c=auto_commit
 alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt {} + | rev | cut -d " " -f 1 | rev | head -n 1)'
 alias de='deactivate'
 alias p='cd ~/bu/projects/pytower'
+alias d='cd ~/bu/projects/dotfiles'
 
 remove_from_path() {
     local remove_path="$1"
