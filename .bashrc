@@ -11,6 +11,8 @@ alias de='deactivate'
 alias p='cd ~/bu/projects/pytower'
 alias d='cd ~/bu/projects/dotfiles'
 alias gateway="~/Jts/ibgateway/1037/ibgateway"
+alias workstation="~/Jts/tws"
+alias work=workstation
 
 remove_from_path() {
     local remove_path="$1"
