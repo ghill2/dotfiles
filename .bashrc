@@ -10,6 +10,7 @@ alias wal='wally-cli $(find "$HOME/Downloads" -type f -name "*bin" -exec ls -lt 
 alias de='deactivate'
 alias p='cd ~/bu/projects/pytower'
 alias d='cd ~/bu/projects/dotfiles'
+alias gateway="~/Jts/ibgateway/1037/ibgateway"
 
 remove_from_path() {
     local remove_path="$1"
@@ -47,9 +48,7 @@ system=$(uname -s)
 if [ "$system" = "Linux" ]; then
     echo "This is a Linux system"
 
-
     . "$HOME/.cargo/env"
-
         
     export ROCM_PATH=/opt/rocm
     export ROCM_HOME=/opt/rocm
