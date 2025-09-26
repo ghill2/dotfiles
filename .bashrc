@@ -53,7 +53,7 @@ if [ "$system" = "Linux" ]; then
     path_add_front "/home/g1/bu/projects/pymusic"
     path_add_front "/opt/rocm/bin"
 
-    export PYO3_PYTHON="~/.local/bin/python3.11"
+    export LD_LIBRARY_PATH="~/.local/share/uv/python/cpython-3.11.11-linux-x86_64-gnu/bin/lib"
 
 fi
 
