@@ -53,6 +53,8 @@ if [ "$system" = "Linux" ]; then
     path_add_front "/home/g1/bu/projects/pymusic"
     path_add_front "/opt/rocm/bin"
 
+    export PYO3_PYTHON="~/.local/bin/python3.11"
+
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
