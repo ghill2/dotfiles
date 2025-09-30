@@ -1,0 +1,23 @@
+brew 'duckdb'
+
+tap 'timescale/tap'
+brew 'timescaledb'  # installs postgresql@17 too
+cask "redisinsight"  # GUI for redis
+goku
+tap "yqrashawn/goku"
+brew 'goku', restart_service: true
+brew 'watchexec'  # goku dependency
+# brew 'joker'  # goku dependency
+
+# cask 'evernote'
+# brew "lazygit"
+# brew "diff-so-fancy"
+# brew "git-delta" # lazygit diff
+# brew "postgresql@14"
+# brew "zsh-completions"
+# brew 'maturin'  # Build and publish crates with pyo3, rust-cpython, cffi and uniffi bindings as well as rust binaries as python packages.
+# brew 'ta-lib'
+# brew 'virtualenv'  # make virtualenv with pyenv
+# brew 'weasyprint'  # requires python! for creating invoices. html > pdf
+# brew "redis", restart_service: true
+# brew "rar"
