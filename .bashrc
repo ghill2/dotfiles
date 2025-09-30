@@ -66,10 +66,6 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "This is a Mac system"
-    
-    path_add_front "/opt/homebrew/opt/openjdk/bin"
-    
-    path_add_front "/opt/ibc"
 
     eval "$(/opt/homebrew/bin/brew shellenv)" # add brew to path
     
@@ -78,17 +74,19 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export OPENSSL_FIPS=1
     
     path_add_front "/opt/homebrew/opt/trash-cli/bin"
-    
-    . "$HOME/.cargo/env"
-
+    path_add_front "$HOME/.pyenv"  # add pyenv shim, python uses current pyenv version
+    # echo 'export PYENV_ROOT=' >> ~/.bashrc
+    # echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    # echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+    # . "$HOME/.cargo/env" # unrequired if rust installed with homebrew
+    # path_add_front "/opt/homebrew/opt/openjdk/bin"
+    # path_add_front "/opt/ibc"
     # # Freddie only requires the LD_LIBRARY_PATH to be set, not the PYO3_PYTHON or PYTHONHOME
     # export LD_LIBRARY_PATH="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
     # export PYO3_PYTHON="/Users/g1/BU/projects/pytower/.venv/bin/python"
     # export PYTHONHOME="/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none"
     # export PYO3_USE_VENDOR_PYTHON=1
     # export PYO3_VENDORED_PYTHON_VERSION=3.11.11
-
-    
 
 fi
 
