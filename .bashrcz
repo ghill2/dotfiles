@@ -329,3 +329,10 @@ path_add_front "$PARENT/bin" # DOES THIS ACTUALLY WORK? just adds ~/bin
 # path_add_front "/opt/homebrew/opt/postgresql@17/bin"
 
 path_add_front "/Users/g1/.influxdb/"
+
+function mkenv() {
+    sudo rm -rf ./.venv && \
+    uv venv --python 3.11.11 --python-preference only-managed && \
+    . ./.venv/bin/activate && \
+    python -m ensurepip --upgrade
+}

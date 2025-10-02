@@ -128,7 +128,7 @@ alias act='activate'
 
 function mkenv() {
     sudo rm -rf ./.venv && \
-    uv venv --python 3.11.11 --python-preference only-managed && \
+    python -m venv ./.venv && \
     . ./.venv/bin/activate && \
     python -m ensurepip --upgrade
 }
