@@ -74,10 +74,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export OPENSSL_FIPS=1
     
     path_add_front "/opt/homebrew/opt/trash-cli/bin"
-    path_add_front "$HOME/.pyenv"  # add pyenv shim, python uses current pyenv version
-    # echo 'export PYENV_ROOT=' >> ~/.bashrc
-    # echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-    # echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+    
     # . "$HOME/.cargo/env" # unrequired if rust installed with homebrew
     # path_add_front "/opt/homebrew/opt/openjdk/bin"
     # path_add_front "/opt/ibc"
