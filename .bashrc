@@ -67,6 +67,8 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "This is a Mac system"
 
+    eval "$(direnv hook bash)" # direnv shell hook
+
     eval "$(/opt/homebrew/bin/brew shellenv)" # add brew to path
     
     ulimit -n 4294967295
@@ -78,7 +80,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 
-    eval "$(direnv hook bash)" # direnv shell hook
+    
     
     # . "$HOME/.cargo/env" # unrequired if rust installed with homebrew
     # path_add_front "/opt/homebrew/opt/openjdk/bin"
@@ -136,14 +138,15 @@ function mkenv() {
 }
 
 re () {
-    echo "Reloading bashrc..."
-    source ~/.bashrc
-        
     if [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Reloading zshrc..."
         source ~/.zshenv
         source ~/.zshrc
         
+    fi
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        echo "Reloading bashrc..."
+        source ~/.bashrc
     fi
 }
 rmenv () {
