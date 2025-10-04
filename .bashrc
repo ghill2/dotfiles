@@ -77,6 +77,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
+
+    eval "$(direnv hook bash)" # direnv shell hook
     
     # . "$HOME/.cargo/env" # unrequired if rust installed with homebrew
     # path_add_front "/opt/homebrew/opt/openjdk/bin"
