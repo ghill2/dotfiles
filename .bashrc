@@ -140,7 +140,8 @@ function mkenv() {
     sudo rm -rf ./.venv && \
     python -m venv ./.venv && \
     . ./.venv/bin/activate && \
-    python -m ensurepip --upgrade
+    python -m ensurepip --upgrade && \
+    pip install --upgrade setuptools
 }
 
 re () {
