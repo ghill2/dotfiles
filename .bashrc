@@ -150,7 +150,7 @@ re () {
         source ~/.zshrc
         
     fi
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    if [ "$system" = "Linux" ]; then
         echo "Reloading bashrc..."
         source ~/.bashrc
     fi
