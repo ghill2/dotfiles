@@ -110,6 +110,7 @@ cask 'docker-desktop'
 cask 'keyboard-maestro'
 cask 'pacifist'
 cask 'path-finder'
+cask 'superduper'
 
 #######################################################################
 # VSCode extensions

@@ -67,7 +67,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "This is a Mac system"
 
-    eval "$(direnv hook bash)" # direnv shell hook
+    # eval "$(direnv hook bash)" # direnv shell hook
 
     eval "$(/opt/homebrew/bin/brew shellenv)" # add brew to path
     
