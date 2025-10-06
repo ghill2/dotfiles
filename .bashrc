@@ -62,10 +62,10 @@ if [ "$system" = "Linux" ]; then
 
     # export LD_LIBRARY_PATH="~/.local/share/uv/python/cpython-3.11.11-linux-x86_64-gnu/bin/lib"
 
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
     path_add_front "$HOME/.pyenv/bin"
     export PYENV_ROOT="$HOME/.pyenv"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
 
 
 fi
