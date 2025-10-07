@@ -86,6 +86,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 
+    path_add_front "/opt/local/bin"  # Macports
+    path_add_front "/opt/local/sbin"  # Macports
+
     
     
     # . "$HOME/.cargo/env" # unrequired if rust installed with homebrew
