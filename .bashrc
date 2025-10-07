@@ -13,6 +13,7 @@ alias d='cd ~/bu/projects/dotfiles'
 alias gateway="~/Jts/ibgateway/1037/ibgateway"
 alias workstation="~/Jts/tws"
 alias work=workstation
+alias updatebrew=brew bundle --file=~/.Brewfile
 
 remove_from_path() {
     local remove_path="$1"

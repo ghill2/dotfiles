@@ -21,3 +21,12 @@ brew 'watchexec'  # goku dependency
 # brew 'weasyprint'  # requires python! for creating invoices. html > pdf
 # brew "redis", restart_service: true
 # brew "rar"
+# brew 'koekeishiya/formulae/skhd', restart_service: true
+# brew 'yarn' 23
+tap "candid82/brew"  # for joker dependency
+tap "jesseduffield/lazygit"
+tap "esolitos/ipa"
+tap "yulrizka/tap"
+brew 'lazygit'
+brew 'esolitos/ipa/sshpass' # ssh without password prompt
+brew 'hudochenkov/sshpass/sshpass' # ssh without password prompt

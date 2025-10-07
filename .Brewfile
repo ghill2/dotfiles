@@ -4,15 +4,10 @@
 # and should be installed on every comp
 
 # Requirements
-tap "esolitos/ipa"
-tap "yulrizka/tap"
-tap "candid82/brew"  # for joker dependency
-tap "jesseduffield/lazygit"
 brew "mas"  # install apps through app store
 
 # CLI Apps
 brew 'node'
-# brew 'yarn' 23
 brew "npm" # necessary for nvim config to install LSPs
 brew 'nmap'  # Port scanning utility for large networks
 brew 'choose-gui'  # choose commands
@@ -23,7 +18,6 @@ brew 'fswatch' # run bash script when directory changes
 brew 'make'
 brew 'fd'  # linktrigger script
 brew 'git-lfs'
-brew 'lazygit'
 brew 'pre-commit'
 brew 'lua'
 brew 'duti' # set default app for file in terminal
@@ -35,7 +29,6 @@ brew 'iperf3'  # test lan speed
 brew 'yarn'  # npm scaffolder
 brew 'defaultbrowser'  # set the default browser from the terminal, used in settings
 brew "openjdk"  # opensource java sdk, identical to oracle java sdk
-brew 'koekeishiya/formulae/skhd', restart_service: true
 brew 'p7zip'  # extract dmg files on mac
 brew "fzf"
 brew "ripgrep"
@@ -52,8 +45,6 @@ brew "antigen"
 brew "tmux"
 brew "trash"
 brew "showkey"
-brew 'esolitos/ipa/sshpass' # ssh without password prompt
-brew 'hudochenkov/sshpass/sshpass' # ssh without password prompt
 brew "uv"
 brew "cargo-instruments"  # rust profiler using mac cargo instruments
 brew 'libusb' # moonlander keyboard
