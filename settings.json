@@ -1,5 +1,13 @@
 
 {
+    //////////////////////////////////////////////////////////////////////////
+    // Rust
+    "rust.linting.enabled": true,
+    "errorLens.exclude": ["Trailing comma"],
+    "errorLens.gutterIconsEnabled": true,
+    "errorLens.statusBarMessageEnabled": true,
+    "errorLens.statusBarIconsEnabled": true,
+    "errorLens.enabledDiagnosticLevels": ["error"], // , "warning" , "info"
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
@@ -13,6 +21,7 @@
     "rust-analyzer.procMacro.enable": true,
     "rust-analyzer.cargo.targetDir": true, // fixes re-compilation each time
     "rust-analyzer.restartServerOnConfigChange": true,
+    //////////////////////////////////////////////////////////////////////////
     "editor.inlineSuggest.enabled": true,
     "gitlens.advanced.messages": {
         "suppressCreatePullRequestPrompt": true
@@ -32,16 +41,7 @@
     "editor.quickSuggestions": {
         "comments": "on"
     },
-
-
     "python.terminal.activateEnvironment": true,
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
-    // "terminal.integrated.env.osx": {
-    //     "PYTHONHOME": "/Users/g1/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none",
-    //     "PYO3_PYTHON": "/Users/g1/BU/projects/pytower/.venv/bin/python",
-    //     "LD_LIBRARY_PATH": "/Users/g1/BU/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib"
-    // },
-    
     "commands.quickPickIncludeAllCommands": false, // include all commands from Command Palette to the Quick Pick.
     "commands.populateCommandPalette": true, // Adds all items to Command Palette (Requires application reload after adding a command)
     "commands.commands": {
@@ -92,64 +92,24 @@
     },
     
     //////////////////////////////////////////////////////////////////////////
-    // Python Config    
+    // Python Config
     "editor.defaultFormatter": "ms-python.black-formatter",
     "python.formatting.provider": "black",
-    "python.languageServer": "Pylance",
-    "ruff.enable": false, // python linting using ruff
-    "python.linting.enabled": false,
-    "python.linting.pyLanceEnabled": false,
-    "python.linting.pylintEnabled": false,
-    "python.linting.banditEnabled": false,
-    "python.linting.flake8Enabled": false,
-    "python.linting.mypyEnabled": false,
-    "python.linting.prospectorEnabled": false,
-    "python.linting.pycodestyleEnabled": false,
-    "python.linting.pydocstyleEnabled": false,
-    "python.linting.pylamaEnabled": false,
+    // "python.languageServer": "Pylance",
+    // "ruff.enable": false, // python linting using ruff
+    // "python.linting.enabled": false,
+    // "python.linting.pyLanceEnabled": false,
+    // "python.linting.pylintEnabled": false,
+    // "python.linting.banditEnabled": false,
+    // "python.linting.flake8Enabled": false,
+    // "python.linting.mypyEnabled": false,
+    // "python.linting.prospectorEnabled": false,
+    // "python.linting.pycodestyleEnabled": false,
+    // "python.linting.pydocstyleEnabled": false,
+    // "python.linting.pylamaEnabled": false,
     "python.dataScience.alwaysTrustNotebooks": true,
     "autoflake-extension.remove-all-unused-imports": true, // mikoz.autoflake-extension
     "autoflake.verbose": true, // for debugging
-    "isort.args": [ // from nautilus
-        "--combine-as",
-        "--line-length=100",
-        "--ensure-newline-before-comments",
-        "--force-single-line-imports",
-        "--single-line-exclusions=typing",
-        "--trailing-comma",
-        "--multi-line=3",
-        "--lines-after-imports=2",
-        "--use-parentheses"
-    ],
-    "python.linting.pylintArgs": [
-        "--disable=C0116,C0115" // ignore no docstring lint
-    ],
-    "pylint.args": [
-        "--disable=C0116,C0115" // ignore no docstring lint
-    ],
-    "python.linting.pycodestyleArgs": [
-        "--max-line-length=100"
-    ],
-    "python.linting.pydocstyleArgs": [ // from nautilus
-        "--ignore=D100,D102,D103,D104,D107,D105,D200,D203,D205,D212,D400,D413,D415"
-    ],
-    "python.linting.mypyArgs": [ // from nautilus
-        "--no-strict-optional,",
-        "--ignore-missing-imports",
-        "--warn-no-return"
-        // "--follow-imports=silent", // default in vscode
-        // "--show-column-numbers", // default in vscode
-        // "--no-pretty", // default in vscode
-    ],
-    
-    "python.linting.flake8Args": [ // from nautilus
-        "--max-complexity=10",
-        "--max-line-length=150",
-        "--statistics",
-        "--ignore=C101 E203 E252 E402 D100 D101 D102 S101 S403 S404 W503",
-        "--min-python-version=3.8.0"
-    ],
-    "python.formatting.blackArgs": ["--line-length", "100"], // same as nautilus
     ///////////////////////////////////////////////////////////////////////////////////
     // Editor & Application Settings
     "editor.tokenColorCustomizations": {
@@ -218,14 +178,6 @@
     "security.warnOnExternalOpen": false,
     "editor.scrollbar.verticalScrollbarSize": 15,
     //////////////////////////////////////////////////////////////////////////
-    // Rust
-    "rust.linting.enabled": true,
-    "errorLens.exclude": ["Trailing comma"],
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.statusBarMessageEnabled": true,
-    "errorLens.statusBarIconsEnabled": true,
-    "errorLens.enabledDiagnosticLevels": ["error"], // , "warning" , "info"
-    //////////////////////////////////////////////////////////////////////////
     // Javascript Formatting
     "html.format.wrapLineLength":120,
     "beautify.language": {
@@ -280,9 +232,7 @@
         ".js": ".css",
         ".tsx": ".module.css",
     },
-    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
     "culp.fullPath.removeDiscColons": true,
-    
     ///////////////////////////////////////////////////////////////////////////////////
     // Git
     "git.confirmSync": false,
@@ -292,81 +242,4 @@
     "gitlens.views.searchAndCompare.files.layout": "tree",
     "gitlens.hovers.enabled": false,
     "gitlens.views.contributors.showAllBranches": true,
-    ///////////////////////////////////////////////////////////////////////////////////
-    // SSH
-    "remote.SSH.remotePlatform": {
-        "100.72.182.126": "windows",
-        "100.100.132.113": "windows"
-    },
-    "remote.SSH.remoteHosts": [
-        {
-            "host": "ai",
-            "hostName": "100.121.100.19",
-            "user": "g1"
-        }
-    ],
-
-    ///////////////////////////////////////////////////////////////////////////////////
-    // VIM & Neovim
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/g2/Desktop/dotfiles/init.vim",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["k", "j"],
-            "after": ["<Esc>", "l"],
-        },
-    ],
-    "vim.visualModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["k", "j"],
-            "after": ["<Esc>", "l"],
-        },
-    ],
-    "vim.visualLineModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>", "l"]
-        },
-        {
-            "before": ["k", "j"],
-            "after": ["<Esc>", "l"],
-        },
-    ],
-    "vim.debug.loggingLevelForConsole": "debug",
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors": {
-        "normal": "#005f5f",
-        "insert": "#5C0081",
-        "visual": "#007022",
-        "visualline": "#007022",
-        "visualblock": "#86592d",
-        "replace": "#000000"
-    },
-    
-    // "vim.leader": "\\",
-    "vim.useSystemClipboard": true,
-    "vim.overrideCopy": false,
-    "vim.useCtrlKeys": true,
-    
-    
 }
