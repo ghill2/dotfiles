@@ -14,7 +14,7 @@ alias gateway="~/Jts/ibgateway/1037/ibgateway"
 alias workstation="~/Jts/tws"
 alias work=workstation
 alias updatebrew=brew bundle --file=~/.Brewfile
-alias dl="~/bu/projects/music/.venv/bin/python ~/bu/projects/music/music/download/cli.py"
+alias dl="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/music/music/download/cli.py" # requires quotes
 
 
 remove_from_path() {
