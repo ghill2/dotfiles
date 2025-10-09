@@ -15,6 +15,7 @@ alias workstation="~/Jts/tws"
 alias work=workstation
 alias updatebrew=brew bundle --file=~/.Brewfile
 alias dl="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/music/music/download/cli.py" # requires quotes
+alias process="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/music/music/process/cli.py" # requires quotes
 
 
 remove_from_path() {

@@ -103,6 +103,7 @@ cask 'keyboard-maestro'
 cask 'pacifist'
 cask 'path-finder'
 cask 'superduper'
+cask 'mediahuman-audio-converter'
 
 #######################################################################
 # VSCode extensions
