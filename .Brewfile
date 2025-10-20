@@ -104,6 +104,7 @@ cask 'pacifist'
 cask 'path-finder'
 cask 'superduper'
 cask 'mediahuman-audio-converter'
+cask 'telegram'
 
 #######################################################################
 # VSCode extensions
