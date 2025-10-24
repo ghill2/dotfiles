@@ -105,6 +105,7 @@ cask 'path-finder'
 cask 'superduper'
 cask 'mediahuman-audio-converter'
 cask 'telegram'
+casl 'xld'  # audio cd ripper
 
 #######################################################################
 # VSCode extensions
