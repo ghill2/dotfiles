@@ -93,6 +93,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     path_add_front "/opt/local/bin"  # Macports
     path_add_front "/opt/local/sbin"  # Macports
+    
+
+    # required for building rust projects on mac os x
+    export MACOSX_DEPLOYMENT_TARGET=13.0
 
     
     
