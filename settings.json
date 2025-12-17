@@ -12,7 +12,12 @@
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
     },
-    "rust-analyzer.rustfmt.overrideCommand": null,
+    "rust-analyzer.rustfmt.overrideCommand": [
+        "rustup",
+        "run",
+        "nightly",
+        "rustfmt"
+    ],
     "rust-analyzer.rustfmt.extraArgs": [],
     "rust-analyzer.checkOnSave": true,
     "rust-analyzer.check.command": "clippy",
