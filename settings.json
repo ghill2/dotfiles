@@ -19,6 +19,9 @@
         "rustfmt"
     ],
     "rust-analyzer.rustfmt.extraArgs": [],
+    "rust-analyzer.cargo.extraEnv": {
+    "RUSTUP_TOOLCHAIN": "nightly"
+    },
     "rust-analyzer.checkOnSave": true,
     "rust-analyzer.check.command": "clippy",
     "rust-analyzer.workspace.symbol.search.scope": "workspace",

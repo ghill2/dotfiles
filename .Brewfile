@@ -55,6 +55,7 @@ brew 'lnav' # log viewer
 brew 'uv'
 brew 'ruff'
 brew 'ffmpeg' # required for RVC voice conversion
+# brew 'syncthing'  # use syncthing-app instead
 
 # this installs rust as a dependency, but we have to use rustup installed
 # rust from brew can't run on nightly, which is required for settings in cargo fmt
@@ -105,7 +106,8 @@ cask 'path-finder'
 cask 'superduper'
 cask 'mediahuman-audio-converter'
 cask 'telegram'
-casl 'xld'  # audio cd ripper
+cask 'xld'  # audio cd ripper
+cask 'syncthing-app'
 
 #######################################################################
 # VSCode extensions
