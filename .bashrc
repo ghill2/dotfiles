@@ -185,3 +185,7 @@ print_line () {
 ppy () {
     pl $PYTHONPATH
 }
+
+export AWS_ACCOUNT_ID=8961b55b5616a938b81223e2eed0fcf0
+export AWS_ACCESS_KEY_ID=95ba95149f122bd48bcd5e4c793815b1
+export AWS_SECRET_ACCESS_KEY=4a133ea589e7b239774d2d5ea8a1d2feedff895ebaef925ef7d096f5110ce209
