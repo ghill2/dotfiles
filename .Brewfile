@@ -108,6 +108,7 @@ cask 'mediahuman-audio-converter'
 cask 'telegram'
 cask 'xld'  # audio cd ripper
 cask 'syncthing-app'
+cask 'iterm2'
 
 #######################################################################
 # VSCode extensions
