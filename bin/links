@@ -1,8 +1,6 @@
 #!/bin/bash
-gparent="$(dirname "$(realpath "$(dirname "${BASH_SOURCE:-$0}")")")"
+gparent="$(cd "$(dirname "$0")/.."; pwd)"
 echo $gparent
-
-
 
 make_symlink() {
     mkdir -p "$(dirname "$2")" && ln -sf "$1" "$2" && echo "$1 > $2"
