@@ -16,11 +16,11 @@ make_symlink "$gparent/.zshenv" "$HOME/.zshenv"
 make_symlink "$gparent/.direnvrc" "$gparent/.direnvrc"
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.zprofile" "$HOME/.zprofile"
+make_symlink "$gparent/.tmux.conf" "$HOME/.tmux.conf"
 
 
 system=$(uname -s)
 if [ "$system" = "Linux" ]; then
-    # Debian or any Linux distribution
     echo "This is a Linux system (Debian or other Linux distribution)."
     mkdir -p "$HOME/.config/Code/User"
     make_symlink "$gparent/settings.json" "$HOME/.config/Code/User/settings.json"
