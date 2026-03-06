@@ -19,7 +19,7 @@ alias dl="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/mus
 alias process="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/music/music/process/cli.py" # requires quotes
 alias l="cd ~/Desktop/pytower_data/logs"
 
-tail() {
+ta() {
     hl -F --tail 0 "${1}"
 }
 
