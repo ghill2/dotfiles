@@ -109,6 +109,7 @@ cask 'telegram'
 cask 'xld'  # audio cd ripper
 cask 'syncthing-app'
 cask 'iterm2'
+cask 'shureplus-motiv'
 
 #######################################################################
 # VSCode extensions
