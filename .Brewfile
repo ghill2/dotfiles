@@ -55,6 +55,7 @@ brew 'lnav' # log viewer
 brew 'uv'
 brew 'ruff'
 brew 'ffmpeg' # required for RVC voice conversion
+brew 'pstree'
 # brew 'syncthing'  # use syncthing-app instead
 
 # this installs rust as a dependency, but we have to use rustup installed
