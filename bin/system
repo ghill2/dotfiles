@@ -12,6 +12,9 @@ gparent=`dirname $(realpath $(dirname "$0"))`
 # Disable autocorrect when typing in safari
 defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
+# Disable network volume indexing globally
+defaults write com.apple.Spotlight IndexNetworkStores -bool false
+
 # Set timezone
 sudo systemsetup -settimezone Europe/London
 
