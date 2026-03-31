@@ -57,6 +57,7 @@ brew 'ruff'
 brew 'ffmpeg' # required for RVC voice conversion
 brew 'pstree'
 # brew 'syncthing'  # use syncthing-app instead
+brew 'zellij'
 
 # this installs rust as a dependency, but we have to use rustup installed
 # rust from brew can't run on nightly, which is required for settings in cargo fmt
