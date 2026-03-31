@@ -175,6 +175,7 @@ re () {
     
     # tmux command only works inside a tmux session
     if [ -n "$TMUX" ]; then
+        echo "Reloading tmux..."
         tmux source-file "$HOME/.tmux.conf"
     fi
 }
