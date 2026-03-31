@@ -172,7 +172,7 @@ re () {
         echo "Reloading bashrc..."
         source ~/.bashrc
     fi
-    source-file $HOME/.tmux.conf
+    tmux source-file $HOME/.tmux.conf
     
 }
 rmenv () {
