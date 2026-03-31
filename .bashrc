@@ -172,9 +172,13 @@ re () {
         echo "Reloading bashrc..."
         source ~/.bashrc
     fi
-    tmux source-file $HOME/.tmux.conf
     
+    # tmux command only works inside a tmux session
+    if [ -n "$TMUX" ]; then
+        tmux source-file "$HOME/.tmux.conf"
+    fi
 }
+
 rmenv () {
     sudo rm -rf ./.venv
     sudo rm -rf ./.direnv
