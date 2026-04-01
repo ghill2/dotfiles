@@ -15,6 +15,7 @@ make_symlink "$gparent/.direnvrc" "$HOME/.direnvrc"
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
 make_symlink "$gparent/.zprofile" "$HOME/.zprofile"
 make_symlink "$gparent/.tmux.conf" "$HOME/.tmux.conf"
+make_symlink "$gparent/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 
 
 system=$(uname -s)
