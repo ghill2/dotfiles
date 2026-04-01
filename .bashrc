@@ -12,7 +12,7 @@ alias p='cd ~/bu/projects/pytower'
 alias pd='cd ~/Desktop/pytower_data'
 alias d='cd ~/bu/projects/dotfiles'
 alias gateway="~/Jts/ibgateway/1037/ibgateway"
-alias workstation="~/Jts/tws"
+alias workstation="DISPLAY=:0 ~/Jts/tws"
 alias work=workstation
 alias updatebrew=brew bundle --file=~/.Brewfile
 alias install="/Users/g1/bu/projects/music/.venv/bin/python /Users/g1/bu/projects/music/music/install/cli.py" # requires quotes
