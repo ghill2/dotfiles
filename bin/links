@@ -36,6 +36,7 @@ elif [ "$system" = "Darwin" ]; then
     make_symlink "$gparent/karabiner.edn" "$HOME/.config/karabiner.edn"
     make_symlink "$gparent/.skhdrc" "$HOME/.skhdrc"
     make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
+    make_symlink "/Users/g1/bu/projects/ControllerBitwig" "$HOME/Library/Preferences/org.m0k.transmission.plist"
 else
     echo "Unknown operating system."
 fi
