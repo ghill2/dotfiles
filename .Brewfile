@@ -114,6 +114,7 @@ cask 'iterm2'
 cask 'shureplus-motiv'
 cask 'chatgpt'
 cask 'claude'
+cask 'midiview'
 
 #######################################################################
 # VSCode extensions
