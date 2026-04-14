@@ -113,6 +113,7 @@ cask 'syncthing-app'
 cask 'iterm2'
 cask 'shureplus-motiv'
 cask 'chatgpt'
+cask 'claude'
 
 #######################################################################
 # VSCode extensions
