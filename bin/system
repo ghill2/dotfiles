@@ -9,6 +9,9 @@
 
 gparent=`dirname $(realpath $(dirname "$0"))`
 
+###############################################################################
+## SMB
+
 # Disable .DS_Store writing on network shares
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 
@@ -23,7 +26,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 killall Finder
 
 # TCP Stack Tuning - Lower latency for small packet exchanges.
-# Stops the OSX SMB client to stop asking servers if they are Time Machine destinations 
+# Stops the OSX SMB client to stop asking servers if they are Time Machine destinations
 sudo sysctl -w net.inet.tcp.delayed_ack=0
 sudo sysctl -w net.inet.tcp.sendspace=65536
 sudo sysctl -w net.inet.tcp.recvspace=65536
@@ -32,6 +35,8 @@ sudo sysctl -w net.inet.tcp.recvspace=65536
 echo "net.inet.tcp.delayed_ack=0" | sudo tee -a /etc/sysctl.conf
 echo "net.inet.tcp.sendspace=65536" | sudo tee -a /etc/sysctl.conf
 echo "net.inet.tcp.recvspace=65536" | sudo tee -a /etc/sysctl.conf
+
+###############################################################################
 
 # Set correct permissions on nsmb.conf
 sudo chown root:wheel /etc/nsmb.conf

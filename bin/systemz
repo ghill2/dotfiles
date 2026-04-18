@@ -363,3 +363,4 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
 # sudo pmset standby 0  # Used as a time period between sleep and going into hibernation
 # sudo pmset proximitywake 0  # Specifically when your iPhone or Apple Watch come near, the machine will wake
 # sudo pmset tcpkeepalive 0  # TCP Keep Alive mechanism to prevent wake ups every 2 hours: Warning: This option disables TCP Keep Alive mechanism when sytem is sleeping. This will result in some critical features like 'Find My Mac' not to function properly.
+
