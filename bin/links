@@ -3,7 +3,7 @@ gparent="$(cd "$(dirname "$0")/.."; pwd)"
 echo $gparent
 
 make_symlink() {
-    mkdir -p "$(dirname "$2")" && ln -sf "$1" "$2" && echo "$1 > $2"
+    sudo mkdir -p "$(dirname "$2")" && sudo ln -sf "$1" "$2" && echo "$1 > $2"
 }
 
 make_symlink "$gparent/.bashrc" "$HOME/.bashrc"
@@ -37,6 +37,7 @@ elif [ "$system" = "Darwin" ]; then
     make_symlink "$gparent/.skhdrc" "$HOME/.skhdrc"
     make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
     make_symlink "/Users/g1/bu/projects/ControllerBitwig" "$HOME/Library/Preferences/org.m0k.transmission.plist"
+    make_symlink "$gparent/nsmb.conf" "/etc/nsmb.conf"
 else
     echo "Unknown operating system."
 fi

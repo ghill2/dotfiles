@@ -39,7 +39,7 @@
     "window.density.editorTabHeight": "compact",
     "window.zoomLevel": 1.0,
     "terminal.integrated.scrollback": 500000,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Dark Modern",
     "workbench.editorAssociations": {
         "*.xlsx": "default"
     },
