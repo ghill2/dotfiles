@@ -39,7 +39,7 @@
       "~/projects/**": "allow",
       "~/git/**": "allow",
       "/tmp/**": "allow",
-      "~/Desktop/pytower_data/logs/**": "allow",
+      "~/Desktop/pytower_data/logs/**": "allow"
     }
   }
 }
