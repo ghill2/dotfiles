@@ -38,6 +38,7 @@ elif [ "$system" = "Darwin" ]; then
     make_symlink "$gparent/org.m0k.transmission.plist" "$HOME/Library/Preferences/org.m0k.transmission.plist"
     make_symlink "/Users/g1/bu/projects/ControllerBitwig" "/Users/g1/Documents/Bitwig Studio/Extensions/ControllerBitwig"
     make_symlink "$gparent/nsmb.conf" "/etc/nsmb.conf"
+    make_symlink "$gparent/opencode.json" "$HOME/.config/opencode.json"
 else
     echo "Unknown operating system."
 fi
