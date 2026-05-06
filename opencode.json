@@ -15,6 +15,20 @@
             "output": 32768
           }
         },
+        "Qwen3.6-35B-A3B-8bit": {
+          "name": "Qwen3.6-35B-A3B-8bit",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "Qwen3.6-35B-A3B-6bit": {
+          "name": "Qwen3.6-35B-A3B-6bit",
+          "limit": {
+            "context": 256000,
+            "output": 32768
+          }
+        },
         "gemma-4-26b-a4b-it-8bit": {
           "name": "gemma-4-26b-a4b-it-8bit",
           "limit": {
@@ -28,18 +42,18 @@
             "context": 256000,
             "output": 32768
           }
-        }
+        },
       }
     }
   },
   "model": "omlx-local/Qwen3.5-122B-A10B-8bit",
-  "small_model": "gemma-4-26b-a4b-it-8bit",
+  "small_model": "Qwen3.6-35B-A3B-8bit",
   "permission": {
     "external_directory": {
       "~/projects/**": "allow",
       "~/git/**": "allow",
       "/tmp/**": "allow",
-      "~/Desktop/pytower_data/logs/**": "allow"
+      "~/Desktop/pytower_data/logs/**": "allow",
     }
   }
 }
