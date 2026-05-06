@@ -115,6 +115,8 @@ cask 'shureplus-motiv'
 cask 'chatgpt'
 cask 'claude'
 cask 'midiview'
+cask 'cask'
+cask 'opencode'
 
 #######################################################################
 # VSCode extensions
