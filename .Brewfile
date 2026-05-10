@@ -61,7 +61,7 @@ brew 'zellij'
 brew 'mvn'  # maven project manager for bitwig java extension
 brew 'opencode'
 brew 'mold' # fastest rust linker
-brew 'llvm' # alternative linker on mac os x for rust
+brew 'lld' # alternative linker on mac os x for rust
 # this installs rust as a dependency, but we have to use rustup installed
 # rust from brew can't run on nightly, which is required for settings in cargo fmt
 
