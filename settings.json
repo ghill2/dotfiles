@@ -23,13 +23,16 @@
         "RUSTUP_TOOLCHAIN": "nightly"
     },
     "rust-analyzer.checkOnSave": true,
-    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.command": "check",  // or clippy
+    "rust-analyzer.check.allTargets": false,
+    "rust-analyzer.cargo.targetDir": "target/rust-analyzer", // fixes re-compilation each time
     "rust-analyzer.workspace.symbol.search.scope": "workspace",
     "rust-analyzer.cargo.buildScripts.enable": true,
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.cachePriming.enable": false,
     "rust-analyzer.procMacro.enable": true,
-    "rust-analyzer.cargo.targetDir": "target/rust-analyzer", // fixes re-compilation each time
     "rust-analyzer.restartServerOnConfigChange": true,
-    "rust-analyzer.check.workspace": false,  // only checks the crate of the file you're editing
+    // "rust-analyzer.check.workspace": false,  // only checks the crate of the file you're editing
     //////////////////////////////////////////////////////////////////////////
     "editor.inlineSuggest.enabled": true,
     "gitlens.advanced.messages": {
