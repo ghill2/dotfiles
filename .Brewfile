@@ -120,6 +120,7 @@ cask 'claude'
 cask 'midiview'
 cask 'cask'
 cask 'opencode-desktop'
+cask 'gemini'
 
 #######################################################################
 # VSCode extensions
