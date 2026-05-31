@@ -63,6 +63,7 @@ brew 'opencode'
 brew 'mold' # fastest rust linker
 brew 'lld' # alternative linker on mac os x for rust
 brew 'maturin'
+brew 'ollama'  # Create, run, and share large language models (LLMs)
 
 # this installs rust as a dependency, but we have to use rustup installed
 # rust from brew can't run on nightly, which is required for settings in cargo fmt
