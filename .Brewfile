@@ -124,6 +124,7 @@ cask 'midiview'
 cask 'cask'
 cask 'opencode-desktop'
 cask 'gemini'
+cask 'comfyui'
 
 #######################################################################
 # VSCode extensions
