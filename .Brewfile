@@ -125,6 +125,7 @@ cask 'cask'
 cask 'opencode-desktop'
 cask 'gemini'
 cask 'comfyui'
+cask 'capcut'
 
 #######################################################################
 # VSCode extensions
