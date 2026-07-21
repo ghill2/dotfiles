@@ -160,7 +160,7 @@
     "explorer.confirmDragAndDrop": false,
     "workbench.iconTheme": "Monokai Classic Icons", // increase by x10 // 2147483647
     "extensions.ignoreRecommendations": true,
-    "extensions.autoUpdate":false,
+    "extensions.autoUpdate":"off",
     "extensions.autoCheckUpdates": false,
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "security.workspace.trust.untrustedFiles": "open",
@@ -254,4 +254,7 @@
     "gitlens.views.searchAndCompare.files.layout": "tree",
     "gitlens.hovers.enabled": false,
     "gitlens.views.contributors.showAllBranches": true,
+    ///////////////////////////////////////////////////////////////////////////////////
+    // SSH
+    "remote.SSH.showLoginTerminal": true
 }

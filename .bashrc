@@ -98,6 +98,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     path_add_front "/opt/local/bin"  # Macports
     path_add_front "/opt/local/sbin"  # Macports
+    path_add_front "/Applications/Unity/Hub/Editor/6000.4.9f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools"  # adb for quest headset
     
 
     # required for building rust projects on mac os x
