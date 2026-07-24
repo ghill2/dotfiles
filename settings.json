@@ -256,5 +256,9 @@
     "gitlens.views.contributors.showAllBranches": true,
     ///////////////////////////////////////////////////////////////////////////////////
     // SSH
-    "remote.SSH.showLoginTerminal": true
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "192.168.0.35": "windows"
+    }
 }

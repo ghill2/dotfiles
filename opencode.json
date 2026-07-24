@@ -32,8 +32,8 @@
       }
     }
   },
-  "model": "GLM-5.1 Z.AI",
-  "small_model": "GLM-5.1 Z.AI",
+  "model": "zai-coding-plan/glm-5.2",
+  "small_model": "zai-coding-plan/glm-5.2",
   "permission": {
     "external_directory": {}
   }
