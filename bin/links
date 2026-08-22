@@ -39,9 +39,11 @@ elif [ "$system" = "Darwin" ]; then
     make_symlink "/Users/g1/bu/projects/ControllerBitwig" "/Users/g1/Documents/Bitwig Studio/Extensions/ControllerBitwig"
     make_symlink "$gparent/nsmb.conf" "/etc/nsmb.conf"
     make_symlink "$gparent/opencode.json" "$HOME/.config/opencode/opencode.json"
+    make_symlink "$gparent/conf.marco" "$HOME/Library/Application Support/org.yanex.marta/conf.marco"
 else
     echo "Unknown operating system."
 fi
+
 
 
 

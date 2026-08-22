@@ -1,0 +1,25 @@
+behavior {
+    theme "Kon"
+}
+
+keyBindings {
+    "Shift+Command+H" {
+        id "core.open.directory"
+        src "~"
+    }
+    "Shift+Command+D" {
+        id "core.open.directory"
+        src "~/Desktop"
+    }
+    "Shift+Command+A" {
+        id "core.open.directory"
+        src "/Applications"
+    }
+    "Alt+Command+L" {
+        id "core.open.directory"
+        src "~/Downloads"
+    }
+    "Shift+Command+C" {
+        id "core.path"
+    }
+}
