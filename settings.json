@@ -31,7 +31,7 @@
     "rust-analyzer.diagnostics.enable": true,
     "rust-analyzer.cachePriming.enable": false,
     "rust-analyzer.procMacro.enable": true,
-    "rust-analyzer.restartServerOnConfigChange": true,
+    "rust-analyzer.restartServerOnConfigChange": false,
     // "rust-analyzer.check.workspace": false,  // only checks the crate of the file you're editing
     //////////////////////////////////////////////////////////////////////////
     "editor.inlineSuggest.enabled": true,
@@ -149,11 +149,12 @@
         // "venv": true,
         "node_modules": true    // this excludes the folder only from the root of your workspace 
     },
+    "files.watcherExclude": { // 644k files under target/ dirs were overwhelming FSEvents
+        "**/target/**": true
+    },
     "workbench.sideBar.location": "right",
     "workbench.editor.revealIfOpen": false, // https://superuser.com/a/1313190
     "terminal.integrated.smoothScrolling": true,
-    "trailing-spaces.highlightCurrentLine": false, // Highlighting of trailing spaces in the currently edited line can be annoying: each time you are about to start a new word, the space you type is matched as a trailing spaces. Currently edited line can thus be ignored:
-    "trailing-spaces.includeEmptyLines": false, // When firing the deletion command, empty lines are matched as trailing regions, and end up being deleted. You can specifically ignore them:
     "window.newWindowDimensions": "inherit", // maximize new window
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
