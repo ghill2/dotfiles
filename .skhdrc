@@ -54,7 +54,7 @@ alt - right [
 # alt - left : cliclick -w 200 c:377,805 && python -c "import pyautogui; pyautogui.scroll(-20)"
 
 # cmd - down : skhd -k "79"
-
+    
 # f13 [
 #     "page-down" : skhd -k "cmd + shift - s"
 #     * : screencapture -coW
