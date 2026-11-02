@@ -101,8 +101,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     path_add_front "/Applications/Unity/Hub/Editor/6000.4.9f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools"  # adb for quest headset
     
 
-    # required for building rust projects on mac os x
-    export MACOSX_DEPLOYMENT_TARGET=13.0
+    # required for building rust projects on mac os x, big sur laptop compatibility
+    export MACOSX_DEPLOYMENT_TARGET=11.0
 
     
     
